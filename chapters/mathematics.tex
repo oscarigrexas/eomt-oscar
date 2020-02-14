@@ -1,0 +1,53 @@
+\setchapterstyle{kao}
+\setchapterpreamble[u]{\margintoc}
+\chapter{Mathematics and Boxes}
+\labch{mathematics}
+
+\section{Theorems}
+
+Despite most people complain at the sight of a book full of equations, 
+mathematics is an important part of many books. Here, we shall 
+illustrate some of the possibilities. We believe that theorems, 
+definitions, remarks and examples should be emphasised with a shaded 
+background; however, the colour should not be to heavy on the eyes, so 
+we have chosen a sort of light yellow.\sidenote{The boxes are all of the 
+same colour here, because we did not want our document to look like 
+\href{https://en.wikipedia.org/wiki/Harlequin}{Harlequin}.}
+
+\begin{definition}
+\labdef{openset}
+Let $(X, d)$ be a metric space. A subset $U \subset X$ is an open set 
+if, for any $x \in U$ there exists $r > 0$ such that $B(x, r) \subset 
+U$. We call the topology associated to d the set $\tau\textsubscript{d}$ 
+of all the open subsets of $(X, d).$
+\end{definition}
+
+\refdef{openset} is very important. I am not joking, but I have inserted 
+this phrase only to show how to reference definitions. The following 
+statement is repeated over and over in different environments.
+
+\begin{theorem}
+A finite intersection of open sets of (X, d) is an open set of (X, d), 
+i.e $\tau\textsubscript{d}$ is closed under finite intersections. Any 
+union of open sets of (X, d) is an open set of (X, d).
+\end{theorem}
+
+\begin{proposition}
+A finite intersection of open sets of (X, d) is an open set of (X, d), 
+i.e $\tau\textsubscript{d}$ is closed under finite intersections. Any 
+union of open sets of (X, d) is an open set of (X, d).\marginnote{You can even insert footnotes inside the theorem 
+	environments; they will be displayed at the bottom of the box.}
+\end{proposition}
+
+\begin{lemma}
+A finite intersection\footnote{I'm a footnote} of open sets of (X, d) is 
+an open set of (X, d), i.e $\tau\textsubscript{d}$ is closed under 
+finite intersections. Any union of open sets of (X, d) is an open set of 
+(X, d).
+\end{lemma}
+
+You can safely ignore the content of the theorems\ldots I assume that if 
+you are interested in having theorems in your book, you already know 
+something about the classical way to add them. These example should just 
+showcase all the things you can do within this class.
+
