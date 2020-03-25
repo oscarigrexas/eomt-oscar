@@ -1,3 +1,4 @@
+\setchapterimage[3cm]{../images/header-methods.jpg}
 \setchapterpreamble[u]{\margintoc}
 \chapter{Computational methods and specifications}
 \labch{methods}
@@ -5,6 +6,21 @@
 
 \section{General techniques}
 
+
+
+\begin{table*}[h]
+    \centering
+    \caption{Computational techniques}
+    \label{tab:computational_techinques}
+    \begin{tabular}{@{}ccccc@{}}
+        \toprule
+        Calculation & Technique & Spec. & Functional & Basis set \\
+        \midrule
+        Geometry optimizations & DFT & & M06-2X & def2TZVPP \\
+        NICS calculations & DFT & GIAO & b3lyp & \fix{base} \\
+        \bottomrule
+    \end{tabular}
+\end{table*}
 \blindtext
 
 
@@ -18,4 +34,4 @@ All of the calculations were perfomed using either the Centro de Supercomputaci√
 
 S3's cluster is composed of nodes that include 16 Intel\textregistered Xeon\textregistered CPU E5-2630 v3 2.40GHz cores and 60 GB of RAM.
 
-CESGA's 
+CESGA's
