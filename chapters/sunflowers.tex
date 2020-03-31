@@ -1,22 +1,74 @@
-color\setchapterimage[2cm]{../images/header-sunflowers.jpg}
-\setchapterpreamble[u]{\margintoc}
+\setchapterimage[2cm]{../images/header-sunflowers.jpg}
+%\setchapterpreamble[u]{\margintoc}
 \chapter{The sunflower molecules}
 \labch{sunflowers}
 
 
 \section{Introduction and origin}
 
-\blindtext
+The search for effective and interesting SERS substrates ended up leading us to a novel class of molecules researched and presented in the year 2006 by Chernichenko and his colleagues.\sidecite{chernichenko06}
+The first representative of this family, nicknamed as \q{sulflower}, is the ocatathio[8]circulene.
+This highly symmetric structure, which may be described as a form of carbon sulfide and as a belt of annulated thiophene cycles, is claimed to have great stability, high symmetry and unusual electronic properties.
 
-Despite most people complain at the sight of a book full of equations,
-mathematics is an important part of many books. Here, we shall
-illustrate some of the possibilities. We believe that theorems,
-definitions, remarks and examples should be emphasized with a shaded
-background; however, the color should not be to heavy on the eyes, so
-we have chosen a sort of light yellow.\sidenote{The boxes are all of the
-same color here, because we did not want our document to look like
-\href{https://en.wikipedia.org/wiki/Harlequin}{Harlequin}.}
+\begin{marginfigure}
+    \includegraphics{sulflower-structure}
+    \caption[Structure of sulflower]{Structure of sulflower}
+    \labfig{sulflower-structure}
+\end{marginfigure}
 
+
+From a synthetic point of view, sulflower also proved to be simple and straightforward to develop despite its complex appearance: starting from tetrathiophene, sulphurizing its free sites and acidificating ot get polythiol, and removing the excess sulfur by vacuum pyrolysis.
+This allowed the team to achieve yields of 56\% starting from commercially available reagents.
+
+Interestingly, the team proposes that it could be possible to prepare materials with diverse electronic properties by using different types of heteroatoms and varying on the basic structure of the molecule.
+Such a statement made apparent the potential of this family of molecules: highly symmetrical, stable, surface-like structures with variable electronic behavior could act as suitable SERS substrates.
+This chapter is entirely dedicated to that premise: the study and characterization of sulflower and sulflower-like molecules, which from now on I will collectively refer to as \q{sunflowers}.
+By designing, generating and studying our own family of sunflowers, we will be contributing to characterize a novel and interesting group of molecules, and we may be able to identify an ideal SERS environment for STX.
+
+
+\section{Sunflower design}
+
+\begin{marginfigure}
+    \includegraphics{sulflower-strain}
+    \caption[Strain of thiophenic circulenes]{Strain of thiophenic circulenes with n rings}
+    \labfig{sulflower-strain}
+\end{marginfigure}
+
+To start designing a family of molecules, first we must clearly state their defining pattern.
+For this purpose, we adopt Chernichenko et al.'s own proposal: \q{a novel class of heterolytic circulenes}.
+We start expanding the model by answering the question: are thiophene based circulenes with other than 8 rings stable enough to be worth considering?
+The answer is in the original paper itself.
+\reffig{sulflower-strain}, which was recreated to use our calculation level and adapt to the style of the document, shows that 8 ring structures are the most stable alongside 9.
+However, considering their low relative energies and the fact that they have an even number of electrons (which would greatly simplify later calculations), 10 and 12 ring sunflowers were also chosen as part of the study.
+
+Expanding upon this idea to allow for further heteroatom substitution, we ended up with the templates in \reffig{sunflower-skeletons}.
+The possibilities were numerous, but we settled for S, Se, As and P substitutions on X$_1$ sites, and N substitutions in some cases in X$_2$ sites. A full table detailing all of the structures that were generated and will comprise this study can be found in \reftab{sunflower-family}, as well as the short names or IDs that were given to each species based on its composition and number of petals for the sake of abbreviation.
+
+\begin{figure*}
+    \centering
+    \includegraphics{sunflower-skeletons}
+    \caption[General structures of the sunflower family]{From left to right, general structures of the 8, 10 and 12 ring sunflowers}
+    \labfig{sunflower-skeletons}
+\end{figure*}
+
+\begin{table}
+    \centering
+    \caption[Sunflowers in this study]{Subset of the sunflower family that is going to be studied}
+    \begin{tabular}{@{}ccccc@{}}
+        \toprule
+        && \multicolumn{3}{c}{n} \\
+        $X_1$ & $X_2$ & 8 & 10 & 12 \\
+        \midrule
+        S & C & S08 & S10 & S12 \\
+        Se & C & Se08 & Se10 & Se12 \\
+        As & C & As08 & As10 & As12 \\
+        As & N & AsN08 & AsN10 & AsN12 \\
+        P & C & P08 & P10 & P12 \\
+        P & N & PN08 & PN10 & PN12 \\
+        \bottomrule
+    \end{tabular}
+    \labtab{sunflower-family}
+\end{table}
 
 \section{Study of geometry}
 
@@ -24,6 +76,8 @@ same color here, because we did not want our document to look like
 
 
 \section{Study of aromaticity}
+
+Aromaticity is
 
 \subsection{Nucleus-Independent Chemical Shift (NICS)}
 \blindtext
