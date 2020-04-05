@@ -70,19 +70,75 @@ The possibilities were numerous, but we settled for S, Se, As and P substitution
     \labtab{sunflower-family}
 \end{table}
 
+\section{Study of stability}
+
+Coordinate files for all of the designed flowers were created using 3D molecule modeling software.
+Then, they were optimized at the M06-2X/def2SVP calculation level.
+
+
 \section{Study of geometry}
 
-\blindtext
+\blindtext[5]
 
+\begin{table}
+    \centering
+    \caption[Bond length study]{Bond length statistics for each studied species}
+    \begin{tabular}{@{}rlcccccc@{}}
+        \toprule
+        && \multicolumn{2}{c}{C-C} & \multicolumn{2}{c}{C-X$_2$} & \multicolumn{2}{c}{X$_1$-X$_2$} \\
+        && mean & std & mean & std & mean & std \\
+        \midrule
+        \multirow{3}{*}{S} & ring & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 08 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 10 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 12 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        \\
+        \multirow{3}{*}{Se} & ring & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 08 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 10 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 12 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        \\
+        \multirow{3}{*}{As} & ring & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 08 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 10 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 12 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        \\
+        \multirow{3}{*}{AsN} & ring & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 08 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 10 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 12 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        \\
+        \multirow{3}{*}{P} & ring & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 08 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 10 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 12 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        \\
+        \multirow{3}{*}{PN} & ring & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 08 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 10 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        & 12 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
+        \bottomrule
+    \end{tabular}
+    \labtab{bond-length-study}
+\end{table}
 
 \section{Study of aromaticity}
 
-Aromaticity is
+Aromaticity is a property of molecules that have a ring or a chain of resonance bonds that increases their stability.
+Initially associated with benzene, it’s typically found in flat ring structures (although there are other varieties such as homoaromatic and three-dimensional aromatic systems).
 
 \subsection{Nucleus-Independent Chemical Shift (NICS)}
-\blindtext
+
+NICS
+
 \subsubsection{The basics of NICS}
-\blindtext
+
+As $\pi$ electrons in aromatic systems have free circulation, an external magnetic field perpendicular to the main plane of the system is able to induce a ring current.
+The NICS techinque as a probe for aromaticity is based on the idea that NMR chemical shifts are influenced by said ring currents, as a consecuence of Ampère’s law.
+Ring currents generate their own magnetic field, which will weaken or strengthen the effect of the external field resulting in decreased or increased shifts.
+Aromatic systems will experience shielding on the inside of the ring and deshielding on the outside.
+Antiaromatic systems will experience the opposite.
+
 \subsubsection{A custom solution for non-planar molecules}
 \blindtext
 
