@@ -247,3 +247,4 @@ TSWLatexianTemp*
 
 # omit heavy bibliography files
 ./bibliography/*
+.DS_Store
