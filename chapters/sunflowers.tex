@@ -18,7 +18,7 @@ This highly symmetric structure, which may be described as a form of carbon sulf
 
 
 From a synthetic point of view, sulflower also proved to be simple and straightforward to develop despite its complex appearance: starting from tetrathiophene, sulphurizing its free sites and acidificating ot get polythiol, and removing the excess sulfur by vacuum pyrolysis.
-This allowed the team to achieve yields of 56\% starting from commercially available reagents.
+This process allowed the team to achieve yields of 56\% starting from commercially available reagents.
 
 Interestingly, the team proposes that it could be possible to prepare materials with diverse electronic properties by using different types of heteroatoms and varying on the basic structure of the molecule.
 Such a statement made apparent the potential of this family of molecules: highly symmetrical, stable, surface-like structures with variable electronic behavior could act as suitable SERS substrates.
@@ -87,11 +87,20 @@ Then, they were optimized at the M06-2X/def2SVP calculation level.
 
 \section{Study of geometry}
 
+\begin{marginfigure}
+    \includegraphics{pentagon-structure}
+    \caption[Thiophene-like structure template]{Thiophene-like structure template (hydrogen is added to adjust for neutrality as needed)}
+    \labfig{pentagon-structure}
+\end{marginfigure}
 
+Using the output files from the previous step, specifically from the initial optimization, bond length data was extracted using Python.
+Then, the bonds were grouped by type: Inner (bonds between X$_0$ atoms, which were carbon in all cases), Middle (between X$_0$ and X$_2$ atoms, which were either C-C or C-N bonds), and Outer (between X$_2$ and X$_1$ atoms).
+The mean and standard deviation of these groups was computed for all of the systems.
+Additionally, thiophene-like pentagonal structures of the form displayed in \reffig{pentagon-structure} were modeled and optimized, and their bond length data was compared with the rest.
 
 \begin{table}
     \centering
-    \caption[Bond length study]{Bond length statistics for each studied species}
+    \caption[Bond length study]{Bond length statistics for each studied species, units are \si{\angstrom}}
     \begin{tabular}{@{}rlcccccc@{}}
         \toprule
         && \multicolumn{2}{c}{I (X$_0$-X$_0$)} & \multicolumn{2}{c}{M (X$_0$-X$_2$)} & \multicolumn{2}{c}{O (X$_1$-X$_2$)} \\
