@@ -39,10 +39,12 @@ For this purpose, we adopt Chernichenko et al.'s own proposal: \q{a novel class 
 We start expanding the model by answering the question: are thiophene based circulenes with other than 8 rings stable enough to be worth considering?
 The answer is in the original paper itself.
 \reffig{sulflower-strain}, which was recreated to use our calculation level and adapt to the style of the document, shows that 8 ring structures are the most stable alongside 9.
+The details about this calculation are further explained in \refsec{study-of-stability}.
 However, considering their low relative energies and the fact that they have an even number of electrons (which would greatly simplify later calculations), 10 and 12 ring sunflowers were also chosen as part of the study.
 
 Expanding upon this idea to allow for further heteroatom substitution, we ended up with the templates in \reffig{sunflower-skeletons}.
-The possibilities were numerous, but we settled for S, Se, As and P substitutions on X$_1$ sites, and N substitutions in some cases in X$_2$ sites. A full table detailing all of the structures that were generated and will comprise this study can be found in \reftab{sunflower-family}, as well as the short names or IDs that were given to each species based on its composition and number of petals for the sake of abbreviation.
+The possibilities were numerous, but we settled for S, Se, As and P substitutions on X$_1$ sites, and N substitutions in some cases in X$_2$ sites.
+A full table detailing all of the structures that were generated and will comprise this study can be found in \reftab{sunflower-family}, as well as the short names or IDs that were given to each species based on its composition and number of petals for the sake of abbreviation.
 
 \begin{figure*}
     \centering
@@ -71,8 +73,9 @@ The possibilities were numerous, but we settled for S, Se, As and P substitution
 \end{table}
 
 \section{Study of stability}
+\labsec{study-of-stability}
 
-Coordinate files for all of the designed flowers were created using 3D molecule modeling software.
+Coordinate files for all of the designed sunflowers were created using 3D molecule modeling software.
 Then, they were optimized at the M06-2X/def2SVP calculation level.
 
 \blindtext
@@ -80,10 +83,11 @@ Then, they were optimized at the M06-2X/def2SVP calculation level.
 \begin{figure}
     \centering
     \includegraphics{sunflower-stability}
-    \caption[Stability of sunflower families]{Relative energies of the defined sunflower families with respect to the most stable species}
+    \caption[Strain energies of sunflower groups]{Strain energies of all of the studied sunflower groups}
     \labfig{sunflower-stability}
 \end{figure}
 
+\blindtext
 
 \section{Study of geometry}
 
@@ -152,7 +156,7 @@ NICS
 \subsubsection{The basics of NICS}
 
 As $\pi$ electrons in aromatic systems have free circulation, an external magnetic field perpendicular to the main plane of the system is able to induce a ring current.
-The NICS techinque as a probe for aromaticity is based on the idea that NMR chemical shifts are influenced by said ring currents, as a consecuence of Ampère’s law.
+The NICS techinque as a probe for aromaticity is based on the idea that NMR chemical shifts are influenced by said ring currents, as a consequence of Ampère’s law.
 Ring currents generate their own magnetic field, which will weaken or strengthen the effect of the external field resulting in decreased or increased shifts.
 Aromatic systems will experience shielding on the inside of the ring and deshielding on the outside.
 Antiaromatic systems will experience the opposite.
