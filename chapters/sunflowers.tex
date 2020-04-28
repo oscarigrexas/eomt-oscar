@@ -78,7 +78,37 @@ A full table detailing all of the structures that were generated and will compri
 Coordinate files for all of the designed sunflowers were created using 3D molecule modeling software.
 Then, they were optimized at the M06-2X/def2SVP calculation level.
 
-\blindtext
+\subsection{Ring strain}
+\labsec{ring-strain}
+Ring strain may be defined as a kind of instability that arises when angles of the bonds in a cyclic molecule deviate from their optimal values, which they would be able to adopt if they weren't coiled in the shape of a ring.
+The energy associated to this phenomenon can serve as a way to compare the stabilities of flowers with different numbers of petals, as it was done in the original paper and reproduced in \reffig{sulflower-strain}.
+Its calculation relies on the design of an homodesmotic reaction.
+What does this mean?
+In a homodesmotic reaction, the number of atoms and the type of hybridations in the products are the same as in the reactants.
+Our goal is to devise a chemical equation where the strained structure appears in only one of its sides and the rest of the chosen molecules don't present any stray effects.\sidecite{vidalvidal18}
+If we manage to create such an equation, the reaction energy will correspond to the strain, as the rest of the components of the energy should nullify themselves between the two sides of the reaction.
+
+In this case, apart from the sunflower structure B, the equations that were designed included molecules A and C, non-cyclic structures composed of 3 and 2 petals. \marginnote{
+	\begin{equation}
+        \labeq{homodesmotic-equation}
+        E_\text{strain} = \frac{E_B + nE_C - nE_A}{n}
+	\end{equation}
+} By following this reaction, which is fully displayed in \reffig{homodesmotic}, the strain energy was calculated as shown in \refeq{homodesmotic-equation}.
+
+\begin{figure}
+    \centering
+    \includegraphics{homodesmotic}
+    \caption[Homodesmotic reaction used to calculate strain energies]{Homodesmotic reaction used to calculate strain energies}
+    \labfig{homodesmotic}
+\end{figure}
+
+This calculation, which is the one that was used to generate the previous sulflower stability curve \reffig{sulflower-stability}, was applied to all of the sunflowers of the study, and the resulting strain energies are presented in \reffig{sunflower-stability}.
+As it can be seen, the strain energies always increase with the number of petals (as it's the case for the original sulflower series).
+However, it may be noted that they increase following slightly different tendencies.
+Notable examples are the P family, where the 8 and 10 petal species have very similar strains; and the Se, As and AsN families, where the energies of the 10 and 12 petal structures are very close.
+These energy values are an useful indication of the relative strains of the different species within a family, and an estimation of their
+stabilities with respect to the original sulflower.
+Nevertheless, it should be kept in mind that this calculation is an approximation, and that the values of the so called strain energy might be accounting for other effects such as conjugation stabilization or \fix{maybe list another effect}.
 
 \begin{figure}
     \centering
@@ -106,7 +136,7 @@ How is this information useful?
 In the first place, it allows us to easily compare the average length of each bond type as the number of units increases.
 More interestingly, it serves as a way to assess the nature of each bond group.
 Take the inner C-C bonds.
-In all cases, the average length lies between the usual values for single and double C-C bonds,\sidenote{\SI{1.54}{\angstrom} for single and \SI{1.34}{\angstrom} for double bonds \fix{add reference}} an information that immediately suggests us that the flowers might be conjugated systems with $\pi$ electron delocalization.
+In all cases, the average length lies between the usual values for single and double C-C bonds,\marginnote{\SI{1.54}{\angstrom} for single and \SI{1.34}{\angstrom} for double bonds \fix{add reference}} an information that immediately suggests us that the flowers might be conjugated systems with $\pi$ electron delocalization.
 However, it could also be possible that there were equal amounts of single and double bonds, and that these apparently conjugated bond lengths were just a the result of a lousy statistical approximation.
 That's why the SD metric was also computed.
 Groups with a relatively high SD such as the I bonds of As08, As12, P08 and P12 are actually composed of longer and shorter bonds, and it's likely that their $\pi$ electrons aren't delocalized.
@@ -176,7 +206,7 @@ NICS
 \fix{Antiaromatic systems will experience the opposite.}
 
 \subsubsection{A custom solution for non-planar molecules}
-\blindtext
+\blindtext[3]
 
 \subsection{AICD}
 \subsubsection{The basics of AICD}
