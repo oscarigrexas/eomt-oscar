@@ -72,54 +72,9 @@ A full table detailing all of the structures that were generated and will compri
     \labtab{sunflower-family}
 \end{table}
 
-\section{Study of stability}
-\labsec{study-of-stability}
-
-Coordinate files for all of the designed sunflowers were created using 3D molecule modeling software.
-Then, they were optimized at the M06-2X/def2SVP calculation level.
-
-\subsection{Ring strain}
-\labsec{ring-strain}
-Ring strain may be defined as a kind of instability that arises when angles of the bonds in a cyclic molecule deviate from their optimal values, which they would be able to adopt if they weren't coiled in the shape of a ring.
-The energy associated to this phenomenon can serve as a way to compare the stabilities of flowers with different numbers of petals, as it was done in the original paper and reproduced in \reffig{sulflower-strain}.
-Its calculation relies on the design of an homodesmotic reaction.
-What does this mean?
-In a homodesmotic reaction, the number of atoms and the type of hybridations in the products are the same as in the reactants.
-Our goal is to devise a chemical equation where the strained structure appears in only one of its sides and the rest of the chosen molecules don't present any stray effects.\sidecite{vidalvidal18}
-If we manage to create such an equation, the reaction energy will correspond to the strain, as the rest of the components of the energy should nullify themselves between the two sides of the reaction.
-
-In this case, apart from the sunflower structure B, the equations that were designed included molecules A and C, non-cyclic structures composed of 3 and 2 petals. \marginnote{
-	\begin{equation}
-        \labeq{homodesmotic-equation}
-        E_\text{strain} = \frac{E_B + nE_C - nE_A}{n}
-	\end{equation}
-} By following this reaction, which is fully displayed in \reffig{homodesmotic}, the strain energy was calculated as shown in \refeq{homodesmotic-equation}.
-
-\begin{figure}
-    \centering
-    \includegraphics{homodesmotic}
-    \caption[Homodesmotic reaction used to calculate strain energies]{Homodesmotic reaction used to calculate strain energies}
-    \labfig{homodesmotic}
-\end{figure}
-
-This calculation, which is the one that was used to generate the previous sulflower stability curve \reffig{sulflower-stability}, was applied to all of the sunflowers of the study, and the resulting strain energies are presented in \reffig{sunflower-stability}.
-As it can be seen, the strain energies always increase with the number of petals (as it's the case for the original sulflower series).
-However, it may be noted that they increase following slightly different tendencies.
-Notable examples are the P family, where the 8 and 10 petal species have very similar strains; and the Se, As and AsN families, where the energies of the 10 and 12 petal structures are very close.
-These energy values are an useful indication of the relative strains of the different species within a family, and an estimation of their
-stabilities with respect to the original sulflower.
-Nevertheless, it should be kept in mind that this calculation is an approximation, and that the values of the so called strain energy might be accounting for other effects such as conjugation stabilization or \fix{maybe list another effect}.
-
-\begin{figure}
-    \centering
-    \includegraphics{sunflower-stability}
-    \caption[Strain energies of sunflower groups]{Strain energies of all of the studied sunflower groups}
-    \labfig{sunflower-stability}
-\end{figure}
-
-\blindtext
 
 \section{Study of geometry}
+\labsec{study-of-geometry}
 
 \begin{marginfigure}
     \includegraphics{pentagon-structure}
@@ -127,7 +82,16 @@ Nevertheless, it should be kept in mind that this calculation is an approximatio
     \labfig{pentagon-structure}
 \end{marginfigure}
 
-Using the output files from the previous step, specifically those from the initial optimization, all of the bond distances in all of the systems were extracted using Python.
+Coordinate files for all of the designed sunflowers were created using 3D molecule modeling software.
+Then, they were optimized at the M06-2X/def2SVP calculation level.
+
+\begin{figure}
+    \includegraphics{sunflower-shapes}
+    \caption[Shape of the sunflowers]{Shape of optimized S08, S10 and S12, from left to right (note the progressive increase in their deviation from planarity)}
+    \labfig{sunflower-shapes}
+\end{figure}
+
+Using the output files for these calculations, all of the bond distances in all of the systems were extracted using Python.
 Then, the bonds were grouped by type: inner (I, bonds between X$_0$ atoms, which were carbon in all cases), middle (M, between X$_0$ and X$_2$ atoms, which were either C-C or C-N bonds), and outer (O, between X$_2$ and X$_1$ atoms).
 The mean and standard deviation (SD) of these groups was computed for all of the flowers.
 Additionally, thiophene-like pentagonal structures of the form displayed in \reffig{pentagon-structure} were modeled and optimized, and their bond length data was compared with the rest and presented in \reftab{bond-length-study}.
@@ -186,27 +150,89 @@ This concept of bond length equalization and conjugation may be tied to that of 
 \end{table}
 
 
+\section{Study of stability}
+\labsec{study-of-stability}
+
+Using the output files from the previous step, specifically those from the initial optimization, calculations related to the energies of the flowers were performed in order to assess their stabilities.
+
+\subsection{Ring strain}
+\labsec{ring-strain}
+Ring strain may be defined as a kind of instability that arises when angles of the bonds in a cyclic molecule deviate from their optimal values, which they would be able to adopt if they weren't coiled in the shape of a ring.
+The energy associated to this phenomenon can serve as a way to compare the stabilities of flowers with different numbers of petals, as it was done in the original paper and reproduced in \reffig{sulflower-strain}.
+Its calculation relies on the design of an homodesmotic reaction.
+What does this mean?
+In a homodesmotic reaction, the number of atoms and the type of hybridations in the products are the same as in the reactants.
+Our goal is to devise a chemical equation where the strained structure appears in only one of its sides and the rest of the chosen molecules don't present any stray effects.\sidecite{vidalvidal18}
+If we manage to create such an equation, the reaction energy will correspond to the strain, as the rest of the components of the energy should nullify themselves between the two sides of the reaction.
+
+In this case, apart from the sunflower structure B, the equations that were designed included molecules A and C, non-cyclic structures composed of 3 and 2 petals. \marginnote{
+	\begin{equation}
+        \labeq{homodesmotic-equation}
+        E_\text{strain} = \frac{E_B + nE_C - nE_A}{n}
+	\end{equation}
+} By following this reaction, which is fully displayed in \reffig{homodesmotic}, the strain energy was calculated as shown in \refeq{homodesmotic-equation}.
+
+\begin{figure}
+    \centering
+    \includegraphics{homodesmotic}
+    \caption[Homodesmotic reaction used to calculate strain energies]{Homodesmotic reaction used to calculate strain energies}
+    \labfig{homodesmotic}
+\end{figure}
+
+This calculation, which is the one that was used to generate the previous sulflower stability curve \reffig{sulflower-stability}, was applied to all of the sunflowers of the study, and the resulting strain energies are presented in \reffig{sunflower-stability}.
+As it can be seen, the strain energies always increase with the number of petals (as it's the case for the original sulflower series).
+However, it may be noted that they increase following slightly different tendencies.
+Notable examples are the P family, where the 8 and 10 petal species have very similar strains; and the Se, As and AsN families, where the energies of the 10 and 12 petal structures are very close.
+These energy values are an useful indication of the relative strains of the different species within a family, and an estimation of their
+stabilities with respect to the original sulflower.
+Nevertheless, it should be kept in mind that this calculation is an approximation, and that the values of the so called strain energy might be accounting for other effects such as conjugation stabilization or \fix{maybe list another effect}.
+
+\begin{figure}
+    \centering
+    \includegraphics{sunflower-stability}
+    \caption[Strain energies of sunflower groups]{Strain energies of all of the studied sunflower groups}
+    \labfig{sunflower-stability}
+\end{figure}
+
+\blindtext
+
 
 \section{Study of aromaticity}
 \labsec{study-of-aromaticity}
 
-Aromaticity is a property of molecules that have a ring or a chain of resonance bonds that increases their stability.
-Initially associated with benzene, it’s typically found in flat ring structures (although there are other varieties such as homoaromatic and three-dimensional aromatic systems).
+Aromaticity is a property related to molecules that contain a ring or a chain of resonance bonds that increases their stability.
+It’s typically found in flat ring structures, although the definition has been discussed and expanded since its initial association to benzene,\sidecite{faraday1825} and there are other varieties such as annulenic, azulenic, inorganic, homoaromatic, three-dimensional, $sigma$-electron, and even metallic electron aromaticity.\sidecite{zhongfang05}
+Considering their ringed structure and possibly high conjugation, we wondered if the sunflowers could present any kind of aromatic tendencies.
+Having already studied their degree of bond length equalization in \refsec{study-of-geometry}, we set out to assess their aromaticity from the point of view of their magnetic properties.
 
 \subsection{Nucleus-Independent Chemical Shift (NICS)}
+Since its introduction in 1996 by Schleyer et al.\sidecite{schleyer96}, NICS has become the most popular and widely used technique to estimate aromaticity in a quantitative way.
+It's based on the study of electronic ring currents.
+As the electrons in the possibly-aromatic systems have a certain degree of free circulation, an external magnetic field perpendicular to the main plane of the system is able to induce a ring current.
+Said ring currents generate their own magnetic field, which can weaken or strengthen the effect of the external field, resulting in decreased or increased NMR chemical shifts.
+Aromatic systems will experience shielding on the inside of the ring and deshielding on the outside.
+Antiaromatic systems will experience the opposite.
 
-NICS
-
-\subsubsection{The basics of NICS}
-
-\fix{As $\pi$ electrons in aromatic systems have free circulation, an external magnetic field perpendicular to the main plane of the system is able to induce a ring current.}
-\fix{The NICS technique as a probe for aromaticity is based on the idea that NMR chemical shifts are influenced by said ring currents, as a consequence of Ampère’s law.}
-\fix{Ring currents generate their own magnetic field, which will weaken or strengthen the effect of the external field resulting in decreased or increased shifts.}
-\fix{Aromatic systems will experience shielding on the inside of the ring and deshielding on the outside.}
-\fix{Antiaromatic systems will experience the opposite.}
+\subsubsection{The basic application of NICS}
+NICS is usually applied to single rings, and quantified by computing the absolute magnetic shielding at key locations.
+This key location is usually one of the following: the center of the ring (calculated as the non-weighted mean of the positions of the heavy atoms), several points along a central axis perpendicular to the plane of the ring (calculated trivially in planar rings as the plane that passes through any three ring atoms), at several points on a grid perpendicular to the plane of the ring, or as three dimensional isosurfaces using dense grids.
 
 \subsubsection{A custom solution for non-planar molecules}
-\blindtext[3]
+
+\begin{marginfigure}
+    \includegraphics{nics-sample}
+    \caption[NICS applied to sulflower]{Custom NICS technique applied to the original 8 petal sulflower molecule as a sample of the legacy approach}
+    \labfig{nics-sample}
+\end{marginfigure}
+
+A seen in \reffig{sunflower-shapes} in \refsec{study-of-geometry}, 8 petal sunflowers are perfectly planar.
+In previous studies, NICS calculations on flat grids parallel to their planes were applied with success.
+The positive values of the magnetic shielding were plotted in red, and the negative ones in blue, which overlaid over the atoms of the flower, resulted in graphs like \reffig{nics-sample}.
+However, 10 and 12 petal sunflowers have bended and warped shapes, and the \q{general plane} of the molecule is no longer a plane.
+In order to translate the old method, a new approach was developed and applied.
+The idea of extending a grid of points over the \q{general surface} of the molecule and plotting it as a 2D projection was maintained, but what was exactly a \q{general surface}, and how could it be generalized for non planar molecules?
+
+\blindtext[8]
 
 \subsection{AICD}
 \subsubsection{The basics of AICD}
