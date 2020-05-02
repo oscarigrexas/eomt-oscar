@@ -227,12 +227,17 @@ This key location is usually one of the following: the center of the ring (calcu
 
 A seen in \reffig{sunflower-shapes} in \refsec{study-of-geometry}, 8 petal sunflowers are perfectly planar.
 In previous studies, NICS calculations on flat grids parallel to their planes were applied with success.
+All of the points of the grid were equidistant to the plane of the molecule to be able to properly compare their values (the magnitude of the magnetic shielding is inversely propotional to distance).
 The positive values of the magnetic shielding were plotted in red, and the negative ones in blue, which overlaid over the atoms of the flower, resulted in graphs like \reffig{nics-sample}.
 However, 10 and 12 petal sunflowers have bended and warped shapes, and the \q{general plane} of the molecule is no longer a plane.
 In order to translate the old method, a new approach was developed and applied.
-The idea of extending a grid of points over the \q{general surface} of the molecule and plotting it as a 2D projection was maintained, but what was exactly a \q{general surface}, and how could it be generalized for non planar molecules?
+The idea of extending a grid of points over the surface of the system and plotting it as a 2D projection is maintained, but what is exactly the surface of a non planar molecule, and how can it be generalized for non planar molecules?
 
-\blindtext[8]
+Defining the concept of \q{general surface} for a warped ring is a tricky task, but we've set on the following description: a 3D surface that is equidistant to all of the heavy atoms of a molecule and to all of the middle points of their bonds, and that follows a smooth and intuitive tendency in the places where are neither atoms nor bonds. A general surface could be loosely thought of as if a blanket was being draped over a physical molecular model of the system, sitting on the places where there are balls and sticks, and covering the empty spaces smoothly without caving in.
+
+To mathematically model such an idea, several approaches were evaluated and tested,\marginnote{Such as using interpolation algorithms to calculate the grid points in the empty spaces, or generating compound surfaces using all of the possible planes based on groups of three atoms.}, but in the end, the method was based on linearly combining a set of simple 3D cartesian functions.
+
+
 
 \subsection{AICD}
 \subsubsection{The basics of AICD}
