@@ -100,7 +100,7 @@ How is this information useful?
 In the first place, it allows us to easily compare the average length of each bond type as the number of units increases.
 More interestingly, it serves as a way to assess the nature of each bond group.
 Take the inner C-C bonds.
-In all cases, the average length lies between the usual values for single and double C-C bonds,\marginnote{\SI{1.54}{\angstrom} for single and \SI{1.34}{\angstrom} for double bonds \fix{add reference}} an information that immediately suggests us that the flowers might be conjugated systems with $\pi$ electron delocalization.
+In all cases, the average length lies between the usual values for single and double C-C bonds,\sidenote{\SI{1.54}{\angstrom} for single and \SI{1.34}{\angstrom} for double bonds \fix{add reference}} an information that immediately suggests us that the flowers might be conjugated systems with $\pi$ electron delocalization.
 However, it could also be possible that there were equal amounts of single and double bonds, and that these apparently conjugated bond lengths were just a the result of a lousy statistical approximation.
 That's why the SD metric was also computed.
 Groups with a relatively high SD such as the I bonds of As08, As12, P08 and P12 are actually composed of longer and shorter bonds, and it's likely that their $\pi$ electrons aren't delocalized.
@@ -165,7 +165,7 @@ In a homodesmotic reaction, the number of atoms and the type of hybridations in 
 Our goal is to devise a chemical equation where the strained structure appears in only one of its sides and the rest of the chosen molecules don't present any stray effects.\sidecite{vidalvidal18}
 If we manage to create such an equation, the reaction energy will correspond to the strain, as the rest of the components of the energy should nullify themselves between the two sides of the reaction.
 
-In this case, apart from the sunflower structure B, the equations that were designed included molecules A and C, non-cyclic structures composed of 3 and 2 petals. \marginnote{
+In this case, apart from the sunflower structure B, the equations that were designed included molecules A and C, non-cyclic structures composed of 3 and 2 petals. \sidenote{
 	\begin{equation}
         \labeq{homodesmotic-equation}
         E_\text{strain} = \frac{E_B + nE_C - nE_A}{n}
@@ -201,7 +201,7 @@ Nevertheless, it should be kept in mind that this calculation is an approximatio
 \labsec{study-of-aromaticity}
 
 Aromaticity is a property related to molecules that contain a ring or a chain of resonance bonds that increases their stability.
-It’s typically found in flat ring structures, although the definition has been discussed and expanded since its initial association to benzene,\sidecite{faraday1825} and there are other varieties such as annulenic, azulenic, inorganic, homoaromatic, three-dimensional, $sigma$-electron, and even metallic electron aromaticity.\sidecite{zhongfang05}
+It’s typically found in flat ring structures, although the definition has been discussed and expanded since its initial association to benzene,\sidecite{faraday1825} and there are other varieties such as annulenic, azulenic, inorganic, homoaromatic, three-dimensional, $\sigma$-electron, and even metallic electron aromaticity.\sidecite{zhongfang05}
 Considering their ringed structure and possibly high conjugation, we wondered if the sunflowers could present any kind of aromatic tendencies.
 Having already studied their degree of bond length equalization in \refsec{study-of-geometry}, we set out to assess their aromaticity from the point of view of their magnetic properties.
 
@@ -227,35 +227,112 @@ This key location is usually one of the following: the center of the ring (calcu
 
 A seen in \reffig{sunflower-shapes} in \refsec{study-of-geometry}, 8 petal sunflowers are perfectly planar.
 In previous studies, NICS calculations on flat grids parallel to their planes were applied with success.
-All of the points of the grid were equidistant to the plane of the molecule to be able to properly compare their values (the magnitude of the magnetic shielding is inversely propotional to distance).
+All of the points of the grid were equidistant to the plane of the molecule to be able to properly compare their values (the magnitude of the magnetic shielding decreases the farther away from the molecule that it's measured).
 The positive values of the magnetic shielding were plotted in red, and the negative ones in blue, which overlaid over the atoms of the flower, resulted in graphs like \reffig{nics-sample}.
 However, 10 and 12 petal sunflowers have bended and warped shapes, and the \q{general plane} of the molecule is no longer a plane.
 In order to translate the old method, a new approach was developed and applied.
 The idea of extending a grid of points over the surface of the system and plotting it as a 2D projection is maintained, but what is exactly the surface of a non planar molecule, and how can it be generalized for non planar molecules?
 
-Defining the concept of \q{general surface} for a warped ring is a tricky task, but we've set on the following description: a 3D surface that is equidistant to all of the heavy atoms of a molecule and to all of the middle points of their bonds, and that follows a smooth and intuitive tendency in the places where are neither atoms nor bonds. A general surface could be loosely thought of as if a blanket was being draped over a physical molecular model of the system, sitting on the places where there are balls and sticks, and covering the empty spaces smoothly without caving in.
+Defining the concept of \q{general surface} for a warped ring is a tricky task, but we've set on the following description: a 3D surface that is equidistant to all of the heavy atoms of a molecule and to all of the middle points of their bonds, and that follows a smooth and intuitive tendency in the places where are neither atoms nor bonds. A general surface could be loosely thought of as a blanket that was being draped over a physical molecular model of the system, sitting on the places where there are balls and sticks, and covering the empty spaces smoothly without caving in.
 
-To mathematically model such an idea, several approaches were evaluated and tested,\marginnote{Such as using interpolation algorithms to calculate the grid points in the empty spaces, or generating compound surfaces using all of the possible planes based on groups of three atoms.}, but in the end, the method was based on linearly combining a set of simple 3D cartesian functions.
+To mathematically model such an idea, several approaches were evaluated and tested,\sidenote{Such as using interpolation algorithms to calculate the grid points in the empty spaces, or generating compound surfaces by tiling all of the possible planes based on groups of three atoms.} but in the end, the method was based on linearly combining a set of simple 3D cartesian functions.
 
+This idea was born while thinking about the curvature of the largest sunflowers.
+\q{This Se10 molecule looks like it has the shape of a saddle.\sidenote{The equation of a basic saddle is essentially $z=x^2-y^2$.} What if we could find the precise parameters for a saddle that adjusted to the shape of this molecule?}
+This concept was expanded to include a wider variety of molecules and shapes: there's a limit to the angles and deformations that a ring in a molecule can display... so therefore, it should be possible to get a decent approximation to any molecular surfaces by combining and fine tuning a selection of common 3D shapes in the form of functions.
+The remaining question is... how can we find which 3D functions should be used, and what coefficients should be assigned to them?
+The functions were picked out by hand, and will later be enumerated and justified.
+The coefficients, however, had to be calculated somehow.
+Our solution, which will be fully explained hereunder, relies upon the core concepts of machine learning.
 
+\begin{margintable}
+    \centering
+    \caption[xyz coordinates]{xyz coordinates of Se10}
+    \begin{tabular}{@{}S[table-format=1.4]
+                       S[table-format=1.4]
+                       S[table-format=1.4]@{}}
+        \toprule
+        $x$ & $y$ & $z$ \\
+        \midrule
+        0.9154 & 0.0917 & 0.0236 \\
+        -0.0971 & 0.9542 & 1.9687 \\
+        1.0978 & 0.8552 & 1.2691 \\
+        1.8126 & 1.7897 & 3.3270 \\
+        \multicolumn{3}{c}{{\ldots}}
+    \end{tabular}
+    \labtab{xyz}
+\end{margintable}
 
-\subsection{AICD}
-\subsubsection{The basics of AICD}
-\blindtext
-\subsubsection{Application and comparison of results}
-\blindtext
+First off, we start with just the coordinate file of the optimized structure of the studied molecule.
+We will use Se10 as an example.
+This file should contain the position of each of the atoms in the 3D cartesian space relative to the origin of coordinates (i.e., an xyz file).
+In order to stabilize the calculations and apply the method properly, the molecule has to undergo two transformations: it has to be translated so that its center coincides with the origin of coordinates $(0,0,0)$; and it has to be rotated so that its main axis aligns with $z$, or $(0,0,1)$.
+
+The first one is trivial, the centroid of the ring is calculated as the mean of all of the positions of the atoms, and is then subtracted from them.
+
+The second one, the rotation, is not as straightforward.
+First, the main axis of the molecule has to be calculated.
+In this case, the main axis is defined as the direction where there is the least amount of variance.
+Mathematically, it's equal to the eigenvector that corresponds to the smallest eigenvalue of the covariance matrix of the relative coordinates.\sidenote{That is, the coordinates after having been translated to $(0,0,0)$ in the previous step}
+After having calculated such a vector, it's a matter of calculating the angle that it forms with the $z$ axis using simple dot product, and designing and applying an adequate rotation matrix.
+
+Se10, as well as all of the other sunflowers of the study, only contains heavy atoms that are relevant to the problem, so we can just ignore their chemical elements and treat every point equally.
+However, it should be noted that in other cases there might be irrelevant atoms such as hydrogens, or parts of the molecule that don't belong to the surface that we are trying to identify.
+In those situations, special care should be taken: the transformation operations have to be designed around the important atoms, but they should be applied to the whole system.
+
+At this point, the relevant part of the molecule (i.e. the ring object of study), should be centered and aligned with the $z$ axis.
+\blindtext[2]
+
+\begin{margintable}
+    \centering
+    \caption[Calculated predictors]{Calculated predictors, with $f=(x^2+y^2)^{-1}$}
+    \begin{tabular}{@{}S[table-format=1.4]
+                       S[table-format=1.4]
+                       S[table-format=1.4]
+                       S[table-format=1.4]@{}}
+        \toprule
+        {$x^2$} & {$y^2$} & {$xy$} & {$f$} \\
+        \midrule
+        0.0230 & 1.8121 & 1.7809 & 3.3327 \\
+        1.9680 & 0.9151 & 0.0901 & 0.3023 \\
+        1.2690 & 0.0971 & 0.9504 & 1.3968 \\
+        3.3270 & 1.0971 & 0.8505 & 1.3269 \\
+        \multicolumn{4}{c}{{\ldots}}
+    \end{tabular}
+    \labtab{all-predictors}
+\end{margintable}
+
+\blindtext[4]
+
+\begin{figure*}
+    \centering
+    \includegraphics{linear-combination}
+    \caption[Linear combination of base 3D functions]{Linear combination of base 3D functions to model the surface of Se10}
+    \labfig{linear-combination}
+\end{figure*}
+
+\blindtext[7]
+
+%\subsection{AICD}
+%\subsubsection{The basics of AICD}
+%\blindtext
+%\subsubsection{Application and comparison of results}
+%\blindtext
 
 
 \section{Spectroscopic characterization}
+\blindtext
 
 \subsection{Vibrational spectroscopy}
+\blindtext
 \subsubsection{Raman spectra}
-\blindtext
+\blindtext[4]
 \subsubsection{Decomposition of key modes}
-\blindtext
-\subsubsection{VEDA}
-\blindtext
+\blindtext[4]
+%\subsubsection{VEDA}
+%\blindtext
 
 \subsection{Electronic spectroscopy}
-\subsubsection{UV spectra}
 \blindtext
+\subsubsection{UV spectra}
+\blindtext[4]
