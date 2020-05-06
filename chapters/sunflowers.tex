@@ -17,7 +17,7 @@ This highly symmetric structure, which may be described as a form of carbon sulf
 \end{marginfigure}
 
 
-From a synthetic point of view, sulflower also proved to be simple and straightforward to develop despite its complex appearance: starting from tetrathiophene, sulphurizing its free sites and acidificating ot get polythiol, and removing the excess sulfur by vacuum pyrolysis.
+From a synthetic point of view, sulflower also proved to be simple and straightforward to develop despite its complex appearance: starting from tetrathiophene, sulphurizing its free sites and acidificating to get polythiol, and removing the excess sulfur by vacuum pyrolysis.
 This process allowed the team to achieve yields of 56\% starting from commercially available reagents.
 
 Interestingly, the team proposes that it could be possible to prepare materials with diverse electronic properties by using different types of heteroatoms and varying on the basic structure of the molecule.
@@ -243,7 +243,7 @@ This concept was expanded to include a wider variety of molecules and shapes: th
 The remaining question is... how can we find which 3D functions should be used, and what coefficients should be assigned to them?
 The functions were picked out by hand, and will later be enumerated and justified.
 The coefficients, however, had to be calculated somehow.
-Our solution, which will be fully explained hereunder, relies upon the core concepts of machine learning.
+Our solution, which will be fully explained hereunder, relies upon the core concepts of statistical learning.
 
 \begin{margintable}
     \centering
@@ -281,7 +281,23 @@ However, it should be noted that in other cases there might be irrelevant atoms 
 In those situations, special care should be taken: the transformation operations have to be designed around the important atoms, but they should be applied to the whole system.
 
 At this point, the relevant part of the molecule (i.e. the ring object of study), should be centered and aligned with the $z$ axis.
-\blindtext[2]
+All of these preparatory steps ensure the optimal application of the actual method.
+
+The method itself consists in the optimization of the coefficients of a multiple linear regression model.\sidenote{
+	\begin{equation}
+        \labeq{multiple-linear-regression}
+        y_i \approx \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + ... + \beta_p x_{ip} \quad i=1,...,n
+	\end{equation}
+}%
+The bits of real data that we have -our ground truth- are the coordinates of the atoms of the molecule, which include $x$, $y$ and $z$ values.
+Looking at it from the point of view of statistical learning, the problem could be defined as \q{designing a model that predicts the values of $z$ by using the values of $x$ and $y$}.
+If such a model was developed, we could just input a square grid of $(x,y)$ values and get the height (or $z$ value) that they should be placed at to conform to our concept of general surface.
+There is just a problem with this approach: $x$ and $y$ by themselves are not enough to generate the kind of warped, ondulated surfaces that we're looking for! Just by adding different proportions of $x$ and $y$, the best one could get would be a tilted plane.
+
+We wish to find out the values of the coefficients for each of them.
+
+
+
 
 \begin{margintable}
     \centering
