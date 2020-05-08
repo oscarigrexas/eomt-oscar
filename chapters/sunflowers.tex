@@ -179,13 +179,13 @@ In this case, apart from the sunflower structure B, the equations that were desi
     \labfig{homodesmotic}
 \end{figure}
 
-This calculation, which is the one that was used to generate the previous sulflower stability curve \reffig{sulflower-stability}, was applied to all of the sunflowers of the study, and the resulting strain energies are presented in \reffig{sunflower-stability}.
+This calculation, which is the one that was used to generate the previous sulflower stability curve \reffig{sulflower-strain}, was applied to all of the sunflowers of the study, and the resulting strain energies are presented in \reffig{sunflower-stability}.
 As it can be seen, the strain energies always increase with the number of petals (as it's the case for the original sulflower series).
 However, it may be noted that they increase following slightly different tendencies.
 Notable examples are the P family, where the 8 and 10 petal species have very similar strains; and the Se, As and AsN families, where the energies of the 10 and 12 petal structures are very close.
 These energy values are an useful indication of the relative strains of the different species within a family, and an estimation of their
 stabilities with respect to the original sulflower.
-Nevertheless, it should be kept in mind that this calculation is an approximation, and that the values of the so called strain energy might be accounting for other effects such as conjugation stabilization or \fix{maybe list another effect}.
+Nevertheless, it should be kept in mind that this calculation is an approximation, and that the values of the so called strain energy might be accounting for other effects such as conjugation stabilization or repulsion between the heteroatoms.
 
 \begin{figure}
     \centering
@@ -193,8 +193,6 @@ Nevertheless, it should be kept in mind that this calculation is an approximatio
     \caption[Strain energies of sunflower groups]{Strain energies of all of the studied sunflower groups}
     \labfig{sunflower-stability}
 \end{figure}
-
-\blindtext
 
 
 \section{Study of aromaticity}
@@ -220,15 +218,15 @@ This key location is usually one of the following: the center of the ring (calcu
 \subsubsection{A custom solution for non-planar molecules}
 
 \begin{marginfigure}
-    \includegraphics{nics-sample}
+    \includegraphics{s08-2d}
     \caption[NICS applied to sulflower]{Custom NICS technique applied to the original 8 petal sulflower molecule as a sample of the legacy approach}
-    \labfig{nics-sample}
+    \labfig{s08-2d}
 \end{marginfigure}
 
 A seen in \reffig{sunflower-shapes} in \refsec{study-of-geometry}, 8 petal sunflowers are perfectly planar.
 In previous studies, NICS calculations on flat grids parallel to their planes were applied with success.
-All of the points of the grid were equidistant to the plane of the molecule to be able to properly compare their values (the magnitude of the magnetic shielding decreases the farther away from the molecule that it's measured).
-The positive values of the magnetic shielding were plotted in red, and the negative ones in blue, which overlaid over the atoms of the flower, resulted in graphs like \reffig{nics-sample}.
+All of the points of the grid were equidistant to the plane of the molecule to be able to properly compare their values (the magnitude of the magnetic shielding decreases the farther away from the molecule that it is measured).
+The positive values of the magnetic shielding were plotted in red, and the negative ones in blue, which overlaid over the atoms of the flower, resulted in graphs like \reffig{s08-2d}.
 However, 10 and 12 petal sunflowers have bended and warped shapes, and the \q{general plane} of the molecule is no longer a plane.
 In order to translate the old method, a new approach was developed and applied.
 The idea of extending a grid of points over the surface of the system and plotting it as a 2D projection is maintained, but what is exactly the surface of a non planar molecule, and how can it be generalized for non planar molecules?
@@ -286,22 +284,22 @@ All of these preparatory steps ensure the optimal application of the actual meth
 The method itself consists in the optimization of the coefficients of a multiple linear regression model.\sidenote{
 	\begin{equation}
         \labeq{multiple-linear-regression}
-        y_i \approx \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + ... + \beta_p x_{ip} \quad i=1,...,n
+        f_i \approx \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + ... + \beta_p x_{ip} \quad i=1,...,n
 	\end{equation}
 }%
-The bits of real data that we have -our ground truth- are the coordinates of the atoms of the molecule, which include $x$, $y$ and $z$ values.
+A linear regression model with $p$ predictors and $n$ data points, as shown in \refeq{multiple-linear-regression}, consists of several elements.
+$y$ is the target feature, the one that we wish to predict.
+The various $x$ are the predictors, variables on which we base our predictions.
+The various $\beta$ values are the coefficients that accompany the predictors and that we want to approximate.
+
+In our case in particular, the bits of real data that we have -our ground truth- are the coordinates of the atoms of the molecule, which include $x$, $y$ and $z$ values.
 Looking at it from the point of view of statistical learning, the problem could be defined as \q{designing a model that predicts the values of $z$ by using the values of $x$ and $y$}.
 If such a model was developed, we could just input a square grid of $(x,y)$ values and get the height (or $z$ value) that they should be placed at to conform to our concept of general surface.
-There is just a problem with this approach: $x$ and $y$ by themselves are not enough to generate the kind of warped, ondulated surfaces that we're looking for! Just by adding different proportions of $x$ and $y$, the best one could get would be a tilted plane.
-
-We wish to find out the values of the coefficients for each of them.
-
-
-
-
+There is just a problem with this approach: using just $x$ and $y$ by themselves as the predictors is not enough to generate the kind of warped, wavy surfaces that we're looking for!
+Just by adding different proportions of $x$ and $y$, the best one could get would be a tilted plane.%
 \begin{margintable}
     \centering
-    \caption[Calculated predictors]{Calculated predictors, with $f=(x^2+y^2)^{-1}$}
+    \caption[Calculated predictors]{Calculated predictors, with $f=\sqrt{(x^2+y^2)}$}
     \begin{tabular}{@{}S[table-format=1.4]
                        S[table-format=1.4]
                        S[table-format=1.4]
@@ -316,9 +314,33 @@ We wish to find out the values of the coefficients for each of them.
         \multicolumn{4}{c}{{\ldots}}
     \end{tabular}
     \labtab{all-predictors}
-\end{margintable}
+\end{margintable}%
+That is where the 3D surface selection approach gets mixed in.
+We can combine the $x$ and $y$ values in certain ways in order to generate a wider variety of basic shapes to linearly combine, resulting in a better set of predictors.
+For this problem, the following set of predictors was chosen: $x^2$ and $y^2$ (half cylinders, which result in a saddle when subtracted and a dome when added), $xy$ (a saddle aligned with the diagonal $x=y$), and $\sqrt{(x^2+y^2)}$ (a cone).\sidenote{It should be noted that this is not proper statistical learning practice: in a real application the predictors shouldn't have any correlation between them.}
 
-\blindtext[4]
+Having defined the elements of the model, its a matter of transforming the $x$ and $y$ values into their function forms, initializing a linear model, training it with these predictors and the values of the target variable $z$, and retrieving the coefficients.
+This is all done using the convenient scikit-learn,\sidecite{scikit-learn} a machine learning framework for the Python language.
+Without delving deep in how their lineal model's inner workings, it can be said that it relies on two key parts: a cost function that measures its deviation from the target, and an algorithm that minimizes it by iteratively modifying its coefficients.
+When the model has been trained, its accuracy is measured by computing the values of the $R^2$ metric for two sets of points: the original coordinates of the atoms (i.e., the data points that the model is based on), and the middle points of each of the bonds (i.e. a collection of new data that the model hadn't previously known about).
+
+All of this operations have been combined and encapsulated inside a custom Python command line application available in the author's GitHub account\sidecite{github-nics}.
+
+Continuing with the running example, the output of the adjustment of Se10 would be as follows.
+\begin{lstlisting}[label=se10-output, style=kaolstplain]
+$ python nics.py surface se10.xyz
+
+    Linear regression results:
+                     x^2: -0.1056911
+                     y^2:  0.1064271
+                      xy:  0.1375246
+         sqrt(x^2 + y^2): -0.0081293
+
+    R2 score: 0.978916
+    R2 score of atom midpoints: 0.988095
+\end{lstlisting}
+
+As a way of clearly displaying the result, the idea behind the method, and the elements of the linear combination, the functions have been plotted individually (omitting the last one due to its low contribution) in \reffig{linear-combination}.
 
 \begin{figure*}
     \centering
@@ -327,7 +349,31 @@ We wish to find out the values of the coefficients for each of them.
     \labfig{linear-combination}
 \end{figure*}
 
-\blindtext[7]
+After the surface has been defined, the results of the fitting are used to calculate a square grid of equally spaced points that are all equidistant to this molecule's surface.
+In this case, a distance of \SI{1}{\angstrom} is set by general agreement in the literature.
+Then, both the molecule atoms and the grid points are written into a Gaussian input file (the former as dummy atoms), where the values of NICS will be calculated.
+The calculation, specifically, estimates the values of the magnetic shielding are calculated with the Gauge-Independent Atomic Orbital (GIAO)\sidecite{keith93} method.
+
+When the calculation is finished, the results can be visualized in 3D and plotted using the same program.
+As for the interpretations of these results, it was said that through this technique aromatic compounds will experience shielding -negative values, marked in blue- on the inside of the ring and deshielding -positive values, marked in red- on the outside.
+On the other hand, antiaromatic systems will experience the opposite effect.
+This is the expected behavior and should be the basis for the evaluation of the technique, so to further verify it and illustrate it, the method has been applied to the well known model systems of benzene and cyclobutadiene.
+Their 2D NICS graphs are included in \reffig{method-test}.
+
+\begin{figure}[h]
+    \includegraphics{method-test}
+    \caption[NICS applied to test systems]{The custom NICS method, applied to benzene and cyclobutadiene from left to right}
+    \labfig{method-test}
+\end{figure}
+
+\begin{marginfigure}
+    \includegraphics{se10-2d}
+    \caption[NICS applied to Se10]{Custom NICS technique applied to the Se10 system}
+    \labfig{se10-2d}
+\end{marginfigure}
+
+The outcome for the Se10 calculation, plotted as a 2D projection onto the $xy$ plane, is displayed in \reffig{se10-2d}.
+\blindtext[2]
 
 %\subsection{AICD}
 %\subsubsection{The basics of AICD}
