@@ -9,9 +9,9 @@ def set_styles():
     plt.rcParams['lines.markeredgewidth'] = 0
     plt.rcParams['lines.markersize'] = 8
     plt.rcParams['lines.markeredgecolor'] = (0, 0, 0, 0)
-    SMALL_SIZE = 15
-    MEDIUM_SIZE = 17
-    BIGGER_SIZE = 19
+    SMALL_SIZE = 16
+    MEDIUM_SIZE = 18
+    BIGGER_SIZE = 20
 
     plt.rc('font', family='Helvetica')
     plt.rc('font', size=SMALL_SIZE)          # controls default text sizes

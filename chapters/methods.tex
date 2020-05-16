@@ -3,38 +3,72 @@
 \chapter{Computational methods and specifications}
 \labch{methods}
 
+\section{Methods and techniques}
 
-\section{General techniques}
+Throughout this work, many different computational methods and techniques were employed in order to carry out a diverse set of studies.
+Some of them, the ones that are the most relevant to the flow of the work, are specifically explained and developed in detail in their own sections.
+Others, however, are deemed to be more of a general character, already well known within the field, or unimportant for the understanding of the main ideas of this thesis.
+This section is meant to serve as an overview of the methodology, specifications and theory behind the whole study, and also to provide explanations for that less special set of techniques.
+This part may be skimmed and consulted at a later time, or even skipped entirely, as the rest of the work is presented in such a way that can be followed without deep knowledge of the subjects that are explained here.
 
+\subsection{Geometry optimization}
+The optimization of the geometry of a molecule is a crucial part of any computational modeling.
+At its core, it's a process where the geometry of a system gets iteratively modified (and its energy gets calculated at each step) with the aim of reaching a stationary point on its potential energy surface.
+In the case of this work, these optimizations are always minimizations as we just look for energy minima.
+In Gaussian, our electronic structure computation software of choice, these calculations are carried out using the Berny algorithm in its GEDIIS\sidecite{li06} implementation.
 
+\subsection{Magnetic shielding computation}
+\blindtext
+
+\subsection{Electronic transition study}
+\blindtext
+
+\subsection{Vibrational analysis}
+\blindtext
+
+\subsubsection{Normal mode decomposition}
+\blindtext
+
+\subsubsection{Raman intensity calculation}
+\blindtext
+
+\subsubsection{Resonance Raman}
+\blindtext
+
+\subsubsection{Surface Enhanced Raman Spectroscopy}
+\blindtext
+
+\section{Software}
+
+The software used to perform all of the calculations and tasks was varied.
+
+\section{Technique and software overview}
 
 \begin{table*}[h]
     \centering
     \caption{Computational techniques}
-    \label{tab:computational_techinques}
-    \begin{tabular}{@{}lllll@{}}
+    \labtab{computational_techinques}
+    \begin{tabular}{@{}llllll@{}}
         \toprule
-        Calculation & Technique & Spec. & Functional & Basis set \\
+        Calculation & Technique & Spec. & Functional & Basis set & Software \\
         \midrule
-        Geometry optimizations & DFT & & M06-2X & def2SVP \\
-        NICS calculations & DFT & GIAO & b3lyp & 6-31G* \\
-        Raman spectra generation & DFT & & M06-2X & def2SVP \\
-        UV spectra generation & TD-DFT & & M06-2X & def2SVP \\
+        Geometry optimizations & DFT & & M06-2X & def2SVP & Gaussian \\
+        Surface generation & & & & & nics.py \\
+        NICS calculations & DFT & GIAO & b3lyp & 6-31G* & Gaussian \\
+        Raman spectra generation & DFT & & M06-2X & def2SVP & Gaussian \\
+        UV spectra generation & TD-DFT & & M06-2X & def2SVP & Gaussian \\
         \bottomrule
     \end{tabular}
 \end{table*}
 
-\blindtext[4]
-
-
-\section{Software}
-
-\blindtext[2]
-
 
 \section{Hardware}
-All of the calculations were perfomed using either the Centro de Supercomputación de Galicia's (CESGA) infraestructures, or the propietary cluster of the S3 research group.
+All of the electronic structure calculations were performed using either the Centro de Supercomputación de Galicia's (CESGA) infrastructures, or the propietary cluster of the S3 research group.
 
-S3's cluster is composed of nodes that include 16 Intel\textregistered Xeon\textregistered CPU E5-2630 v3 2.40GHz cores and 60 GB of RAM.
+CESGA's supercomputer, FinisTerrae-II (FTII), is a Bull ATOS bullx machines that features \num{320} computation nodes, \num{7712} cores, \SI{44544}{\giga\byte} of RAM, and \SI{750000}{\giga\byte} of storage capacity.
+All of the calculations carried out at FTII were performed in standard nodes, utilizing \num{12} cores at a time, and \SI{60}{\giga\byte} of RAM.
+These nodes include each 2 Intel\textregistered Xeon\textregistered E5-2630 v3 \SI{2.50}{\giga\hertz} processors with \num{24} cores total, and \SI{128}{\giga\byte} of RAM.
 
-CESGA's
+S3's cluster is composed of nodes that feature \num{16} cores running on Intel\textregistered Xeon\textregistered E5-2630 v3 \SI{2.40}{\giga\hertz} processors, and \SI{64}{\giga\byte} of RAM.
+
+Smaller calculations such as input file generation, output parsing, surface estimation, graph representation... were carried out in the author's personal computer.

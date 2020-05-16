@@ -104,10 +104,11 @@ As for the rest of the elements of the equation, $\varepsilon$ corresponds to th
 
 Continuing with the example, the populations for STX-S08 were computed and are displayed in \reftab{stx-s08-populations}.
 As an arbitrary threshold, it was decided to filter out all of the conformers with populations lower than \SI{1}{\percent}, and to just keep studying the remaining ones.
+That is, all further calculations that involve the computation of weighted mean values or spectra will only take into account conformers with populations higher than that value.
 
 \begin{table}
     \centering
-    \caption[Maxwell-Boltzmann populations for all sets]{Maxwell-Boltzmann populations for all sets, as percentages}
+    \caption[Maxwell-Boltzmann populations for all sets]{Maxwell-Boltzmann populations for the 5 most stable conformers in all sets, as percentages, with non significant conformers marked in grey}
     \begin{tabular}{@{}c
                     S[table-format=2.2]
                     S[table-format=2.2]
@@ -123,29 +124,56 @@ As an arbitrary threshold, it was decided to filter out all of the conformers wi
         & 58.56 & 79.24 & 60.96 & 81.32 & 40.79 & 65.13 \\
         & 34.16 & 15.57 & 35.22 & 15.98 & 37.48 & 29.71 \\
         & 03.30 &  1.90 &  2.19 &  2.16 & 20.53 &  4.61 \\
-        &  2.84 &  1.15 &  1.38 &  0.25 &  0.44 &  0.24 \\
-        &  1.08 &  0.14 &  0.16 &  0.23 &  0.32 &  0.21 \\
+        &  2.84 &  1.15 &  1.38 &  \color{fd}0.25 &  \color{fd}0.44 &  \color{fd}0.24 \\
+        &  1.08 &  \color{fd}0.14 &  \color{fd}0.16 &  \color{fd}0.23 &  \color{fd}0.32 &  \color{fd}0.21 \\
         \\
         \multirow{5}{*}{10}
         & 38.68 & 61.74 & 99.64 & 100.00 & 86.97 & 51.05 \\
-        & 36.07 & 38.26 &  0.30 &   0.00 & 10.12 & 46.11 \\
-        & 25.21 &  0.00 &  0.00 &   0.00 &  2.83 &  2.26 \\
-        &  0.02 &  0.00 &  0.00 &   0.00 &  0.06 &  0.56 \\
-        &  0.01 &  0.00 &  0.00 &   0.00 &  0.02 &  0.01 \\
+        & 36.07 & 38.26 &  \color{fd}0.30 &   \color{fd}0.00 & 10.12 & 46.11 \\
+        & 25.21 &  \color{fd}0.00 &  \color{fd}0.00 &   \color{fd}0.00 &  2.83 &  2.26 \\
+        &  \color{fd}0.02 &  \color{fd}0.00 &  \color{fd}0.00 &   \color{fd}0.00 &  \color{fd}0.06 &  \color{fd}0.56 \\
+        &  \color{fd}0.01 &  \color{fd}0.00 &  \color{fd}0.00 &   \color{fd}0.00 &  \color{fd}0.02 &  \color{fd}0.01 \\
         \\
         \multirow{5}{*}{12}
         & 99.99 & 58.93 & 99.75 & 97.75 & 93.29 & 93.83 \\
-        &  0.01 & 18.98 &  0.10 &  2.23 &  3.26 &  5.97 \\
-        &  0.00 & 14.52 &  0.08 &  0.01 &  2.42 &  0.20 \\
-        &  0.00 &  6.03 &  0.04 &  0.00 &  0.74 &  0.00 \\
-        &  0.00 &  1.55 &  0.02 &  0.00 &  0.16 &  0.00 \\
+        &  \color{fd}0.01 & 18.98 &  \color{fd}0.10 &  2.23 &  3.26 &  5.97 \\
+        &  \color{fd}0.00 & 14.52 &  \color{fd}0.08 &  \color{fd}0.01 &  2.42 &  \color{fd}0.20 \\
+        &  \color{fd}0.00 &  6.03 &  \color{fd}0.04 &  \color{fd}0.00 &  \color{fd}0.74 &  \color{fd}0.00 \\
+        &  \color{fd}0.00 &  1.55 &  \color{fd}0.02 &  \color{fd}0.00 &  \color{fd}0.16 &  \color{fd}0.00 \\
         \bottomrule
     \end{tabular}
     \labtab{maxwell-boltzmann-all}
 \end{table}
 
 \subsection{Basis Set Superposition Error correction}
-\blindtext
+These optimization calculations have served as a way to estimate the populations of the conformers and to identify the most stable and relevant ones.
+However, they cannot be used directly to obtain accurate values for the interaction energies due to the Basis Set Superposition Error (BSSE).
+In this case, this error arises when the STX molecule is close to the sunflower and their basis functions overlap.
+The part of STX basis functions that comes near the sunflower improves its part of the calculation, and vice versa.
+This is a problem because in order to get the interaction energy we have to subtract the energy of the complex from the energies of the isolated molecules,\marginnote{
+    \begin{equation}\labeq{interaction-energy}
+        V_\textit{STX-flower} = E_\textit{STX-flower} - E_\textit{STX} - E_\textit{flower}
+    \end{equation}
+} but the former has a better calculation level than the latter.
+
+To solve this problem, we used the counterpoise method.
+For hypothetical molecules A and B, this technique estimates their BSSE by placing the basis functions of molecule A next to molecule B, right where molecule A would go in the optimized geometry of the complex.\sidecite{duijneveldt94,rosch03}
+However, its nuclei are ommited, and just the energy of A is calculated using such an extended basis set.
+The same process is applied to get the corrected energy of isolated B.
+Finally, the same formula as in \refeq{interaction-energy} is applied to the new values, which results in the counterpoise corrected (CC) interaction energy.
+
+All such energies were calculated for all of the STX-flower system conformers.
+Their weighted averages using the population values of \reftab{maxwell-boltzmann-all} were computed, and are displayed in \reffig{counterpoise-energies}.
+
+\begin{figure}
+    \includegraphics{counterpoise-energies}
+    \caption[Counterpoise corrected interaction energies]{Counterpoise corrected interaction energies as weighted averages for all of the sets}
+    \labfig{counterpoise-energies}
+\end{figure}
+
+As it can be noted, all of the systems present negative interactions energies, that is, the complex has a lower energy than the sum of the energies of its constituents.
+This is a good indication that the systems are all stable and can be further studied.
+All of the families (except for Se) appear to have a common tendency: the higher the amount of petals, the higher the stabilization. This could be due to the flower having a larger area and bending in a way that maximizes the interactions with the STX molecule.
 
 \section{Study of non-covalent interactions}
 \blindtext
