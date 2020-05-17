@@ -46,6 +46,12 @@ sys_colors = {
     'pn':colors['color2'],
 }
 
+petal_styles = {
+    '08':'-',
+    '10':'--',
+    '12':':'
+}
+
 def cm2inch(value):
     return value/2.54
 
