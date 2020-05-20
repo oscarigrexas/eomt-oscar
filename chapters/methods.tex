@@ -13,8 +13,17 @@ This part may be skimmed and consulted at a later time, or even skipped entirely
 
 \subsection{Calculation level}
 All of the electronic structure calculations were performed using Density Functional Theory (DFT) in the Kohn-Sham formulation.
-Specifically, the functional of choice was Minnesota's M06-2X.
+Specifically, the functional of choice was Minnesota's M06-2X.\sidecite{truhlar08}
 M06-2X is a highly parametrized hybrid meta-GGA functional that features a \SI{54}{\percent} of Hartree-Fock exchange.
+It was chosen because it has been extensively trained to perform well in a variety of contexts that include thermochemistry, the study of non covalent interactions, and vibrational and electronic spectroscopy.
+While the molecules discussed in the work are novel and have not been previously characterized, it's expected that their chemistry and their spectroscopic behavior aren't out of the ordinary.
+Therefore, it should be possible to describe them properly and efficiently with such a functional.
+
+As for the basis functions, the set of choice was Weigend and Ahlrichs' def2-SVP.\sidecite{ahlrichs05}
+def2-SVP is of split valence set and includes polarization functions, but is overall a fairly small set.
+However, it has been deemed sufficiently extense to obtain accurate geometry optimizations, and qualitatively good energies and spectra.
+
+Considering the size of the systems of the study, the large amount of planned computations, the available computational resources, and the actual accuracy needs of the project, the M06-2X and def2-SVP calculation level was considered appropriate.
 
 \subsection{Geometry optimization}
 The optimization of the geometry of a molecule is a crucial part of any computational modeling.
@@ -23,24 +32,38 @@ In the case of this work, these optimizations are always minimizations as we jus
 In Gaussian, our electronic structure computation software of choice, these calculations are carried out using the Berny algorithm in its GEDIIS\sidecite{li06} implementation.
 
 \subsection{Magnetic shielding computation}
+GIAO method.
 \blindtext
 
 \subsection{Electronic transition study}
+TD-DFT.
 \blindtext
 
 \subsection{Vibrational analysis}
+Vibrational normal modes.
+Infrarred and Raman modes.
+Focus on only Raman.
 \blindtext
 
 \subsubsection{Normal mode decomposition}
+Internal modes calculation.
 \blindtext
 
 \subsubsection{Raman intensity calculation}
+??
 \blindtext
 
 \subsubsection{Resonance Raman}
+??
 \blindtext
 
 \subsubsection{Surface-enhanced Raman Spectroscopy}
+Amplification effect nature.
+\blindtext
+
+\subsubsection{Spectra envelope calculation}
+Preexponential and sigma terms for UV.
+And for Raman spectra.
 \blindtext
 
 \section{Software}
@@ -52,7 +75,7 @@ The software used to perform all of the calculations and tasks was varied.
 \begin{table*}[h]
     \centering
     \caption{Computational techniques}
-    \labtab{computational_techinques}
+    \labtab{computational-techinques}
     \begin{tabular}{@{}llllll@{}}
         \toprule
         Calculation & Technique & Spec. & Functional & Basis set & Software \\

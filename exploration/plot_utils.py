@@ -22,29 +22,38 @@ def set_styles():
     plt.rc('legend', fontsize=SMALL_SIZE)    # legend fontsize
     plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
     
-def read_palette(palette_file):
+def read_palette(palette_file, mode='rgba'):
     color_dict = {}
     with open(palette_file, 'r') as open_file:
-        for line in open_file.readlines():
-            if line[0] == '$':
-                color_name = line.split(':')[0][1:]
-                rgba_str = line.split(': rgba')[1][1:-3]
-                rgb_values = rgba_str.split(', ')[:-1]
-                norm_rgb_values = [float(x)/255 for x in rgb_values]
-                color_dict[color_name] = norm_rgb_values
+        if mode == 'rgba':
+            for line in open_file.readlines():
+                if line[0] == '$':
+                    color_name = line.split(':')[0][1:]
+                    rgba_str = line.split(': rgba')[1][1:-3]
+                    rgb_values = rgba_str.split(', ')[:-1]
+                    norm_rgb_values = [float(x)/255 for x in rgb_values]
+                    color_dict[color_name] = norm_rgb_values
+        elif mode == 'hex':
+            for line in open_file.readlines():
+                if line[0] == '$':
+                    color_name = line.split(':')[0][1:]
+                    hex_str = line.split(': ')[1].strip()
+                    color_dict[color_name] = hex_str
     return color_dict
                 
 
-colors = read_palette('palettes.scss')
+colors = read_palette('palettes-hex.scss', mode='hex')
 
 sys_colors = {
     's':colors['color7'],
-    'se':colors['color8'],
+    'se':colors['color6'],
     'as':colors['color5'],
     'asn':colors['color4'],
     'p':colors['color3'],
     'pn':colors['color2'],
 }
+
+print(sys_colors)
 
 petal_styles = {
     '08':'-',
