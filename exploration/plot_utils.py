@@ -53,8 +53,6 @@ sys_colors = {
     'pn':colors['color2'],
 }
 
-print(sys_colors)
-
 petal_styles = {
     '08':'-',
     '10':'--',

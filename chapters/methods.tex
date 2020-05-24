@@ -32,15 +32,24 @@ In the case of this work, these optimizations are always minimizations as we jus
 In Gaussian, our electronic structure computation software of choice, these calculations are carried out using the Berny algorithm in its GEDIIS\sidecite{li06} implementation.
 
 \subsection{Magnetic shielding computation}
-GIAO method.
-\blindtext
+Nuclear magnetic resonance type calculations, namely the computation of the magnetic shielding in the Nucleus-Independent Chemical Shift study in \refsec{nics}, were carried out using the GIAO method.
+GIAO stands for gauge-including atomic orbital.
+It solves what is often referred to as \q{the gauge problem}, which can be defined as an error that arises when doing calculations with a magnetic perturbation while having the atomic orbital basis functions depend on position.\sidecite{magyarfalvi11}
+Magnetic perturbations usually affect the atomic orbital set of a molecule as rotations.
+Atomic orbitals located near to the axis of the rotation won't suffer from this error, as their basis sets should still be able to properly describe the perturbed wave function.
+However, as the distance to the axis of rotation increases, the linear translation due to a rotation gets larger, and the description of the atomic orbitals gets progressively worse.
+The GIAO method solves this problem by using sets of atomic basis functions that depend explicitly on the magnetic field.
+
+GIAO calculations have been successful in describing the magnetic shielding of a variety of large nuclei in optimized and isolated large molecules.\sidecite{yuksek08} Therefore, it has been considered as an appropriate way of computing the absolute magnetic shieldings needed in this work.
 
 \subsection{Electronic transition study}
+\labsec{electronic-transition-study}
 TD-DFT.
 \blindtext
 
 \subsection{Vibrational analysis}
-Vibrational normal modes.
+Any given non linear molecule with $N$ atoms has 6 translational and rotational normal modes, and $3N-6$ vibrational ones.
+
 Infrarred and Raman modes.
 Focus on only Raman.
 \blindtext
@@ -61,10 +70,92 @@ Internal modes calculation.
 Amplification effect nature.
 \blindtext
 
-\subsubsection{Spectra envelope calculation}
-Preexponential and sigma terms for UV.
-And for Raman spectra.
-\blindtext
+\subsection{Spectra envelope calculation}
+\labsec{spectra-envelope-calculation}
+
+\begin{margintable}
+    \centering
+    \caption[Raman activity of STX]{Raman activity for each vibrational mode of STX}
+    \begin{tabular}{@{}c
+                       S[table-format=1.4]
+                       S[table-format=1.4]@{}}
+        \toprule
+        {Mode} & {$\tilde{\nu}$ \si{\per\cm}} & {Ram. act.} \\
+        \midrule
+        1 & 0.0917 & 0.0236 \\
+        2 & 0.9542 & 1.9687 \\
+        3 & 0.8552 & 1.2691 \\
+        4 & 1.7897 & 3.3270 \\
+        \multicolumn{3}{c}{{\ldots}}
+    \end{tabular}
+    \labtab{oscillator-strengths}
+\end{margintable}
+
+This work deals with two types of spectra: electronic and vibrational.
+Computational chemistry software is able to predict spectroscopic values such as electronic transition energies, vibrational mode wave numbers, Raman activities and oscillator strengths.
+However, to get from those numbers to the familiar bands and peaks that are characteristic of experimental spectra, a few extra steps are involved.
+This additional representation procedure will be exemplified by plotting both kinds of spectra for the saxitoxin (STX) molecule.
+
+We start from the list of vibrational normal modes that results from a Raman calculation.
+Then, their vibrational frequencies in the form of wave numbers as well as their corresponding Raman activity values are extracted using a custom script.
+Plotting these values directly as vertical lines along the wave number range results in \reffig{without-envelope}.
+
+\begin{figure}
+    \centering
+    \includegraphics{without-envelope}
+    \caption[Raman spectrum as simple peaks]{Raman spectrum of STX using a simple peak representation}
+    \labfig{without-envelope}
+\end{figure}
+
+While such a graph could still be useful to display and compare the intensities of the vibrational modes, it could be harder to compare to real experimental spectra.
+In order to make our theoretical spectra look more realistic, then, an envelope line is added.
+This is done by replacing each of the simple vertical lines by gaussian functions.
+These functions are designed so that they are as tall as the intensity of the peak that they're representing.
+They are evaluated at the full range of frequencies, and linearly combined forming a continuous curve that smoothly wraps all of the peaks.
+
+In the case of Raman spectra, the value of each of the gaussians at a certain wave number value is calculated following \refeq{raman-envelope}.
+
+\begin{equation}
+    \labeq{raman-envelope}
+    I_i (\tilde{\nu}) = I_i^\textit{max}e^{-\left(\frac{\tilde{\nu} - \tilde{\nu}_i}{\sigma}\right)^2}
+\end{equation}
+
+The value of $\sigma$, which is the full width at half maximum of each curve, is set arbitrarily at \SI{4}{\per\cm}.
+The same STX Raman spectrum, plotted after computing this set of equations, is displayed in \reffig{with-envelope}.
+
+\begin{figure}
+    \centering
+    \includegraphics{with-envelope}
+    \caption[Raman spectrum with gaussian envelope]{Raman spectrum of STX using an envelope of gaussian functions}
+    \labfig{with-envelope}
+\end{figure}
+
+As for the electronic spectra, the procedure is quite similar.
+In this case, the values to be plotted are the energies of the electronic transitions in the form of wavelengths, and their corresponding oscillator strengths.
+Similarly to before, an envelope curve is created by calculating as many gaussian functions as there are transitions, but with a slightly different formula as displayed in \refeq{uv-envelope}.
+
+\begin{equation}
+    \labeq{uv-envelope}
+    \varepsilon_i (\lambda)) = \num{1.306297e8} \frac{f_i}{\sigma} e^{-\left(\frac{1/\lambda - 1/\lambda_i}{\sigma}\right)^2}
+\end{equation}
+
+Here, $\lambda_i$ and $f_i$ are the wavelength and oscillator strength of each transition. The constant before the exponential\marginnote{
+\begin{equation}
+    \labeq{uv-constant}
+    \frac{\sqrt{\pi} e^2 N}{1000 \ln(10) c^2 m_e} = \num{1.306297e8}
+\end{equation}
+Where $e$ and $m_e$ are the charge and mass of the electron, $N$ is Avogadro's number, and $c$ is the speed of light
+} (see \refeq{uv-constant}) is a conversion factor that is added in order to achieve the right units for the intensity $\varepsilon$, which should be \si{\litre\per\mole\per\cm}.
+A value of \SI{0.4}{\eV} was chosen for $\sigma$.
+For the case of STX, the spectrum that results from combining the gaussian band shapes for the 50 most intense electronic transitions is shown in \reffig{uv-envelope}
+
+\begin{figure}
+    \centering
+    \includegraphics{uv-envelope}
+    \caption[Electronic spectrum with gaussian envelopes]{Electronic spectrum of STX using an envelope of gaussian functions}
+    \labfig{uv-envelope}
+\end{figure}
+
 
 \section{Software}
 
