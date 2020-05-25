@@ -44,27 +44,40 @@ GIAO calculations have been successful in describing the magnetic shielding of a
 
 \subsection{Electronic transition study}
 \labsec{electronic-transition-study}
-TD-DFT.
-\blindtext
+The prediction of ultraviolet-visible (UV-vis) spectra, a result of electronic transitions within a molecule, requires the computation of the energies of its electronically excited excited states.
+As the electromagnetic waves responsible for such excitations have a time-dependent nature, in this work this is achieved through the application of time-dependent DFT.\sidecite{runge84,adamo13}
 
 \subsection{Vibrational analysis}
 Any given non linear molecule with $N$ atoms has 6 translational and rotational normal modes, and $3N-6$ vibrational ones.
+Vibrational normal modes are orthogonal, that is, they're vibrational motions that are independent and don't cause movement to the other normal modes.
 
-Infrarred and Raman modes.
-Focus on only Raman.
-\blindtext
+The frequencies of these modes are calculated through the following procedure.\sidecite{ochterski99}
+First, a
+\blindtext[2]
 
-\subsubsection{Normal mode decomposition}
-Internal modes calculation.
-\blindtext
+\subsubsection{Normal mode calculation and decomposition}
+By translating the cartesian displacements that result from the frequency calculations into redundant internal coordinates, it's possible to identify which of the atoms of the molecule or system are the most involved in a particular vibrational mode.
+Having the vibrations expressed in such a way is useful in automating the analysis of modes.
+In this work, this is used to classify the vibrational modes of a dimer.
+Each individual vibration within the mode is classified by whether it belongs to molecule A, to molecule B, or is a mixture of the two.
+Thanks to this calculation, the modes can be filtered by their percentage of A, B or mixed vibrations.
+This idea is explored and applied in \refsec{heatmaps}.
 
-\subsubsection{Raman intensity calculation}
-??
-\blindtext
+\subsection{Raman spectroscopy}
+Raman spectroscopy is a technique that allows for the detection of those vibrational normal modes that affect the polarizability of a molecule (i.e. the ease with which its electron cloud can be distorted).
+This kind of vibrational transitions are tied to a physical phenomenon known as Raman or inelastic scattering.
+For an inelastic scattering event to happen, a photon has to excite a molecule and get it to a virtual energy state before being emitted.
+After this, the photon has either a lower or a higher energy, and the molecule ends up in a different vibrational or rotational state due to the energy exchange between them.
+\fix{Explain how Raman modes are identified and how are their intensities calculated.}
 
 \subsubsection{Resonance Raman}
-??
-\blindtext
+The regular Raman effect is usually very weak, as the probability of Raman scattering occurring is extremely low.\sidenote{Only about 1 in every \num{10e7} photons results in inelastic scattering}
+
+Resonance Raman (RR) spectroscopy is a variation of Raman in which the intensities are greatly amplified.
+This technique relies in the usage of a carefully selected laser wavelength: if it's close enough to an electronic transition, the scattering effect, and therefore the intensity of the measured raman peaks, can increase by several orders of magnitude.
+In regular Raman scattering, the energy that the molecule absorbs from the photon just makes it reach a virtual energy level before returning to a different rotational or vibrational state.
+By using photons that have the same energy as electronic transitions, however, the molecule reaches a real excited electronic state.
+This excited state has a different geometry, and that affects the polarizability of the molecule and increases the magnitude of the subsequent Raman signal.\sidecite{hirakawa75}
 
 \subsubsection{Surface-enhanced Raman Spectroscopy}
 Amplification effect nature.

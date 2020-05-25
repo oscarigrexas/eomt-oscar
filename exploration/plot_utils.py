@@ -21,7 +21,7 @@ def set_styles():
     plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
     plt.rc('legend', fontsize=SMALL_SIZE)    # legend fontsize
     plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
-    
+
 def read_palette(palette_file, mode='rgba'):
     color_dict = {}
     with open(palette_file, 'r') as open_file:
@@ -40,18 +40,21 @@ def read_palette(palette_file, mode='rgba'):
                     hex_str = line.split(': ')[1].strip()
                     color_dict[color_name] = hex_str
     return color_dict
-                
 
-colors = read_palette('palettes-hex.scss', mode='hex')
 
-sys_colors = {
-    's':colors['color7'],
-    'se':colors['color6'],
-    'as':colors['color5'],
-    'asn':colors['color4'],
-    'p':colors['color3'],
-    'pn':colors['color2'],
-}
+try:
+    colors = read_palette('palettes-hex.scss', mode='hex')
+
+    sys_colors = {
+        's':colors['color7'],
+        'se':colors['color6'],
+        'as':colors['color5'],
+        'asn':colors['color4'],
+        'p':colors['color3'],
+        'pn':colors['color2'],
+    }
+except:
+    colors = None
 
 petal_styles = {
     '08':'-',
@@ -69,6 +72,8 @@ def new_figure(height=5, type='body'):
         width = 5
     elif type == 'wide':
         width = 16.5
+    elif type == 'half-page':
+        width = 8.25
     else:
         width = 10.75
     fig, axes = plt.subplots(figsize=(width, height))
@@ -78,7 +83,7 @@ def new_figure(height=5, type='body'):
 def tuftefy(ax):
     if ax.legend != None:
         ax.legend(frameon=False) # remove legend outlines
-    
+
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     ax.spines["left"].set_visible(True)
@@ -90,6 +95,6 @@ def tuftefy(ax):
     ax.tick_params(axis='both', which='major', pad=0)
     ax.edgecolor = 1
     ax.edgewidth = 0.5
-    
+
 def save_figure(figure, name):
     figure.savefig('../images/{}'.format(name), dpi=600/2.54)

@@ -69,6 +69,8 @@ def new_figure(height=5, type='body'):
         width = 5
     elif type == 'wide':
         width = 16.5
+    elif type == 'half-page':
+        width = 8.25
     else:
         width = 10.75
     fig, axes = plt.subplots(figsize=(width, height))

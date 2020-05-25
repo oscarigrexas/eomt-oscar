@@ -69,6 +69,7 @@
 
 % Load some small custom packages
 \usepackage{textcomp} % get the \textregistered symbol
+\usepackage{subcaption}
 
 % Define some small custom commands
 \newcommand{\q}[1]{``#1''}
@@ -231,9 +232,58 @@
 \addpart{Appendix}
 \pagelayout{margin} % Restore margins
 
-\chapter{Some more blindtext}
+\chapter{Additional graphs and spectra}
 
-\blindtext
+\newpage
+\section{NICS of all sunflowers}
+
+\begin{figure*}[h]
+\centering
+\begin{subfigure}{5.5cm}\centering\includegraphics{s08-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{s10-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{s12-2d}\end{subfigure}
+\begin{subfigure}{5.5cm}\centering\includegraphics{se08-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{se10-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{se12-2d}\end{subfigure}
+\begin{subfigure}{5.5cm}\centering\includegraphics{as08-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{as10-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{as12-2d}\end{subfigure}
+\begin{subfigure}{5.5cm}\centering\includegraphics{asn08-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{asn10-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{asn12-2d}\end{subfigure}
+\begin{subfigure}{5.5cm}\centering\includegraphics{p08-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{p10-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{p12-2d}\end{subfigure}
+\begin{subfigure}{5.5cm}\centering\includegraphics{pn08-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{pn10-2d}\end{subfigure}%
+\begin{subfigure}{5.5cm}\centering\includegraphics{pn12-2d}\end{subfigure}
+\caption[short]{A beautiful, well written caption}
+\end{figure*}
+
+\newpage
+\section{UV-vis spectra of all sunflowers}
+
+\newpage
+\section{Raman spectra of all sunflowers}
+
+\newpage
+\section{Combined enhancement factor graphs}
+
+\begin{figure*}[h]
+\centering
+\begin{subfigure}{8.25cm}\centering\includegraphics{comb-as12}\end{subfigure}%
+\begin{subfigure}{8.25cm}\centering\includegraphics{comb-as12}\end{subfigure}
+\begin{subfigure}{8.25cm}\centering\includegraphics{comb-as12}\end{subfigure}%
+\begin{subfigure}{8.25cm}\centering\includegraphics{comb-as12}\end{subfigure}
+\begin{subfigure}{8.25cm}\centering\includegraphics{comb-as12}\end{subfigure}%
+\begin{subfigure}{8.25cm}\centering\includegraphics{comb-as12}\end{subfigure}
+\begin{subfigure}{8.25cm}\centering\includegraphics{comb-as12}\end{subfigure}%
+\begin{subfigure}{8.25cm}\centering\includegraphics{comb-as12}\end{subfigure}
+\caption[short]{A beautiful, well written caption}
+\end{figure*}
+
+\newpage
+\section{Combined resonance Raman spectra}
 
 %----------------------------------------------------------------------------------------
 
