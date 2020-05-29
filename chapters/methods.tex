@@ -52,16 +52,17 @@ Any given non linear molecule with $N$ atoms has 6 translational and rotational 
 Vibrational normal modes are orthogonal, that is, they're vibrational motions that are independent and don't cause movement to the other normal modes.
 
 The frequencies of these modes are calculated through the following procedure.\sidecite{ochterski99}
-First, a
+\fix{First, a}
 \blindtext[2]
 
 \subsubsection{Normal mode calculation and decomposition}
+\labsec{intmodes-methods}
 By translating the cartesian displacements that result from the frequency calculations into redundant internal coordinates, it's possible to identify which of the atoms of the molecule or system are the most involved in a particular vibrational mode.
 Having the vibrations expressed in such a way is useful in automating the analysis of modes.
 In this work, this is used to classify the vibrational modes of a dimer.
 Each individual vibration within the mode is classified by whether it belongs to molecule A, to molecule B, or is a mixture of the two.
 Thanks to this calculation, the modes can be filtered by their percentage of A, B or mixed vibrations.
-This idea is explored and applied in \refsec{heatmaps}.
+This idea is further explored and applied in \refsec{heatmaps}.
 
 \subsection{Raman spectroscopy}
 Raman spectroscopy is a technique that allows for the detection of those vibrational normal modes that affect the polarizability of a molecule (i.e. the ease with which its electron cloud can be distorted).
@@ -74,10 +75,12 @@ After this, the photon has either a lower or a higher energy, and the molecule e
 The regular Raman effect is usually very weak, as the probability of Raman scattering occurring is extremely low.\sidenote{Only about 1 in every \num{10e7} photons results in inelastic scattering}
 
 Resonance Raman (RR) spectroscopy is a variation of Raman in which the intensities are greatly amplified.
-This technique relies in the usage of a carefully selected laser wavelength: if it's close enough to an electronic transition, the scattering effect, and therefore the intensity of the measured raman peaks, can increase by several orders of magnitude.
+This technique relies in the usage of a carefully selected laser wavelength to perform the measurement: if it's close enough to an electronic transition, the scattering effect, and therefore the intensity of the measured Raman peaks, can increase by several orders of magnitude.
 In regular Raman scattering, the energy that the molecule absorbs from the photon just makes it reach a virtual energy level before returning to a different rotational or vibrational state.
 By using photons that have the same energy as electronic transitions, however, the molecule reaches a real excited electronic state.
 This excited state has a different geometry, and that affects the polarizability of the molecule and increases the magnitude of the subsequent Raman signal.\sidecite{hirakawa75}
+
+\fix{Explain how it's calculated using CPHF!}
 
 \subsubsection{Surface-enhanced Raman Spectroscopy}
 Amplification effect nature.

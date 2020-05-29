@@ -2,13 +2,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def set_styles():
-    sns.set_style(style='whitegrid')
-    sns.set_context("paper")
+    #sns.set_style(style='whitegrid')
+    #sns.set_context("paper")
     plt.rcParams['pdf.fonttype'] = 42
     plt.rcParams['lines.linewidth'] = 1
-    plt.rcParams['lines.markeredgewidth'] = 0
+    plt.rcParams['lines.markeredgewidth'] = 1
     plt.rcParams['lines.markersize'] = 8
-    plt.rcParams['lines.markeredgecolor'] = (0, 0, 0, 0)
+    #plt.rcParams['lines.markeredgecolor'] = (0, 0, 0, 0)
     SMALL_SIZE = 16
     MEDIUM_SIZE = 18
     BIGGER_SIZE = 20
@@ -21,7 +21,7 @@ def set_styles():
     plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
     plt.rc('legend', fontsize=SMALL_SIZE)    # legend fontsize
     plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
-    
+
 def read_palette(palette_file, mode='rgba'):
     color_dict = {}
     with open(palette_file, 'r') as open_file:
@@ -40,18 +40,21 @@ def read_palette(palette_file, mode='rgba'):
                     hex_str = line.split(': ')[1].strip()
                     color_dict[color_name] = hex_str
     return color_dict
-                
 
-colors = read_palette('palettes-hex.scss', mode='hex')
 
-sys_colors = {
-    's':colors['color7'],
-    'se':colors['color6'],
-    'as':colors['color5'],
-    'asn':colors['color4'],
-    'p':colors['color3'],
-    'pn':colors['color2'],
-}
+try:
+    colors = read_palette('palettes-hex.scss', mode='hex')
+
+    sys_colors = {
+        's':colors['color7'],
+        'se':colors['color6'],
+        'as':colors['color5'],
+        'asn':colors['color4'],
+        'p':colors['color3'],
+        'pn':colors['color2'],
+    }
+except:
+    colors = None
 
 petal_styles = {
     '08':'-',
@@ -80,18 +83,26 @@ def new_figure(height=5, type='body'):
 def tuftefy(ax):
     if ax.legend != None:
         ax.legend(frameon=False) # remove legend outlines
-    
+
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     ax.spines["left"].set_visible(True)
     ax.spines["bottom"].set_visible(True)
-    #ax.spines["bottom"].set_color('grey')
     #ax.grid(color="w", alpha=0.5)
     ax.get_yaxis().grid(False)
     ax.get_xaxis().grid(False)
     ax.tick_params(axis='both', which='major', pad=0)
-    ax.edgecolor = 1
-    ax.edgewidth = 0.5
-    
+    #ax.edgecolor = 1
+    #ax.edgewidth = 0.5
+    spine_color = (0, 0, 0, 0.3)
+    ax.spines['bottom'].set_color(spine_color)
+    ax.spines['top'].set_color(spine_color) 
+    ax.spines['right'].set_color(spine_color)
+    ax.spines['left'].set_color(spine_color)
+    ax.tick_params(axis='x', colors=spine_color)
+    ax.tick_params(axis='y', colors=spine_color)
+    ax.yaxis.label.set_color('black')
+    ax.xaxis.label.set_color('black')
+
 def save_figure(figure, name):
     figure.savefig('../images/{}'.format(name), dpi=600/2.54)

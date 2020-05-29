@@ -215,6 +215,7 @@ That left us with 8 systems out of the starting 18, but they were deemed as suff
     \end{tabular}
     \labtab{uv-ranges}
 \end{margintable}
+
 The UV absorption range for those remaining complexes was also displayed on \reftab{uv-ranges} for convenience.
 \blindtext
 
@@ -233,7 +234,96 @@ Specifically, the whole of their absorption interval was covered by selecting wa
 \subsection{Generation and comparison of spectra}
 \labsec{heatmaps}
 The RR calculations from the previous step amounted to a total of 2858, where the amplification, position and relevance of each vibrational mode\sidenote{Between \num{186} and \num{222} depending on the size of the flower} had to be evaluated.
-\fix{The need for some kind of automation and filtering.}
+For this purpose, the two following metrics were developed.
+
+\subsubsection{Individual molecule contribution to a complex vibrational mode}
+The first of these evaluations was differentiating which vibrational normal modes involve the vibration of the flower, which modes involve the vibration of the STX, and which modes are mixed.
+As introduced in \refsec{intmodes-methods}, this was done by analyzing the displacements of the vibrations translated into redundant internal coordinates.
+To understand how this is done, we will use the As12-STX system as an example.
+The standard Gaussian09 output describes normal modes as cartesian displacements of normal coordinates, indicating vectors for each atom.
+For instance, the beginning of the output of vibrational normal mode number 42 looks like this:
+
+\begin{lstlisting}[label=normal-mode-output, style=kaolstplain]
+                    42
+                     A
+Frequencies --    229.2846
+Red. masses --     36.2305
+Frc consts  --      1.1222
+IR Inten    --      3.9161
+Atom  AN      X      Y      Z
+   1  33    -0.15  -0.08   0.01
+   2  33    -0.03  -0.04  -0.04
+   3   6     0.13   0.06   0.06
+   4   6     0.06   0.05   0.01
+   5  33     0.10  -0.01  -0.03
+               ...
+\end{lstlisting}
+
+This contains all of the necessary information to study the movements of the atoms and understand the vibrations of the mode, but it's difficult to interpret.
+By specifying the keyword \code{intmodes} in the frequency calculation, this output gets translated into the much more readable redundant internal coordinates notation.
+This is As12-STX's mode number 42 in this new format.
+
+\begin{lstlisting}[label=intmodes-output, style=kaolstplain]
+              ----------------------------
+              ! Normal Mode    42        !
+--------------                            --------------
+! Name  Definition       Value     Relative Weight (%) !
+--------------------------------------------------------
+! R1    R(1,34)         -0.0693             0.4        !
+! R9    R(4,63)         -0.067              0.4        !
+! R15   R(8,9)           0.1332             0.8        !
+! A4    A(2,3,30)       -0.0755             0.4        !
+! A19   A(10,7,63)       0.0567             0.3        !
+! A21   A(5,9,8)         0.1548             0.9        !
+! D1    D(36,1,34,24)    0.0965             0.5        !
+! D3    D(34,1,36,27)    0.1767             1.0        !
+! D5    D(6,2,3,4)      -0.0882             0.5        !
+                          ...
+\end{lstlisting}
+
+\begin{margintable}
+    \centering
+    \caption[Classification of individual vibrations]{Classification of the individual vibrations of normal mode 42 for As12-STX (atoms of the flower and the STX are marked in blue and red, respectively)}
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Vib. def. &  Category \\
+        \midrule
+        R(\stx{1},\stx{34})                     & STX \\
+        R(\stx{4},\flower{63})                  & Mixed \\
+        R(\stx{8},\stx{9})                      & STX \\
+        A(\stx{2},\stx{3},\stx{30})             & STX \\
+        A(\stx{10},\stx{7},\flower{63})         & Mixed \\
+        A(\stx{5},\stx{9},\stx{8})              & STX \\
+        D(\stx{36},\stx{1},\stx{34},\stx{24})   & STX \\
+        D(\stx{34},\stx{1},\stx{36},\stx{27})   & STX \\
+        D(\stx{6},\stx{2},\stx{3},\stx{4})      & STX \\
+    \end{tabular}
+    \labtab{intmodes-classification}
+\end{margintable}
+
+Here the displacements are expressed as bond length extensions between two atoms (R), angle openings and closings between three (A), and dihedral angle torsions between four (D).
+Their magnitude is expressed as a single positive or negative value, whose absolute value is then weighted and displayed as the Relative Weight as a percent.
+By differentiating whether the atoms involved in a certain vibrational motion belong to the As12 flower or to the STX, said vibration can be classified as an exclusive flower vibration, as an exclusive STX vibration, or as a mixed one.
+Such classification, illustrated in \reftab{intmodes-classification}, can be easily automated using a script.
+
+By adding up the relative weights of the vibrations in each category, we can find out which of the elements of the flower-STX complex dominate a particular mode.
+In this case, mode 42 has a \SI{92.54}{\percent} contribution from the STX, a \SI{0.00}{\percent} contribution from the flower, and a \SI{7.45}{\percent} contribution from mixed vibrations.
+
+From a practical point of view, the fact that it's composed almost exclusively of isolated STX vibrations makes this a good choice of vibrational mode to look for in a RR spectra of this complex.
+In contrast to other mixed or flower-exclusive vibrational modes, a mode like this is a clear sign of the presence of the STX.
+
+\subsubsection{Resonance Raman enhancement factor}
+Even if a mode is exclusive to our molecule of interest, it needs to have a sufficient intensity in the final spectrum: otherwise it cannot be detected and cannot be of any use in the identification.
+In the context of RR, this means that it has to benefit from a certain level of amplification during resonance experiments.
+
+To evaluate this for all of the tested laser wavelengths, the enhancement factor (EF) metric was designed and applied.
+The EF for a certain vibrational mode and laser wavelength is defined in \refeq{enhancement-factor}.
+
+\begin{equation}
+    \labeq{enhancement-factor}
+    EF_{i,\lambda} = \log_{10}\left(\frac{I_{i,\lambda}}{I_{i,\textit{SL}}}\right)
+\end{equation}
+
 \blindtext
 
 \subsection{Combined resonance graphs}
