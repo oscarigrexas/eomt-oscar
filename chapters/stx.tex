@@ -317,17 +317,43 @@ Even if a mode is exclusive to our molecule of interest, it needs to have a suff
 In the context of RR, this means that it has to benefit from a certain level of amplification during resonance experiments.
 
 To evaluate this for all of the tested laser wavelengths, the enhancement factor (EF) metric was designed and applied.
-The EF for a certain vibrational mode and laser wavelength is defined in \refeq{enhancement-factor}.
+The EF for a certain vibrational mode $i$ and laser wavelength $\lambda$  is defined in \refeq{enhancement-factor}.
 
 \begin{equation}
     \labeq{enhancement-factor}
     EF_{i,\lambda} = \log_{10}\left(\frac{I_{i,\lambda}}{I_{i,\textit{SL}}}\right)
 \end{equation}
 
-\blindtext
+In this equation, $I_{i,\lambda}$ corresponds to the Raman activity of the mode $i$ in the amplified spectrum, and $I_{i,\textit{SL}}$ is the activity of the same mode in a regular Raman prediction.
+Using a logarithmic scale makes easier to visualize the very high amplifications that arise with this technique, which in the case of this work, have reached values near \num{10e10} times than the standard Raman.
 
-\subsection{Combined resonance graphs}
-\blindtext
+Similarly as before, this calculation is easy to automate and can serve as a way to filter out wavelengths that don't generate sufficient amplification, or discard modes that aren't sufficiently amplified.
+
+\subsubsection{Combined resonance graphs}
+In order to make use of the two newly defined metrics, an output file processing pipeline was designed.
+Large amounts of data from the internal mode decompositions, standard Raman spectra and many amplified RR spectra were processed, combined and analyzed using Python scripts.
+
+This information was filtered and displayed in the following manner:
+First, Gaussian envelopes for all of the RR spectra as well as the standard Raman spectrum were calculated.
+These envelopes were equivalent to those used in previous Raman spectra: 10000 points divided across the most relevant range for each system.
+Then, each of the points in the amplified RR curves was converted into EF values using \refeq{enhancement-factor}.
+These were plotted as a colored grid: all of the RR wavelengths on the vertical axis, and the 10000 calculated wave number values on the horizontal axis.
+The squares of the grid, therefore, were colored according to the calculated EF values.
+
+This resulted in quite colorful graphs where the brightest horizontal lines correspond to the laser wavelengths that generate larger amplifications, and bright vertical areas correspond to highly amplified vibrational modes.
+
+Then, in order to make full use of the metrics, these graphs were annotated using a special procedure.
+In regard to the vibrational modes, two thresholds were set: a maximum percent of flower contribution, and a minimum percent of STX contribution.
+This ensured that the displayed modes were relevant.
+As for the laser wavelengths, only the ones that produced amplifications above a certain threshold value for the EF of the previously selected vibrational modes were displayed.
+
+Applying this method to the running example of As12-STX, then, resulted in \reffig{comb-as12}
+
+\begin{figure}
+    \includegraphics{comb-as12}
+    \caption[Combined resonance graph for As12-STX]{Combined resonance graph for As12-STX}
+    \labfig{comb-as12}
+\end{figure}
 
 \subsection{Final selection}
 \blindtext

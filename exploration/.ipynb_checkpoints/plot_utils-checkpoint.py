@@ -9,9 +9,9 @@ def set_styles():
     plt.rcParams['lines.markeredgewidth'] = 1
     plt.rcParams['lines.markersize'] = 8
     #plt.rcParams['lines.markeredgecolor'] = (0, 0, 0, 0)
-    SMALL_SIZE = 16
-    MEDIUM_SIZE = 18
-    BIGGER_SIZE = 20
+    SMALL_SIZE = 15
+    MEDIUM_SIZE = 17
+    BIGGER_SIZE = 19
 
     plt.rc('font', family='Helvetica')
     plt.rc('font', size=SMALL_SIZE)          # controls default text sizes
@@ -94,15 +94,15 @@ def tuftefy(ax):
     ax.tick_params(axis='both', which='major', pad=0)
     #ax.edgecolor = 1
     #ax.edgewidth = 0.5
-    spine_color = (0, 0, 0, 0.3)
+    spine_color = (0, 0, 0, 1)
     ax.spines['bottom'].set_color(spine_color)
     ax.spines['top'].set_color(spine_color) 
     ax.spines['right'].set_color(spine_color)
     ax.spines['left'].set_color(spine_color)
     ax.tick_params(axis='x', colors=spine_color)
     ax.tick_params(axis='y', colors=spine_color)
-    ax.yaxis.label.set_color('black')
-    ax.xaxis.label.set_color('black')
+    #ax.yaxis.label.set_color('black')
+    #ax.xaxis.label.set_color('black')
 
 def save_figure(figure, name):
     figure.savefig('../images/{}'.format(name), dpi=600/2.54)

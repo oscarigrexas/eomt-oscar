@@ -1,0 +1,67 @@
+Selection for asn08-STX system
+
+    Modes with maxsur= 3.63 and minmol=42.07
+    [157, 158, 159]
+
+    Wavelengths for minef=10.08
+    [348, 384, 402, 417, 468, 498]
+
+
+
+Selection for as10-STX system
+
+    Modes with maxsur= 2.27 and minmol=40.06
+    [149, 173, 176, 177, 190]
+
+    Wavelengths for minef= 9.58
+    [300, 381, 432, 438, 453, 498, 600]
+
+
+
+Selection for as12-STX system
+
+    Modes with maxsur= 0.00 and minmol=95.00
+    [26, 36, 43, 45, 112, 128, 132, 134, 139, 140, 142]
+
+    Wavelengths for minef= 9.48
+    [336, 366, 375, 408, 600, 639, 663, 795]
+
+
+
+Selection for asn10-STX system
+
+    Modes with maxsur= 3.21 and minmol=30.08
+    [100, 158, 162, 168, 172, 173, 177, 189]
+
+    Wavelengths for minef= 9.65
+    [339, 363, 393, 456, 474, 504, 618, 630]
+
+
+
+Selection for asn12-STX system
+
+    Modes with maxsur= 0.00 and minmol=99.04
+    [56, 125, 140, 158, 173, 179, 195]
+
+    Wavelengths for minef= 9.61
+    [476, 512, 575, 629, 707, 812, 842]
+
+
+
+Selection for pn10-STX system
+
+    Modes with maxsur= 5.51 and minmol=37.18
+    [173, 174, 175, 176, 177, 187, 193]
+
+    Wavelengths for minef= 9.59
+    [363, 381, 396, 420, 462]
+
+
+
+Selection for pn12-STX system
+
+    Modes with maxsur= 1.76 and minmol=36.28
+    [170, 174, 191, 192, 193, 194, 195]
+
+    Wavelengths for minef= 9.65
+    [376, 412, 442, 472, 514, 535]
