@@ -9,21 +9,58 @@
     \labfig{stx-structure}
 \end{marginfigure}
 
-Having obtained a general characterization of the sunflower-type molecules, it's time to get back to the problem at hand and start looking into how they can be applied.
+Having obtained a general characterization of the sunflower-type molecules and their spectroscopy, it's time to get back to the problem at hand and start looking into how they can be applied.
 
 Let's reintroduce the molecule that motivated this whole study: saxitoxin (STX).
-For the purposes of this study, the STX structure features two guanidinium moieties (which are protonated due to the simulation of acidic conditions), two hydroxyl, and one carbamate group as it can be seen in \reffig{stx-structure}.
+For the purposes of this study, the STX structure features two guanidinium moieties (which are easily susceptible to protonation), two hydroxyl, and one carbamate group as it can be seen in \reffig{stx-structure}.
 
-\blindtext
+The STX being doubly protonated in the figure is not an arbitrary choice.
+While studying its acid-base behavior in previous work we faced a certain issue: the STX molecule has many possible protonated variations, and at the pH of real life samples, there would be a coexistence of several of them.
+This was a problem, because having to apply the study to these different multiple forms in order to account for the situation would greatly increase the number of calculations.
+After some thought, it was decided that the simplest way to solve this issue would be to work at a pH where only one of the protonated species would be present at a significant amount.
+It was found that, at the moderate pH value of 6, the majority of the STX could be found as its doubly protonated form.
+Since in real life experimental conditions attaining a pH of 6 in an hypothetical water-based sample would only imply the addition of a few drops of dilute acid, it was decided that all further studies would be carried out using such diprotonated structure.
 
 \section{Spectroscopic study of lone STX}
+The goal of this work was presented as \q{finding suitable substrate to aid in the detection of STX} from the beginning, but this desire came from a place of previous study and understanding about the spectroscopic properties of the lone STX.
 
-\blindtext[3]
+This section aims to display and share the most important of these previously known facts, which are about the behavior of saxitoxin in both vibrational and electronic spectroscopy contexts.
+
+\subsection{Vibrational spectroscopy}
+As a non linear molecule with 40 atoms, STX presents a total of 114 vibrational normal modes.
+\blindtext
+
+\subsubsection{Raman spectrum}
+\blindtext
+
+\begin{figure}
+    \includegraphics{raman-stx}
+    \caption[Raman spectrum of lone STX]{Raman spectrum of lone STX}
+    \labfig{raman-stx}
+\end{figure}
+
+
+\subsection{Electronic spectroscopy}
+STX doesn't have any special chromophore groups, and its excited states are available at the UV range of electromagnetic radiation.
+Nevertheless, it's important to identify and study this transitions in order to facilitate the application of further techniques.
+
+\subsubsection{UV-vis spectrum}
+The most straightforward way to study electronic spectroscopy is by simulating UV-vis spectra.
+Using TD-DFT as implemented in Gaussian09, the first 50 electronic transitions were calculated and used to generate the UV-vis spectrum of STX, displayed in \reffig{uv-stx}.
+
+\begin{figure}
+    \includegraphics{uv-stx}
+    \caption[UV-vis spectrum of lone STX]{UV-vis spectrum of lone STX, the 5 electronic transitions with the largest contributions have been annotated}
+    \labfig{uv-stx}
+\end{figure}
+
+As it may be noted, the range of absorption (between \SI{120}{\nano\metre} and \SI{200}{\nano\metre}) is located within the UV region.
+\fix{Introduce Resonance Raman here??? I'm not sure.}
 
 \section{Study of adsorption}
 
-After having characterized the spectroscopic profile of STX, it's time to assess its interactions with the members of the sunflower family, keeping in mind that the main goal of this work is determining if any of them could be a SERS substrate suitable for its detection.
-The first study that must be carried out, before any spectroscopic technique can be applied, is that of adsorption: how does STX adheres to the flowers, how stable is the resulting complex, what is the nature of that interaction...
+After having characterized the spectroscopic profile of STX, it's time to assess its interactions with the members of the sunflower family, keeping in mind that the main goal of this work is determining if any of them could be a substrate suitable for its detection.
+The first study that must be carried out, before any spectroscopic technique can be applied, is that of adsorption: how does STX adhere to the flowers, how stable is the resulting complex, what is the nature of that interaction...
 This is a crucial matter, as there's no point in calculating spectra for a system that isn't stable.
 
 \subsection{Sampling and optimization}
@@ -355,5 +392,10 @@ Applying this method to the running example of As12-STX, then, resulted in \reff
     \labfig{comb-as12}
 \end{figure}
 
+
+
 \subsection{Final selection}
-\blindtext
+While the previous method serves as a convenient way to visualize the best amplifications, it's true that it deviates a little from the usual representations of Raman data.
+This final section aims to tie its insights together, and displaying them in a more standard way in order to facilitate the comparison and selection of a definitive combination of flower, laser wavelength and set of vibrational modes.
+
+For this reason, a complementary way of plotting amplified Raman spectra was designed.

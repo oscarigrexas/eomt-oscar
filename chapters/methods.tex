@@ -82,9 +82,21 @@ This excited state has a different geometry, and that affects the polarizability
 
 \fix{Explain how it's calculated using CPHF!}
 
-\subsubsection{Surface-enhanced Raman Spectroscopy}
-Amplification effect nature.
-\blindtext
+\subsubsection{Surface-enhanced Raman spectroscopy and surface interactions}
+Surface-enhance Raman spectroscopy (SERS) is a variation of Raman spectroscopy that explores the large enhancements in intensity that the Raman signals of a molecule may experience when interacting with a surface.
+While such effect was originally observed in roughened silver and is usually studied using metal surfaces and clusters, it has also been found in non-metal nanostructures and surface-like molecules, which will be referred to as \q{SERS substrates}.
+The nature of this effect has been related to resonance.
+Specifically, it's been said that it draws upon three different kinds: surface plasmon resonance, charge-transfer resonance, and molecular resonance.\sidecite{lombardi08}
+The first of these effects, surface plasmon resonance, is defined as the coherence of the oscillation of the conduction electrons of the substrate\marginnote{Such as the free flowing electrons in a metal cluster, or the electron cloud of a large conjugated covalent system such as graphene} with an external exciting electromagnetic radiation.
+Charge-transfer resonance may be present when there is a significant transfer of electron density between the substrate and the molecule.
+Finally, molecular resonance may appear too as a property almost exclusive to the molecule, but can still have a significant contribution to the total effect.
+
+The main focus of this work, however, is Resonance Raman.
+The adsorption of the molecule to a substrate makes it benefit from SERS effects, but it shares importance with its other purpose: shifting the UV-vis absorption range.
+Adhering a molecule that absorbs short wavelengths to a substrate that absorbs long ones may result in a complex that has a range of absorption that's higher than that of the molecule alone.
+Since real-life laser devices for Raman spectroscopy can get rare, expensive and energetic to the point of being destructive as the wavelength gets shorter, it's desired to achieve such effects.
+For these reasons, while SERS is an interesting technique that certainly plays a part in the results achieved in this work, we don't delve too deep into the explanation of its nature.
+\fix{Also it's really hard to actually separate and interpret the contributions. :(}
 
 \subsection{Spectra envelope calculation}
 \labsec{spectra-envelope-calculation}
@@ -175,23 +187,23 @@ For the case of STX, the spectrum that results from combining the gaussian band 
 
 \section{Software}
 
-The software used to perform all of the calculations and tasks was varied.
-
-\section{Technique and software overview}
+The software used to perform all of the calculations is summarized in \reftab{computational-techinques}
 
 \begin{table*}[h]
     \centering
-    \caption{Computational techniques}
+    \caption[Overview of techniques, level and software]{Overview of the computational techniques, calculation level and software that were used in this work}
     \labtab{computational-techinques}
     \begin{tabular}{@{}llllll@{}}
         \toprule
         Calculation & Technique & Spec. & Functional & Basis set & Software \\
         \midrule
-        Geometry optimizations & DFT & & M06-2X & def2SVP & Gaussian \\
-        Surface generation & & & & & nics.py \\
-        NICS calculations & DFT & GIAO & b3lyp & 6-31G* & Gaussian \\
-        Raman spectra generation & DFT & & M06-2X & def2SVP & Gaussian \\
-        UV spectra generation & TD-DFT & & M06-2X & def2SVP & Gaussian \\
+        Geometry optimization                   & DFT       & GEDIIS    & M06-2X & def2SVP & Gaussian \\
+        Vibrational analysis                    & DFT       &           & M06-2X & def2SVP & Gaussian \\
+        Raman activity                          & DFT       &           & M06-2X & def2SVP & Gaussian \\
+        Resonance Raman activity                & DFT       & CPHF      & M06-2X & def2SVP & Gaussian \\
+        Electronic transition calculation       & TD-DFT    &           & M06-2X & def2SVP & Gaussian \\
+        Magnetic shielding calculation          & DFT       & GIAO      & b3lyp  & 6-31G*  & Gaussian \\
+        Surface generation                      &           &           & & & nics.py \\
         \bottomrule
     \end{tabular}
 \end{table*}
