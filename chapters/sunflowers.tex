@@ -398,6 +398,61 @@ Raman spectra for all 18 sunflower systems were generated following the procedur
 
 
 \subsection{Electronic spectroscopy}
-\blindtext
+Keeping in mind the final objectives of the work of applying resonance Raman, the electronic spectroscopic behavior of the flowers was deemed as an important point to study.
+The characterization of the electronic transitions of a molecule might give plenty of insight on how does it interact with light.
+
 \subsubsection{UV-vis spectra}
-\blindtext[4]
+The most straightforward way to study electronic spectroscopy is by simulating ultraviolet-visible (UV-vis) spectra.
+In order to generate this, the energies of the 50 first transitions from the ground state to excited states were computed using TD-DFT in the Gaussian09 suite.
+Then, using their energy and oscillator strength values, Gaussian functions were calculated for each of the transitions and linearly combined to create continuous spectra similar to those obtained using real spectrophotometers.
+This procedure is further explained in \refsec{spectra-envelope-calculation}.
+UV-vis spectra were generated for all of the sunflowers, but since they are fairly simple graphs, only the one for S08 will be explained in this section as an example.
+It's displayed in \reffig{uv-s08}.
+
+\begin{figure}[h]
+    \includegraphics{uv-s08-simple}
+    \caption[UV-vis spectrum of S08]{UV-vis spectrum of S08}
+    \labfig{uv-s08-simple}
+\end{figure}
+
+\begin{margintable}
+    \centering
+    \caption[UV-vis absorption range of isolated flowers]{Approximate UV-vis absorption range of isolated flowers}
+    \begin{tabular}{@{}rc@{}}
+        \toprule
+        System & $\lambda$ (\si{\nano\metre}) \\
+        \midrule
+        S08 & 180-260 \\
+        S10 & 180-280 \\
+        S12 & 200-400 \\
+        Se08 & 200-280 \\
+        Se10 & 200-400 \\
+        Se12 & 225-500 \\
+        As08 & 250-800 \\
+        As10 & 250-700 \\
+        As12 & 300-900 \\
+        AsN08 & 300-450 \\
+        AsN10 & 300-650 \\
+        AsN12 & 300-850 \\
+        P08 & 225-700 \\
+        P10 & 250-500 \\
+        P12 & 250-700 \\
+        PN08 & 250-500 \\
+        PN10 & 250-550 \\
+        PN12 & 300-700 \\
+    \end{tabular}
+    \labtab{flower-uv-ranges}
+\end{margintable}
+
+We can see that the spectrum for S08 goes from \SI{190}{\nano\metre} to \SI{260}{\nano\metre}, approximately.
+Plotted as straight vertical lines, the individual electronic transitions have been included, where their height is proportional to their oscillator strength.
+However, this is not an adequate representation in this case.
+What appear to be 2 electronic transitions located at \SI{210}{\nano\metre} and \SI{219}{\nano\metre} are, in fact, 4 different transitions (specifically, there are 2 groups of 2 each): it's just that due to the high symmetry of the molecule, transitions that occur in regions of the molecule that are very electronically similar might have coinciding wavelengths.
+
+This was true for most of the flowers: many of the transitions with the higher intensities were grouped in pairs.
+The only cases where this effect didn't clearly happen were the sunflowers with the most warped and most bent geometries, such as As12, AsN12, P12 and PN12.
+
+In any case, since the purpose of studying individual electronic transitions is to serve as a guide when applying resonance techniques and we won't study the resonance of the isolated flowers, they were left out of the spectra.
+
+The rest of the UV-vis spectra of the flowers may be found in \refsec{ap:uv-vis-flowers}.
+Their absorption ranges, nonetheless, have been summarized and presented in \reftab{flower-uv-ranges} as an overview.

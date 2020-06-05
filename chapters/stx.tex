@@ -45,8 +45,7 @@ STX doesn't have any special chromophore groups, and its excited states are avai
 Nevertheless, it's important to identify and study this transitions in order to facilitate the application of further techniques.
 
 \subsubsection{UV-vis spectrum}
-The most straightforward way to study electronic spectroscopy is by simulating UV-vis spectra.
-Using TD-DFT as implemented in Gaussian09, the first 50 electronic transitions were calculated and used to generate the UV-vis spectrum of STX, displayed in \reffig{uv-stx}.
+As before, using TD-DFT as implemented in Gaussian09, the first 50 electronic transitions were calculated and used to generate the UV-vis spectrum of STX, displayed in \reffig{uv-stx}.
 
 \begin{figure}
     \includegraphics{uv-stx}
@@ -213,26 +212,42 @@ This is a good indication that the systems are all stable and can be further stu
 All of the families (except for Se) appear to have a common tendency: the higher the amount of petals, the higher the stabilization. This could be due to the flower having a larger area and bending in a way that maximizes the interactions with the STX molecule.
 
 \section{Study of non-covalent interactions}
-\blindtext[2]
-
-\section{Study of UV behavior}
 \blindtext
-\subsection{General UV spectroscopy}
 
+\section{Study of UV-vis behavior}
+One of the main points of adsorbing the STX to the flowers is the desire of increasing its range of absorption of UV-vis radiation.
+It's possible that the flower-STX complex absorbs light at longer wavelengths than the isolated STX, and this could be highly beneficial to apply further detection techniques based on resonace.
+
+\subsection{General UV-vis spectroscopy}
 Electronic spectra were calculated as described in \refsec{electronic-transition-study} and \refsec{spectra-envelope-calculation} for the most stable conformers of all of the sunflower-STX complexes.
-Then, they were plotted together in order to compare their absorption ranges in \reffig{complex-uv}.
 
-\fix{Design some kind of legend or explanation for this graph!} \blindtext
+First, they were plotted together with the UV-vis spectrum of STX and of their corresponding isolated flower.
+The individual transitions with significant weights were also plotted as straight vertical lines.
+This allowed us to compare the absorption ranges of the complex versus those of the isolated STX and flowers, and to judge if the shifting effect is good enough.
+
+As an example of this, the UV-vis spectra of STX, S08 and S08-STX are displayed in \reffig{uv-s08}.
+
+\begin{figure}
+    \includegraphics{uv-s08}
+    \caption[UV-vis spectrum of S08-STX]{UV-vis spectra of S08-STX and its components}
+    \labfig{uv-s08}
+\end{figure}
+
+As it may be noted, the spectra of the complex has almost the same absorption range as that of the isolated S08, and in any case, it's definitely shifted towards longer wavelengths in contrast with that of STX.
+This effect was the same for all of the flower-STX complexes, and the full list of compared UV-vis spectra can be found in \refsec{ap:uv-vis-flowers}.
+
+After this, the UV-vis absorption spectra of all of the complexes were plotted together in order to visually compare just their absorption ranges. This plot is displayed in \reffig{complex-uv}.
 
 \begin{figure*}
     \includegraphics{complex-uv}
-    \caption[UV absorption spectra of all complexes]{UV absorption spectra of all complexes}
+    \caption[UV-vis absorption spectra of all complexes]{UV-vis absorption spectra of all flower-STX complexes}
     \labfig{complex-uv}
 \end{figure*}
 
 Since this work aims to propose realistic detection techniques, it's important that the systems are actually detectable and identifiable in a real setting.
-With this purpose in mind, and keeping into account the usual wavelengths of commercially available lasers for Raman,\sidenote{Which is between \fix{\SI{300}{\nano\metre} and \SI{800}{\nano\metre}}} all of the complexes with absorption ranges starting below \SI{300}{\nano\metre} were filtered out.
-That left us with 8 systems out of the starting 18, but they were deemed as sufficient to continue with the last part of the study.
+With this purpose in mind, and keeping into account the usual wavelengths of commercially available lasers for Raman,\sidenote{Which is between \fix{\SI{300}{\nano\metre} and \SI{800}{\nano\metre}}} all of the complexes with absorption ranges starting below \SI{250}{\nano\metre} were filtered out.
+From the remaining ones, a select few were hand-picked according to the upper limit of their ranges and to their specific individual electronic transitions.
+This left us with 8 systems out of the starting 18, which was deemed as a sufficient amount to continue with the last part of the study.
 
 \begin{margintable}
     \centering
@@ -255,7 +270,6 @@ That left us with 8 systems out of the starting 18, but they were deemed as suff
 
 The UV absorption range for those remaining complexes was also displayed on \reftab{uv-ranges} for convenience.
 \blindtext
-
 
 \subsection{Charge transfer analysis}
 \blindtext

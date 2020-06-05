@@ -65,14 +65,14 @@ petal_styles = {
 def cm2inch(value):
     return value/2.54
 
-def new_figure(height=5, type='body'):
-    if type == 'body':
+def new_figure(height=5, kind='body'):
+    if kind == 'body':
         width = 10.75
-    elif type == 'margin':
+    elif kind == 'margin':
         width = 5
-    elif type == 'wide':
+    elif kind == 'wide':
         width = 16.5
-    elif type == 'half-page':
+    elif kind == 'half-page':
         width = 8.25
     else:
         width = 10.75
