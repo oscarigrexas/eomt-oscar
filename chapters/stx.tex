@@ -28,10 +28,11 @@ This section aims to display and share the most important of these previously kn
 
 \subsection{Vibrational spectroscopy}
 As a non linear molecule with 40 atoms, STX presents a total of 114 vibrational normal modes.
-\blindtext
+Many of those modes cause changes in its polarizability, and are therefore visible in its Raman spectrum.
+In this section, we pinpoint and describe a selection of the most characteristic and noticeable vibrational modes that could allow for the identification of the isolated STX.
 
 \subsubsection{Raman spectrum}
-\blindtext
+The Raman spectrum of STX was calculated and plotted in the same way as those of the sunflowers.
 
 \begin{figure}
     \includegraphics{raman-stx}
@@ -39,10 +40,35 @@ As a non linear molecule with 40 atoms, STX presents a total of 114 vibrational 
     \labfig{raman-stx}
 \end{figure}
 
+\begin{table}
+    \caption[Raman modes of STX]{Selected Raman active vibrational modes for STX. Letters $\delta$ and $\nu$ are scissoring and stretching vibrations, subscripts $_\textit{s}$ and $_\textit{as}$ mean symmetric and antisymmetric; and G5, G6 and Cb are the 5 atom guanidinium moiety, the 6 atom guanidinium moiety, and the carbamate group.}
+    \label{stx-modes}
+    \begin{tabular}{@{}rS[table-format=4.1]r@{}}
+        \toprule
+        Mode & {$\tilde{\nu}$} & Description \\
+        \midrule
+        90 & 1606.2 & $\delta_s$ \ce{NH2} G5 \\
+        91 & 1625.5 & $\delta_s$ \ce{NH2} G5 \\
+        93 & 1736.6 & $\delta_s$ \ce{NH2} G6 \\
+        94 & 1794.6 & $\delta_s$ \ce{NH2} G5 \\
+        95 & 1862.4 & $\delta_s$ \ce{NH2}, $\nu_\textit{as}$ \ce{OCN} Cb \\
+        105 & 3586.1 & $\nu_\textit{s}$ \ce{NH2} G5 \\
+        106 & 3590.2 & $\nu_\textit{s}$ \ce{NH2} G6 \\
+        107 & 3605.6 & $\nu_\textit{s}$ \ce{NH2} Cb \\
+        111 & 3704.0 & $\nu_\textit{as}$ \ce{NH2} G5 \\
+        112 & 3709.4 & $\nu_\textit{as}$ \ce{NH2} G6 \\
+        113 & 3740.3 & $\nu_\textit{as}$ \ce{NH2} Cb \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+These modes were deemed as sufficient to identify the lone STX in a sample.
+This is a good exercise to start identifying characteristic vibrations that could be attributed to STX.
+However, it must be kept in mind that this analysis only serves as an initial approximation, as it's possible that these same vibrational modes have shifted wave numbers and/or are different when the STX gets adsorbed and forms complexes.
 
 \subsection{Electronic spectroscopy}
 STX doesn't have any special chromophore groups, and its excited states are available at the UV range of electromagnetic radiation.
-Nevertheless, it's important to identify and study this transitions in order to facilitate the application of further techniques.
+Nevertheless, it's important to identify and study these transitions in order to facilitate the application of further techniques.
 
 \subsubsection{UV-vis spectrum}
 As before, using TD-DFT as implemented in Gaussian09, the first 50 electronic transitions were calculated and used to generate the UV-vis spectrum of STX, displayed in \reffig{uv-stx}.
@@ -408,8 +434,11 @@ Applying this method to the running example of As12-STX, then, resulted in \reff
 
 
 
+
+
 \subsection{Final selection}
 While the previous method serves as a convenient way to visualize the best amplifications, it's true that it deviates a little from the usual representations of Raman data.
 This final section aims to tie this insight together, and to display it in a more standard way in order to facilitate the comparison and selection of a definitive combination of flower, laser wavelength, and set of vibrational modes.
 
-For this reason, a complementary way of plotting amplified Raman spectra was designed.
+For this reason, a complementary way of plotting amplified Raman spectra was designed: drawing the amplified RR spectra of all of the previously selected laser wavelengths vertically sorted in a single plot.
+The graphs in this section don't include any units of intensity: the reason for choosing these wavelengths, precisely, was that they had high enough amplifications.
