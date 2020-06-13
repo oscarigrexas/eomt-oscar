@@ -1,6 +1,6 @@
 \setchapterimage[2cm]{../images/header-stx.jpg}
 %\setchapterpreamble[u]{\margintoc}
-\chapter{Sunflower-saxitoxin complexes}
+\chapter{Study of sunflower-saxitoxin complexes}
 \labch{stx}
 
 \begin{marginfigure}
@@ -32,13 +32,20 @@ Many of those modes cause changes in its polarizability, and are therefore visib
 In this section, we pinpoint and describe a selection of the most characteristic and noticeable vibrational modes that could allow for the identification of the isolated STX.
 
 \subsubsection{Raman spectrum}
-The Raman spectrum of STX was calculated and plotted in the same way as those of the sunflowers.
+The Raman spectrum of STX was calculated and plotted in the same way as those of the sunflowers, and displayed in both \reffig{raman-stx} and \reffig{raman-stx-zoom}.
 
 \begin{figure}
     \includegraphics{raman-stx}
     \caption[Raman spectrum of lone STX]{Raman spectrum of lone STX}
     \labfig{raman-stx}
 \end{figure}
+
+\begin{figure*}
+    \begin{subfigure}{8.25cm}\centering\includegraphics{raman-stx-left}\end{subfigure}%
+    \begin{subfigure}{8.25cm}\centering\includegraphics{raman-stx-right}\end{subfigure}
+    \caption[Zoomed Raman spectrum of lone STX]{Zoomed Raman spectrum of lone STX}
+    \labfig{raman-stx-zoom}
+\end{figure*}
 
 \begin{table}
     \caption[Raman modes of STX]{Selected Raman active vibrational modes for STX. Letters $\delta$ and $\nu$ are scissoring and stretching vibrations, subscripts $_\textit{s}$ and $_\textit{as}$ mean symmetric and antisymmetric; and G5, G6 and Cb are the 5 atom guanidinium moiety, the 6 atom guanidinium moiety, and the carbamate group.}
@@ -153,7 +160,7 @@ A question arises, how can we determine which conformers are stable enough to be
 Our answer to this problem consisted in applying Maxwell-Boltzmann statistics to transform these energies into population fractions.
 This concept essentially translates as the fraction of each conformer that would be present in a macroscopic sample at a certain temperature.
 As modeled in \refeq{maxwell-boltzmann}, $p_i$ represents the population fraction of the conformer $i$, while $p_\textit{MSC}$ is the fraction of the MSC of that particular set of conformers.
-As for the rest of the elements of the equation, $\varepsilon$ corresponds to the absolute energies of the systems, $N$ is the total number of conformers in each set (which is 10 in our case), $k$ is Boltzmann's constant, and $T$ is the temperature of the system in \si{\kelvin} (which for the purposes of this study is set at \fix{\SI{298}{\kelvin}, or is it 273??}).
+As for the rest of the elements of the equation, $\varepsilon$ corresponds to the absolute energies of the systems, $N$ is the total number of conformers in each set (which is 10 in our case), $k$ is Boltzmann's constant, and $T$ is the temperature of the system in \si{\kelvin} (which for the purposes of this study is set at \SI{298.15}{\kelvin}).
 
 \begin{align}
 \begin{split}
@@ -241,6 +248,7 @@ All of the families (except for Se) appear to have a common tendency: the higher
 \blindtext
 
 \section{Study of UV-vis behavior}
+\labsec{complex-uv}
 One of the main points of adsorbing the STX to the flowers is the desire of increasing its range of absorption of UV-vis radiation.
 It's possible that the flower-STX complex absorbs light at longer wavelengths than the isolated STX, and this could be highly beneficial to apply further detection techniques based on resonace.
 
@@ -302,15 +310,15 @@ The UV absorption range for those remaining complexes was also displayed on \ref
 
 \section{Resonance Raman}
 At last, it was time to apply the previous parts of the study and test the performance of the selected sunflowers.
-\fix{A nicer explanation of Resonance raman here? Move the one from Methods? I'm not sure...}
-\blindtext
-RR spectra were generated for each of the flower-STX systems by using incident laser wavelengths in their particular ranges of absorption.
-Specifically, the whole of their absorption interval was covered by selecting wavelengths with a step of \SI{3}{\nano\metre}.\sidenote{So in the case of As10, for example, the Resonance raman calculations were performed with lasers of \num{300}, \num{303}, \num{306}... all up until \SI{600}{\nano\metre}}
-\blindtext
+As seen in \refsec{complex-uv}, all of these complexes have absorption ranges that could be useful in real life, and all of them should be able to be subject the resonance Raman phenomenon.
+The main point of this section is generating actual amplified Raman spectra, identifying the lasers that would produce the best amplifications, and being able to select a flower that makes the identification of STX easier.
 
 \subsection{Generation and comparison of spectra}
 \labsec{heatmaps}
-The RR calculations from the previous step amounted to a total of 2858, where the amplification, position and relevance of each vibrational mode\sidenote{Between \num{186} and \num{222} depending on the size of the flower} had to be evaluated.
+RR spectra were generated for each of the flower-STX systems by using incident laser wavelengths in their particular ranges of absorption.
+Specifically, the whole of their absorption interval was covered by selecting wavelengths with a step of \SI{3}{\nano\metre}.\sidenote{So in the case of As10, for example, the Resonance raman calculations were performed with lasers of \num{300}, \num{303}, \num{306}... all up until \SI{600}{\nano\metre}}
+
+The RR calculations from this step amounted to a total of 2858, where the amplification, position and relevance of each vibrational mode\sidenote{Between \num{186} and \num{222} depending on the size of the flower} had to be evaluated.
 For this purpose, the two following metrics were developed.
 
 \subsubsection{Individual molecule contribution to a complex vibrational mode}
@@ -432,9 +440,36 @@ Applying this method to the running example of As12-STX, then, resulted in \reff
     \labfig{comb-as12}
 \end{figure}
 
+\begin{margintable}
+    \centering
+    \caption[Electronic transitions of As12-STX]{Major electronic transitions of As12-STX}
+    \begin{tabular}{@{}S[table-format=3.1]
+                       S[table-format=1.4]@{}}
+        \toprule
+        {$\lambda$ (\si{\nano\metre})} & {f (a.u.)} \\
+        \midrule
+        366.8 & 0.0746 \\
+        375.0 & 0.0986 \\
+        407.7 & 0.1021 \\
+        548.3 & 0.1972 \\
+        599.8 & 0.0117 \\
+        638.6 & 0.0052 \\
+        794.27 & 0.0089 \\
+    \end{tabular}
+    \labtab{as12-transitions}
+\end{margintable}
 
+As it can be observed, the laser wavelengths with the highest amplifications can be clearly distinguished at sight as bright yellow horizontal lines.
+Comparing these wavelengths to those of the major electronic transitions found in the UV-vis spectra, most of them are found matching.
+The UV-vis spectrum of As12-STX and some of its most relevant transitions have been included in \reffig{uv-as12} and \reftab{as12-transitions}.
+This confirms that the amplification effect is related to the molecule reaching excited electronic states, supporting the theory behind resonance Raman.
+While many of the bright horizontal lines of the graph don't have a label, they have great enhancement factors nonetheless; they just weren't marked because the amplification of the selected modes were not particularly high in comparison with the amplification of other less relevant ones.
 
-
+\begin{figure}
+    \includegraphics{uv-as12}
+    \caption[UV-vis spectrum of As12-STX]{UV-vis spectrum of As12-STX, with its 50 major transitions plotted as vertical lines}
+    \labfig{uv-as12}
+\end{figure}
 
 \subsection{Final selection}
 While the previous method serves as a convenient way to visualize the best amplifications, it's true that it deviates a little from the usual representations of Raman data.
@@ -442,3 +477,19 @@ This final section aims to tie this insight together, and to display it in a mor
 
 For this reason, a complementary way of plotting amplified Raman spectra was designed: drawing the amplified RR spectra of all of the previously selected laser wavelengths vertically sorted in a single plot.
 The graphs in this section don't include any units of intensity: the reason for choosing these wavelengths, precisely, was that they had high enough amplifications.
+
+\begin{figure*}[h]
+    \includegraphics{unfolded-as12}
+    \caption[short]{long}
+    \labfig{unfolded-as12}
+\end{figure*}
+
+\blindtext[2]
+
+\begin{figure}[h]
+    \includegraphics{final-as12}
+    \caption[short]{long}
+    \labfig{final-as12}
+\end{figure}
+
+\blindtext[2]

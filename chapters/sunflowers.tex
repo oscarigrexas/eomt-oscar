@@ -1,30 +1,7 @@
 \setchapterimage[2cm]{../images/header-sunflowers.jpg}
 %\setchapterpreamble[u]{\margintoc}
-\chapter{The sunflower molecules}
+\chapter{Characterization of the sunflower molecules}
 \labch{sunflowers}
-
-
-\section{Introduction and origin}
-
-The search for effective and interesting SERS substrates ended up leading us to a novel class of molecules researched and presented in the year 2006 by Chernichenko and his colleagues.\sidecite{chernichenko06}
-The first representative of this family, nicknamed as \q{sulflower}, is the ocatathio[8]circulene.
-This highly symmetric structure, which may be described as a form of carbon sulfide and as a belt of annulated thiophene cycles, is claimed to have great stability, high symmetry and unusual electronic properties.
-
-\begin{marginfigure}
-    \includegraphics{sulflower-structure}
-    \caption[Structure of sulflower]{Structure of sulflower}
-    \labfig{sulflower-structure}
-\end{marginfigure}
-
-
-From a synthetic point of view, sulflower also proved to be simple and straightforward to develop despite its complex appearance: starting from tetrathiophene, sulphurizing its free sites and acidificating to get polythiol, and removing the excess sulfur by vacuum pyrolysis.
-This process allowed the team to achieve yields of 56\% starting from commercially available reagents.
-
-Interestingly, the team proposes that it could be possible to prepare materials with diverse electronic properties by using different types of heteroatoms and varying on the basic structure of the molecule.
-Such a statement made apparent the potential of this family of molecules: highly symmetrical, stable, surface-like structures with variable electronic behavior could act as suitable SERS substrates.
-This chapter is entirely dedicated to that premise: the study and characterization of sulflower and sulflower-like molecules, which from now on I will collectively refer to as \q{sunflowers}.
-By designing, generating and studying our own family of sunflowers, we will be contributing to characterize a novel and interesting group of molecules, and we may be able to identify an ideal SERS and resonance Raman environment for STX.
-
 
 \section{Sunflower design}
 
@@ -38,9 +15,9 @@ To start designing a family of molecules, first we must clearly state their defi
 For this purpose, we adopt Chernichenko et al.'s own proposal: \q{a novel class of heterolytic circulenes}.
 We start expanding the model by answering the question: are thiophene based circulenes with other than 8 rings stable enough to be worth considering?
 The answer is in the original paper itself.
-\reffig{sulflower-strain}, which was recreated to use our calculation level and adapt to the style of the document, shows that 8 ring structures are the most stable alongside 9.
+\reffig{sulflower-strain}, which was recreated to use our calculation level and adapt to the style of the document, shows that 8 ring structures are the most stable alongside 9 ring ones.
 The details about this calculation are further explained in \refsec{study-of-stability}.
-However, considering their low relative energies and the fact that they have an even number of electrons (which would greatly simplify later calculations), 10 and 12 ring sunflowers were also chosen as part of the study.
+However, considering their low relative energies and the fact that they would have an even number of electrons even if (which would greatly simplify later calculations), 10 and 12 ring sunflowers were also chosen as part of the study.
 
 Expanding upon this idea to allow for further heteroatom substitution, we ended up with the templates in \reffig{sunflower-skeletons}.
 The possibilities were numerous, but we settled for S, Se, As and P substitutions on X$_1$ sites, and N substitutions in some cases in X$_2$ sites.
@@ -93,7 +70,7 @@ Then, they were optimized at the M06-2X/def2SVP calculation level.
 
 Using the output files for these calculations, all of the bond distances in all of the systems were extracted using Python.
 Then, the bonds were grouped by type: inner (I, bonds between X$_0$ atoms, which were carbon in all cases), middle (M, between X$_0$ and X$_2$ atoms, which were either C-C or C-N bonds), and outer (O, between X$_2$ and X$_1$ atoms).
-The mean and standard deviation (SD) of these groups was computed for all of the flowers.
+The mean and standard deviation of these groups was computed for all of the flowers.
 Additionally, thiophene-like pentagonal structures of the form displayed in \reffig{pentagon-structure} were modeled and optimized, and their bond length data was compared with the rest and presented in \reftab{bond-length-study}.
 
 How is this information useful?
@@ -162,7 +139,7 @@ The energy associated to this phenomenon can serve as a way to compare the stabi
 Its calculation relies on the design of an homodesmotic reaction.
 What does this mean?
 In a homodesmotic reaction, the number of atoms and the type of hybridations in the products are the same as in the reactants.
-Our goal is to devise a chemical equation where the strained structure appears in only one of its sides and the rest of the chosen molecules don't present any stray effects.\sidecite{vidalvidal18}
+Our goal is to devise a chemical equation where the strained structure appears in only one of its sides and the rest of the chosen molecules don't present any strain effects.\sidecite{vidalvidal18}
 If we manage to create such an equation, the reaction energy will correspond to the strain, as the rest of the components of the energy should nullify themselves between the two sides of the reaction.
 
 In this case, apart from the sunflower structure B, the equations that were designed included molecules A and C, non-cyclic structures composed of 3 and 2 petals. \marginnote{
@@ -181,7 +158,7 @@ In this case, apart from the sunflower structure B, the equations that were desi
 
 This calculation, which is the one that was used to generate the previous sulflower stability curve \reffig{sulflower-strain}, was applied to all of the sunflowers of the study, and the resulting strain energies are presented in \reffig{sunflower-stability}.
 As it can be seen, the strain energies always increase with the number of petals (as it's the case for the original sulflower series).
-However, it may be noted that they increase following slightly different tendencies.
+However, it may be noted that their increase follows slightly different tendencies.
 Notable examples are the P family, where the 8 and 10 petal species have very similar strains; and the Se, As and AsN families, where the energies of the 10 and 12 petal structures are very close.
 These energy values are an useful indication of the relative strains of the different species within a family, and an estimation of their
 stabilities with respect to the original sulflower.
@@ -287,7 +264,7 @@ The method itself consists in the optimization of the coefficients of a multiple
         \labeq{multiple-linear-regression}
         f_i \approx \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + ... + \beta_p x_{ip} \quad i=1,...,n
 	\end{equation}
-}%
+} %
 A linear regression model with $p$ predictors and $n$ data points, as shown in \refeq{multiple-linear-regression}, consists of several elements.
 $y$ is the target feature, the one that we wish to predict.
 The various $x$ are the predictors, variables on which we base our predictions.
@@ -374,7 +351,16 @@ Their 2D NICS graphs are included in \reffig{method-test}.
 \end{marginfigure}
 
 The outcome for the Se10 calculation, plotted as a 2D projection onto the $xy$ plane, is displayed in \reffig{se10-2d}.
-\blindtext[2]
+As it can be noted, all of the thiophene-like rings that comprise the structure seem to have negative values of NICS, while only in the very center of the whole flower there seems to be a tendency towards positive values.
+This hints that the Se10 flower may have aromatic characteristics from a magnetic point of view.
+Complementing this insight with the geometry metrics summarized in \reftab{bond-length-study}
+
+
+\begin{marginfigure}
+    \includegraphics{as08-2d}
+    \caption[NICS applied to As08]{Custom NICS technique applied to the As08 system}
+    \labfig{as08-2d}
+\end{marginfigure}
 
 %\subsection{AICD}
 %\subsubsection{The basics of AICD}
@@ -390,16 +376,15 @@ After having obtained a general profile of the nature of this novel family of mo
 \subsection{Vibrational spectroscopy}
 Sunflowers of 8, 10 and 12 petals have 66, 84 and 102 vibrational modes, respectively.\marginnote{Any non linear molecule with $N$ atoms has $3N-6$ vibrational normal modes}
 Depending on whether these vibrations actively affect the dipole or the polarizability of the flowers, they can be detected using infrared spectroscopy, Raman spectroscopy, or both.
-In this work we will focus on the vibrational modes that are visible through Raman spectroscopy, as it's the technique of choice of the study.
-This preference for Raman isn't arbitrary: \fix{Reasons: Raman can be used on water-based samples (such as seawater), and it's the base technique of the amplification methods that we want to study.}
+In this work we will focus on the vibrational modes that are visible through Raman spectroscopy, as previously discussed in \refsec{previous-work}.
 
 \subsubsection{Raman spectra}
 Raman spectra for all 18 sunflower systems were generated following the procedures detailed in \refsec{spectra-envelope-calculation}.
 
 
 \subsection{Electronic spectroscopy}
-Keeping in mind the final objectives of the work of applying resonance Raman, the electronic spectroscopic behavior of the flowers was deemed as an important point to study.
-The characterization of the electronic transitions of a molecule might give plenty of insight on how does it interact with light.
+Keeping in mind the final objectives of the work of applying resonance Raman, the electronic spectroscopic behavior of the flowers was deemed as a relevant point to study
+The characterization of the electronic transitions of a molecule might give plenty of insight about its interactions with light.
 
 \subsubsection{UV-vis spectra}
 The most straightforward way to study electronic spectroscopy is by simulating ultraviolet-visible (UV-vis) spectra.
@@ -407,7 +392,7 @@ In order to generate this, the energies of the 50 first transitions from the gro
 Then, using their energy and oscillator strength values, Gaussian functions were calculated for each of the transitions and linearly combined to create continuous spectra similar to those obtained using real spectrophotometers.
 This procedure is further explained in \refsec{spectra-envelope-calculation}.
 UV-vis spectra were generated for all of the sunflowers, but since they are fairly simple graphs, only the one for S08 will be explained in this section as an example.
-It's displayed in \reffig{uv-s08}.
+It's displayed in \reffig{uv-s08-simple}.
 
 \begin{figure}[h]
     \includegraphics{uv-s08-simple}
