@@ -43,7 +43,7 @@ The Raman spectrum of STX was calculated and plotted in the same way as those of
 \begin{figure*}
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-stx-left}\end{subfigure}%
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-stx-right}\end{subfigure}
-    \caption[Zoomed Raman spectrum of lone STX]{Zoomed Raman spectrum of lone STX}
+    \caption[Zoomed in Raman spectrum of lone STX]{Zoomed in Raman spectrum of lone STX}
     \labfig{raman-stx-zoom}
 \end{figure*}
 
@@ -87,12 +87,13 @@ As before, using TD-DFT as implemented in Gaussian09, the first 50 electronic tr
 \end{figure}
 
 As it may be noted, the range of absorption (between \SI{120}{\nano\metre} and \SI{200}{\nano\metre}) is located within the UV region.
-\fix{Introduce Resonance Raman here??? I'm not sure.}
+As discussed previously in \refsec{previous-work}, it's possible to induce resonance Raman effects at this wavelengths, it's just that it's expensive and impractical to use lasers that energetic in real experimental settings.
+This range of UV-vis absorption need to be shifted to allow for the usage of more common incident laser wavelengths.
 
 \section{Study of adsorption}
 
-After having characterized the spectroscopic profile of STX, it's time to assess its interactions with the members of the sunflower family, keeping in mind that the main goal of this work is determining if any of them could be a substrate suitable for its detection.
-The first study that must be carried out, before any spectroscopic technique can be applied, is that of adsorption: how does STX adhere to the flowers, how stable is the resulting complex, what is the nature of that interaction...
+Having characterized the spectroscopic profile of STX, it's time to assess its interactions with the members of the sunflower family, keeping in mind the goal of determining if any of them could be a substrate suitable for its detection.
+The first study that must be carried out, before any spectroscopic technique can be applied, is that of adsorption: how does STX adhere to the flowers, how stable is the resulting complex, \fix{what is the nature of the interactions}...
 This is a crucial matter, as there's no point in calculating spectra for a system that isn't stable.
 
 \subsection{Sampling and optimization}
@@ -250,10 +251,10 @@ All of the families (except for Se) appear to have a common tendency: the higher
 \section{Study of UV-vis behavior}
 \labsec{complex-uv}
 One of the main points of adsorbing the STX to the flowers is the desire of increasing its range of absorption of UV-vis radiation.
-It's possible that the flower-STX complex absorbs light at longer wavelengths than the isolated STX, and this could be highly beneficial to apply further detection techniques based on resonace.
+It's possible that the STX-flower complex absorbs light at longer wavelengths than the isolated STX, and this could be highly beneficial to apply further detection techniques based on resonace.
 
 \subsection{General UV-vis spectroscopy}
-Electronic spectra were calculated as described in \refsec{electronic-transition-study} and \refsec{spectra-envelope-calculation} for the most stable conformers of all of the sunflower-STX complexes.
+Electronic spectra were calculated as described in \refsec{electronic-transition-study} and \refsec{spectra-envelope-calculation} for the most stable conformers of all of the STX-flower complexes.
 
 First, they were plotted together with the UV-vis spectrum of STX and of their corresponding isolated flower.
 The individual transitions with significant weights were also plotted as straight vertical lines.
@@ -268,13 +269,13 @@ As an example of this, the UV-vis spectra of STX, S08 and S08-STX are displayed 
 \end{figure}
 
 As it may be noted, the spectra of the complex has almost the same absorption range as that of the isolated S08, and in any case, it's definitely shifted towards longer wavelengths in contrast with that of STX.
-This effect was the same for all of the flower-STX complexes, and the full list of compared UV-vis spectra can be found in \refsec{ap:uv-vis-flowers}.
+This effect was the same for all of the STX-flower complexes, and the full list of compared UV-vis spectra can be found in \refsec{ap:uv-vis-flowers}.
 
 After this, the UV-vis absorption spectra of all of the complexes were plotted together in order to visually compare just their absorption ranges. This plot is displayed in \reffig{complex-uv}.
 
 \begin{figure*}
     \includegraphics{complex-uv}
-    \caption[UV-vis absorption spectra of all complexes]{UV-vis absorption spectra of all flower-STX complexes}
+    \caption[UV-vis absorption spectra of all complexes]{UV-vis absorption spectra of all STX-flower complexes}
     \labfig{complex-uv}
 \end{figure*}
 
@@ -315,7 +316,7 @@ The main point of this section is generating actual amplified Raman spectra, ide
 
 \subsection{Generation and comparison of spectra}
 \labsec{heatmaps}
-RR spectra were generated for each of the flower-STX systems by using incident laser wavelengths in their particular ranges of absorption.
+RR spectra were generated for each of the STX-flower systems by using incident laser wavelengths in their particular ranges of absorption.
 Specifically, the whole of their absorption interval was covered by selecting wavelengths with a step of \SI{3}{\nano\metre}.\sidenote{So in the case of As10, for example, the Resonance raman calculations were performed with lasers of \num{300}, \num{303}, \num{306}... all up until \SI{600}{\nano\metre}}
 
 The RR calculations from this step amounted to a total of 2858, where the amplification, position and relevance of each vibrational mode\sidenote{Between \num{186} and \num{222} depending on the size of the flower} had to be evaluated.
@@ -391,7 +392,7 @@ Their magnitude is expressed as a single positive or negative value, whose absol
 By differentiating whether the atoms involved in a certain vibrational motion belong to the As12 flower or to the STX, said vibration can be classified as an exclusive flower vibration, as an exclusive STX vibration, or as a mixed one.
 Such classification, illustrated in \reftab{intmodes-classification}, can be easily automated using a script.
 
-By adding up the relative weights of the vibrations in each category, we can find out which of the elements of the flower-STX complex dominate a particular mode.
+By adding up the relative weights of the vibrations in each category, we can find out which of the elements of the STX-flower complex dominate a particular mode.
 In this case, mode 42 has a \SI{92.54}{\percent} contribution from the STX, a \SI{0.00}{\percent} contribution from the flower, and a \SI{7.45}{\percent} contribution from mixed vibrations.
 
 From a practical point of view, the fact that it's composed almost exclusively of isolated STX vibrations makes this a good choice of vibrational mode to look for in a RR spectra of this complex.
