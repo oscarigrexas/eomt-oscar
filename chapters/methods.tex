@@ -15,7 +15,7 @@ This part may be skimmed and consulted at a later time, or even skipped entirely
 All of the electronic structure calculations were performed using Density Functional Theory (DFT) in the Kohn-Sham formulation.
 Specifically, the functional of choice was Minnesota's M06-2X.\sidecite{truhlar08}
 M06-2X is a highly parametrized hybrid meta-GGA functional that features a \SI{54}{\percent} of Hartree-Fock exchange.
-It was chosen because it has been extensively trained to perform well in a variety of contexts that include thermochemistry, the study of non covalent interactions, and vibrational and electronic spectroscopy.
+It was chosen because it has been extensively trained to perform well in a variety of contexts that include thermochemistry, the study of non covalent interactions, and vibrational and electronic spectroscopy, appearing in numerous publications in the bibliography supporting its effectiveness.\cite{head16,vidalvidal17,vidalvidal17-2,vidalvidal18,sert14,eizig15,coccia17}
 While the molecules discussed in the work are novel and have not been previously characterized, it's expected that their chemistry and their spectroscopic behavior aren't out of the ordinary.
 Therefore, it should be possible to describe them properly and efficiently with such a functional.
 
@@ -29,7 +29,7 @@ Considering the size of the systems of the study, the large amount of planned co
 The optimization of the geometry of a molecule is a crucial part of any computational modeling.
 At its core, it's a process where the geometry of a system gets iteratively modified (and its energy gets calculated at each step) with the aim of reaching a stationary point on its potential energy surface.
 In the case of this work, these optimizations are always minimizations as we just look for energy minima.
-In Gaussian, our electronic structure computation software of choice, these calculations are carried out using the Berny algorithm in its GEDIIS\sidecite{li06} implementation.
+In Gaussian09,\cite{gaussian09} our electronic structure computation software of choice, these calculations are carried out using the Berny algorithm in its GEDIIS\sidecite{li06} implementation.
 
 \subsection{Magnetic shielding computation}
 Nuclear magnetic resonance type calculations, namely the computation of the magnetic shielding in the Nucleus-Independent Chemical Shift study in \refsec{nics}, were carried out using the GIAO method.
@@ -73,7 +73,7 @@ After this, the photon has either a lower or a higher energy, and the molecule e
 
 \subsubsection{Resonance Raman}
 \labsec{rr-methods}
-The regular Raman effect is usually very weak, as the probability of Raman scattering occurring is extremely low.\sidenote{Only about 1 in every \num{10e7} photons results in inelastic scattering}
+The regular Raman effect is usually very weak, as the probability of Raman scattering occurring is extremely low.\sidenote{Only about 1 in every \num{1e7} photons results in inelastic scattering}
 
 \begin{marginfigure}
     \includegraphics{raman-rr-comparison}
@@ -143,11 +143,11 @@ Plotting these values directly as vertical lines along the wave number range res
 
 While such a graph could still be useful to display and compare the intensities of the vibrational modes, it could be harder to compare to real experimental spectra.
 In order to make our theoretical spectra look more realistic, then, an envelope line is added.
-This is done by replacing each of the simple vertical lines by gaussian functions.
+This is done by replacing each of the simple vertical lines by Gaussian functions.
 These functions are designed so that they are as tall as the intensity of the peak that they're representing.
 They are evaluated at the full range of frequencies, and linearly combined forming a continuous curve that smoothly wraps all of the peaks.
 
-In the case of Raman spectra, the value of each of the gaussians at a certain wave number value is calculated following \refeq{raman-envelope}.
+In the case of Raman spectra, the value of each of the Gaussians at a certain wave number value is calculated following \refeq{raman-envelope}.
 
 \begin{equation}
     \labeq{raman-envelope}
@@ -160,13 +160,13 @@ The same STX Raman spectrum, plotted after computing this set of equations, is d
 \begin{figure}
     \centering
     \includegraphics{with-envelope}
-    \caption[Raman spectrum with gaussian envelope]{Raman spectrum of STX using an envelope of gaussian functions}
+    \caption[Raman spectrum with Gaussian envelope]{Raman spectrum of STX using an envelope of Gaussian functions}
     \labfig{with-envelope}
 \end{figure}
 
 As for the electronic spectra, the procedure is quite similar.
 In this case, the values to be plotted are the energies of the electronic transitions in the form of wavelengths, as well as their corresponding oscillator strengths.
-Similarly to before, an envelope curve is created by calculating as many gaussian functions as there are transitions, but with a slightly different formula as displayed in \refeq{uv-envelope}.
+Similarly to before, an envelope curve is created by calculating as many Gaussian functions as there are transitions, but with a slightly different formula as displayed in \refeq{uv-envelope}.
 
 \begin{equation}
     \labeq{uv-envelope}
@@ -181,12 +181,12 @@ Here, $\lambda_i$ and $f_i$ are the wavelength and oscillator strength of each t
 Where $e$ and $m_e$ are the charge and mass of the electron, $N$ is Avogadro's number, and $c$ is the speed of light
 } (see \refeq{uv-constant}) is a conversion factor that is added in order to achieve the right units for the intensity $\varepsilon$, which should be \si{\litre\per\mole\per\cm}.
 A value of \SI{0.4}{\eV} was chosen for $\sigma$.
-For the case of STX, the spectrum that results from combining the gaussian band shapes for the 50 most intense electronic transitions is shown in \reffig{uv-envelope}
+For the case of STX, the spectrum that results from combining the Gaussian band shapes for the 50 most intense electronic transitions is shown in \reffig{uv-envelope}
 
 \begin{figure}
     \centering
     \includegraphics{uv-envelope}
-    \caption[Electronic spectrum with gaussian envelopes]{Electronic spectrum of STX using an envelope of gaussian functions}
+    \caption[Electronic spectrum with Gaussian envelopes]{Electronic spectrum of STX using an envelope of Gaussian functions}
     \labfig{uv-envelope}
 \end{figure}
 
@@ -203,12 +203,12 @@ The software used to perform all of the calculations is summarized in \reftab{co
         \toprule
         Calculation & Technique & Spec. & Functional & Basis set & Software \\
         \midrule
-        Geometry optimization                   & DFT       & GEDIIS    & M06-2X & def2SVP & Gaussian \\
-        Vibrational analysis                    & DFT       &           & M06-2X & def2SVP & Gaussian \\
-        Raman activity                          & DFT       &           & M06-2X & def2SVP & Gaussian \\
-        Resonance Raman activity                & DFT       & CPHF      & M06-2X & def2SVP & Gaussian \\
-        Electronic transition calculation       & TD-DFT    &           & M06-2X & def2SVP & Gaussian \\
-        Magnetic shielding calculation          & DFT       & GIAO      & b3lyp  & 6-31G*  & Gaussian \\
+        Geometry optimization                   & DFT       & GEDIIS    & M06-2X & def2SVP & Gaussian09 \\
+        Vibrational analysis                    & DFT       &           & M06-2X & def2SVP & Gaussian09 \\
+        Raman activity                          & DFT       &           & M06-2X & def2SVP & Gaussian09 \\
+        Resonance Raman activity                & DFT       & CPHF      & M06-2X & def2SVP & Gaussian09 \\
+        Electronic transition calculation       & TD-DFT    &           & M06-2X & def2SVP & Gaussian09 \\
+        Magnetic shielding calculation          & DFT       & GIAO      & b3lyp  & 6-31G*  & Gaussian09 \\
         Surface generation                      &           &           & & & nics.py \\
         \bottomrule
     \end{tabular}
