@@ -271,7 +271,7 @@ As an example of this, the UV-vis spectra of STX, S08 and S08-STX are displayed 
 As it may be noted, the spectra of the complex has almost the same absorption range as that of the isolated S08, and in any case, it's definitely shifted towards longer wavelengths in contrast with that of STX.
 This effect was the same for all of the STX-flower complexes, and the full list of compared UV-vis spectra can be found in \refsec{ap:uv-vis-flowers}.
 
-After this, the UV-vis absorption spectra of all of the complexes were plotted together in order to visually compare just their absorption ranges. This plot is displayed in \reffig{complex-uv}.
+After this, the UV-vis absorption spectra of all of the complexes were plotted together in order to visually compare just their absorption ranges. This plot is displayed in \reffig{complex-uv}, where the main heteroatoms of the flowers and their number of petals are distinguished using different colors and linestyles, respectively.
 
 \begin{figure*}
     \includegraphics{complex-uv}
@@ -319,7 +319,7 @@ The main point of this section is generating actual amplified Raman spectra, ide
 RR spectra were generated for each of the STX-flower systems by using incident laser wavelengths in their particular ranges of absorption.
 Specifically, the whole of their absorption interval was covered by selecting wavelengths with a step of \SI{3}{\nano\metre}.\sidenote{So in the case of As10, for example, the Resonance raman calculations were performed with lasers of \num{300}, \num{303}, \num{306}... all up until \SI{600}{\nano\metre}}
 
-The RR calculations from this step amounted to a total of 2858, where the amplification, position and relevance of each vibrational mode\sidenote{Between \num{186} and \num{222} depending on the size of the flower} had to be evaluated.
+The RR calculations from this step amounted to a total of 2858, where the amplification, position and relevance of each vibrational mode\sidenote{\num{186}, \num{204} or \num{222} depending on the size of the flower} had to be evaluated.
 For this purpose, the two following metrics were developed.
 
 \subsubsection{Individual molecule contribution to a complex vibrational mode}
@@ -403,7 +403,7 @@ Even if a mode is exclusive to our molecule of interest, it needs to have a suff
 In the context of RR, this means that it has to benefit from a certain level of amplification during resonance experiments.
 
 To evaluate this for all of the tested laser wavelengths, the enhancement factor (EF) metric was designed and applied.
-The EF for a certain vibrational mode $i$ and laser wavelength $\lambda$  is defined in \refeq{enhancement-factor}.
+The EF for a certain vibrational mode $i$ and laser wavelength $\lambda$ is defined in \refeq{enhancement-factor}.
 
 \begin{equation}
     \labeq{enhancement-factor}
@@ -433,17 +433,22 @@ In regard to the vibrational modes, two thresholds were set: a maximum percent o
 This ensured that the displayed modes were relevant.
 As for the laser wavelengths, only the ones that produced amplifications above a certain threshold value for the EF of the previously selected vibrational modes were displayed.
 
-Applying this method to the running example of As12-STX, then, resulted in \reffig{comb-as12}
+It should be noted that the values of these metrics varied very significantly between the different systems.
+Therefore, setting common thresholds for all of them was unpractical: the values that worked for a certain complex were too strict for others.
+For this reason, the thresholds were set individually for each of the systems in a such a way that only the top 5, 6 or 7 lasers and the best 5, 6 or 7 vibrational modes were selected and labeled.
+The cutoff values for these top results, therefore, were annotated in each of the graphs.
+
+Applying this method to the running example of AsN12-STX, then, resulted in \reffig{comb-asn12}
 
 \begin{figure}
-    \includegraphics{comb-as12}
-    \caption[Combined resonance graph for As12-STX]{Combined resonance graph for As12-STX}
-    \labfig{comb-as12}
+    \includegraphics{comb-asn12}
+    \caption[Combined resonance graph for AsN12-STX]{Combined resonance graph for AsN12-STX}
+    \labfig{comb-asn12}
 \end{figure}
 
 \begin{margintable}
     \centering
-    \caption[Electronic transitions of As12-STX]{Major electronic transitions of As12-STX}
+    \caption[Electronic transitions of AsN12-STX]{Major electronic transitions of AsN12-STX}
     \begin{tabular}{@{}S[table-format=3.1]
                        S[table-format=1.4]@{}}
         \toprule
@@ -457,20 +462,37 @@ Applying this method to the running example of As12-STX, then, resulted in \reff
         638.6 & 0.0052 \\
         794.27 & 0.0089 \\
     \end{tabular}
-    \labtab{as12-transitions}
+    \labtab{asn12-transitions}
 \end{margintable}
 
 As it can be observed, the laser wavelengths with the highest amplifications can be clearly distinguished at sight as bright yellow horizontal lines.
 Comparing these wavelengths to those of the major electronic transitions found in the UV-vis spectra, most of them are found matching.
-The UV-vis spectrum of As12-STX and some of its most relevant transitions have been included in \reffig{uv-as12} and \reftab{as12-transitions}.
+The UV-vis spectrum of ANs12-STX and some of its most relevant transitions have been included in \reffig{uv-asn12} and \reftab{asn12-transitions}.
 This confirms that the amplification effect is related to the molecule reaching excited electronic states, supporting the theory behind resonance Raman.
 While many of the bright horizontal lines of the graph don't have a label, they have great enhancement factors nonetheless; they just weren't marked because the amplification of the selected modes were not particularly high in comparison with the amplification of other less relevant ones.
 
 \begin{figure}
-    \includegraphics{uv-as12}
-    \caption[UV-vis spectrum of As12-STX]{UV-vis spectrum of As12-STX, with its 50 major transitions plotted as vertical lines}
-    \labfig{uv-as12}
+    \includegraphics{uv-asn12}
+    \caption[UV-vis spectrum of AsN12-STX]{UV-vis spectrum of AsN12-STX, with its 50 major transitions plotted as vertical lines}
+    \labfig{uv-asn12}
 \end{figure}
+
+The main reasonings behind this interpretation are valid for the rest of the combined EF graphs, which can be found in \refsec{ap:combined-ef}, and its possible to quickly visually identify the best laser wavelengths and vibrational modes for all of them.
+However, it was also possible to see that one of them presented better properties than others.
+
+\begin{figure}
+    \includegraphics{comb-asn08}
+    \caption[Combined resonance graph for AsN08-STX]{Combined resonance graph for AsN08-STX}
+    \labfig{comb-asn08}
+\end{figure}
+
+Let's take the AsN08-STX system.
+Its combined graph is similar to that of AsN12-STX in the sense that it's easy to interpret and it has a similar number of labels.
+However, looking at the cutoff values, it can be observed that the ones for AsN08-STX are lower.
+For example, the cutoff value for the EF in the AsN08-STX system is \num{6.0}, while in the AsN12-STX system it's \num{6.5}.
+From a vibrational mode composition point of view, AsN08-STX's most pure vibrations were only guaranteed to have more than \SI{27.07}{\percent} STX contribution; while for AsN12-STX the labeled modes had over \SI{99.04}{\percent}.
+It appeared that the flowers with a higher number of petals allowed for greater amplifications and more pure vibrational modes.
+The exception to this tendency was PN12-STX, which had vibrational modes much less pure than the rest of 12-petal systems.
 
 \subsection{Final selection}
 While the previous method serves as a convenient way to visualize the best amplifications, it's true that it deviates a little from the usual representations of Raman data.
@@ -480,17 +502,32 @@ For this reason, a complementary way of plotting amplified Raman spectra was des
 The graphs in this section don't include any units of intensity: the reason for choosing these wavelengths, precisely, was that they had high enough amplifications.
 
 \begin{figure*}[h]
-    \includegraphics{unfolded-as12}
+    \includegraphics{unfolded-p12}
     \caption[short]{long}
-    \labfig{unfolded-as12}
+    \labfig{body:unfolded-p12}
 \end{figure*}
 
-\blindtext[2]
+Taking the P12-STX system as an example due to its clarity, the RR spectra for its selected wavelengths were plotted and displayed in \reffig{body:unfolded-asn12}.
+Using this type of graph, one can easily compare which modes have the best amplifications at each of the considered wavelengths.
+In this case, it can be observed that mode 36 is only visible at \SI{369}{\nano\metre}, \SI{447}{\nano\metre} and \SI{540}{\nano\metre}.
+Mode 139 can be detected with all of the laser wavelengths except for \SI{540}{\nano\metre}.
+However, mode 162 is only active at \SI{321}{\nano\metre}, \SI{369}{\nano\metre} and \SI{447}{\nano\metre}.
+Following this kind of logic, it's possible to select the wavelength that maximizes the number of relevant vibrational modes that are visible.
+This set of vibrational modes and this laser wavelength, then, would be the ones that could be used in an analytical setting to detect and quantify the presence of STX in a sample.
+In the case of P12-STX, then, the chosen wavelengths could be \SI{369}{\nano\meter} or \SI{447}{\nano\meter}, given that all of the chosen vibrational modes (\num{36}, \num{139}, \num{152}, \num{162} and \num{199}) are visible in their amplified spectra.
 
-\begin{figure}[h]
-    \includegraphics{final-as12}
+All of the RR spectra for the rest of the flower-STX systems can be found in \refsec{ap:rr} along the corresponding commentary.
+
+As a way of clearly displaying these final results and selection, a last way of plotting the Raman data of a single incident laser wavelength was devised.
+This one, in addition to displaying the main Raman spectrum and the labels of the main vibrational modes, also included a representation of its numerically calculated derivative.
+This type of representation was applied to the P12-STX system using the previously chosen \SI{447}{\nano\meter} incident laser wavelength, and displayed in \reffig{body:final-p12}
+
+\begin{figure*}[h]
+    \includegraphics{final-p12}
     \caption[short]{long}
-    \labfig{final-as12}
-\end{figure}
+    \labfig{body:final-p12}
+\end{figure*}
 
-\blindtext[2]
+As it can be observed, the selected vibrational modes are clearly distinguishable.
+At the chosen incident laser wavelength, they are all highly amplified (in the order of \num{1e9} a.u., with EF values higher than \num{5.4}).
+The addition of the derivative \fix{makes it easier to locate the peaks and evaluate their cleanliness}.

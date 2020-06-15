@@ -6,38 +6,80 @@ Selection for as10-STX system
     Wavelengths for minef= 4.74
     [381, 432, 438, 453, 498, 600]
 
-    Range
-    [1200.0, 3200]
-
+     Mode range
+    [1250.0, 3150.0]
 
 
 Selection for as12-STX system
 
-
-    Modes with maxsur= 0.00 and minmol=95.00
-    [26, 36, 43, 45, 112, 128, 132, 134, 139, 140, 142]
-
+    Modes with maxsur= 0.00 and minmol=95.72
+    [43, 45, 128, 134, 139, 142]
 
     Wavelengths for minef= 6.71
-    [366, 375, 408, 543, 549, 600, 639, 795]
+    [342, 366, 375, 408, 543, 549, 600, 639, 663, 795]
 
      Mode range
-    [100.0, 1100.0]
-
+    [200.0, 1100.0]
 
 
 Selection for asn08-STX system
 
-    Modes with maxsur= 3.63 and minmol=42.07
-    [157, 158, 159]
+    Modes with maxsur=14.41 and minmol=27.07
+    [153, 154, 157, 158, 159, 164, 165]
 
-    Wavelengths for minef= 7.09
-    [306, 348, 375, 378, 381, 384, 399, 402, 468, 498]
+    Wavelengths for minef= 6.00
+    [366, 381, 384, 402, 426, 498]
+
+     Mode range
+    [1450.0, 1750.0]
 
 
+Selection for asn10-STX system
+
+    Modes with maxsur= 3.21 and minmol=30.08
+    [100, 158, 162, 168, 172, 173, 177, 189]
+
+    Wavelengths for minef= 5.46
+    [363, 393, 456, 576, 618]
+
+     Mode range
+    [700.0, 3150.0]
 
 
+Selection for asn12-STX system
 
+    Modes with maxsur= 0.00 and minmol=99.04
+    [56, 125, 140, 158, 173, 179, 195]
+
+    Wavelengths for minef= 6.51
+    [356, 476, 482, 575, 707, 812, 842]
+
+     Mode range
+    [250.0, 1550.0]
+
+
+Selection for p12-STX system
+
+    Modes with maxsur= 0.00 and minmol=99.32
+    [36, 139, 152, 161, 162, 199]
+
+    Wavelengths for minef= 5.44
+    [321, 324, 369, 447, 519, 540]
+
+     Mode range
+    [200.0, 1650.0]
+
+
+Selection for pn10-STX system
+
+    Modes with maxsur= 5.51 and minmol=37.18
+    [173, 174, 175, 176, 177, 187, 193]
+
+    Wavelengths for minef= 4.86
+    [381, 405, 438, 456, 492, 525]
+
+     Mode range
+    [1450.0, 3200.0]
 
 
 Selection for pn12-STX system
@@ -47,3 +89,6 @@ Selection for pn12-STX system
 
     Wavelengths for minef= 6.17
     [355, 373, 412, 442, 472, 535, 616]
+
+     Mode range
+    [1300.0, 1600.0]

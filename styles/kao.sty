@@ -529,6 +529,7 @@
 % Command to choose among the three possible layouts
 \DeclareDocumentCommand{\pagelayout}{m}{%
 	\ifthenelse{\equal{margin}{#1}}{\marginlayout}{}%
+	\ifthenelse{\equal{marginap}{#1}}{\marginaplayout}{}%
 	\ifthenelse{\equal{wide}{#1}}{\widelayout}{}%
 	\ifthenelse{\equal{fullwidth}{#1}}{\fullwidthlayout}{}%
 }
@@ -539,6 +540,20 @@
 		a4paper,
 		top=27.4mm,
 		bottom=27.4mm,
+		inner=24.8mm,
+		textwidth=107mm,
+		marginparsep=8.2mm,
+		marginparwidth=49.4mm,
+		includemp
+	}%
+}
+
+% Layout #1.5: smaller margins
+\newcommand{\marginaplayout}{%
+	\newgeometry{
+		a4paper,
+		top=27.4mm,
+		bottom=18.4mm,
 		inner=24.8mm,
 		textwidth=107mm,
 		marginparsep=8.2mm,
@@ -587,7 +602,7 @@
 
 % Headings styles
 
-% Style with chapter number, chapter title, and page in the header (used 
+% Style with chapter number, chapter title, and page in the header (used
 % throughout the document)
 \renewpagestyle{scrheadings}{%
 	{\hspace{-\marginparwidth}\hspace{-\marginparsep}\makebox[\overflowingheadlen][l]{%
