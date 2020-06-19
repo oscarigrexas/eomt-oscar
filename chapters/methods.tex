@@ -52,8 +52,33 @@ Any given non linear molecule with $N$ atoms has 6 translational and rotational 
 Vibrational normal modes are orthogonal, that is, they're vibrational motions that are independent and don't cause movement to the other normal modes.
 
 The frequencies of these modes are calculated through the following procedure.\sidecite{ochterski99}
-\fix{First, a}
-\blindtext[2]
+All starts with a Hessian matrix that contains the second partial derivatives of the potential with respect to the displacement of the atoms.
+This Hessian is mass weighted, its principal axes of inertia are determined, and it gets transformed into internal coordinates.
+Through these operations, the rotational and translational modes get separated out and only the $3N-6$ vibrational modes remain.
+Then, the transformed matrix is diagonalized.
+The eigenvalues resulting from this diagonalization, $\lambda_i$, can be used to calculate the frequencies in wavenumbers ($\tilde{\nu_i}$) of each of the modes as described in \refeq{vibrational-frequencies}, where $i$ is a certain vibrational mode and $c$ is the speed of light.
+
+\begin{equation}
+    \labeq{vibrational-frequencies}
+    \tilde{\nu_i} = \sqrt{\frac{\lambda_i}{4 \pi^2 c^2}}
+\end{equation}
+
+After this, the force constants and cartesian displacements for each of the modes can also be calculated.
+The force constants $k_i$ can be obtained using \refeq{force-constants}, where $\mu_i$ is the reduced mass.
+
+\begin{equation}
+    \labeq{force-constants}
+    k_i =  4 \pi^2 \tilde{\nu_i}^2 c^2 \mu_i
+\end{equation}
+
+The calculation of the cartesian displacements, on the other hand, can be summarized as \refeq{cartesian-displacements}.
+
+\begin{equation}
+    \labeq{cartesian-displacements}
+    l_\textit{CART} = MDL
+\end{equation}
+
+In this equation, $M$ is a diagonal matrix defined by the masses of the atoms, $D$ is a transformation matrix that transforms from mass weighted cartesian coordinates to internal, and $L$ is a transformation matrix that holds the eigenvectors that result from the diagonalization of the internal coordinate Hessian.
 
 \subsubsection{Normal mode calculation and decomposition}
 \labsec{intmodes-methods}
@@ -70,8 +95,13 @@ This kind of vibrational transitions are tied to a physical phenomenon known as 
 For an inelastic scattering event to happen, a photon has to excite a molecule and get it to a virtual energy state before being emitted.
 After this, the photon has either a lower or a higher energy, and the molecule ends up in a different vibrational or rotational state due to the energy exchange between them.
 
-\fix{Explain how Raman modes are identified and how are their intensities calculated.}
-\blindtext
+Computationally, the intensity of a Raman active mode $i$ can be derived from its scattering factor $S_i$, which in turn it can be obtained from its polarizability tensor following \refeq{raman-activity}.
+$Q_i$ represents the displacements of the vibrational mode, $\alpha$ is the isotropic polarizability, and $\gamma$ is the anisotropic one.
+
+\begin{equation}
+    \refeq{raman-activity}
+    S_i = 45\left( \dv{\alpha}{Q_i} \right)^2 + 7\left( \dv{\gamma}{Q_i} \right)
+\end{equation}
 
 \subsubsection{Resonance Raman}
 \labsec{rr-methods}
@@ -89,8 +119,7 @@ In regular Raman scattering, the energy that the molecule absorbs from the photo
 By using photons that have the same energy as electronic transitions, however, the molecule reaches a real excited electronic state as shown in \reffig{raman-rr-comparison}.
 This excited state has a different geometry, and that affects the polarizability of the molecule and increases the magnitude of the subsequent Raman signal.\sidecite{hirakawa75}
 
-\fix{Explain how it's calculated using CPHF!}
-\blindtext
+These dynamic changes in the polarizability due to the electromagnetic radiation have to be taken into account in the calculation of the Raman intensities, and in Gaussian09 this is achieved through the introduction of perturbations by applying couple-perturbed DFT.
 
 \subsubsection{Surface-enhanced Raman spectroscopy and surface interactions}
 Surface-enhance Raman spectroscopy (SERS) is a variation of Raman spectroscopy that explores the large enhancements in intensity that the Raman signals of a molecule may experience when interacting with a surface.
