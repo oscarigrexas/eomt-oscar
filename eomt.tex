@@ -79,6 +79,16 @@
 \newcommand{\flower}[1]{\textcolor{blue}{#1}}
 \newcommand{\stx}[1]{\textcolor{red}{#1}}
 
+% Be able to write a Zh
+\usepackage[OT2,T1]{fontenc}
+\usepackage{substitutefont}
+
+\substitutefont{OT2}{\rmdefault}{wncyr}
+
+\DeclareRobustCommand{\rn}[1]{% russian name
+  {\fontencoding{OT2}\selectfont#1}%
+}
+
 % Define some cool colors
 \definecolor{fd}{gray}{0.5}
 \newcommand{\faded}[1]{\color{fd}{#1}}
@@ -167,7 +177,9 @@
 
 \dedication{
 	What, that's impossible? Wait, how? How is this sunflower so chill. How, that's impossible, he can't be this chill. He is so chill, I can't believe it.\\
-	\flushright -- Unkwnown
+	\flushright -- Unkwnown\\
+	\vspace{15em}
+	\centering MBT2Á\&\rn{Zh}
 }
 
 %----------------------------------------------------------------------------------------
@@ -189,6 +201,27 @@
 \chapter*{Preface}
 
 \blindtext
+
+%----------------------------------------------------------------------------------------
+%	NOMENCLATURE
+%----------------------------------------------------------------------------------------
+
+% The nomenclature needs to be compiled on the command line with 'makeindex main.nlo -s nomencl.ist -o main.nls' from the template directory
+
+\nomenclature{STX}{Saxitoxin}
+\nomenclature{IR}{Infrared}
+\nomenclature{RR}{Resonance Raman}
+\nomenclature{SERS}{Surface-enhanced Raman spectroscopy}
+\nomenclature{NICS}{Nucleus-independent chemical shift}
+\nomenclature{UV-vis}{Ultraviolet-visible}
+\nomenclature{MSC}{Most stable conformer}
+\nomenclature{BSSE}{Basis set superposition error}
+\nomenclature{STX}{Saxitoxin}
+
+\renewcommand{\nomname}{Notation} % Rename the default 'Nomenclature'
+\renewcommand{\nompreamble}{The next list describes several symbols, abbreviations and acronyms that, after being introduced in their corresponding sections, may be used throughout the whole body of the work.} % Prepend this text to the nomenclature
+
+\printnomenclature % Output the nomenclature
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS & LIST OF FIGURES/TABLES
@@ -251,22 +284,8 @@
 
 % The bibliography needs to be compiled with biber using your LaTeX editor, or on the command line with 'biber main' from the template directory
 
-\defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
+\defbibnote{bibnote}{} % Prepend this text to the bibliography
 \printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
-
-%----------------------------------------------------------------------------------------
-%	NOMENCLATURE
-%----------------------------------------------------------------------------------------
-
-% The nomenclature needs to be compiled on the command line with 'makeindex main.nlo -s nomencl.ist -o main.nls' from the template directory
-
-\nomenclature{$c$}{Speed of light in a vacuum inertial frame}
-\nomenclature{$h$}{Planck constant}
-
-\renewcommand{\nomname}{Notation} % Rename the default 'Nomenclature'
-\renewcommand{\nompreamble}{The next list describes several symbols that will be later used within the body of the document.} % Prepend this text to the nomenclature
-
-\printnomenclature % Output the nomenclature
 
 %----------------------------------------------------------------------------------------
 %	GREEK ALPHABET

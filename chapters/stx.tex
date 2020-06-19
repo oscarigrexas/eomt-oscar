@@ -9,7 +9,7 @@
     \labfig{stx-structure}
 \end{marginfigure}
 
-Having obtained a general characterization of the sunflower-type molecules and their spectroscopy, it's time to get back to the problem at hand and start looking into how they can be applied.
+Having obtained a general characterization of the sunflower-type molecules and their spectroscopy, it was time to get back to the problem at hand and start looking into how they can be applied.
 
 Let's reintroduce the molecule that motivated this whole study: saxitoxin (STX).
 For the purposes of this study, the STX structure features two guanidinium moieties (which are easily susceptible to protonation), two hydroxyl, and one carbamate group as it can be seen in \reffig{stx-structure}.
@@ -43,7 +43,7 @@ The Raman spectrum of STX was calculated and plotted in the same way as those of
 \begin{figure*}
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-stx-left}\end{subfigure}%
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-stx-right}\end{subfigure}
-    \caption[Zoomed in Raman spectrum of lone STX]{Zoomed in Raman spectrum of lone STX}
+    \caption[Zoomed in Raman spectrum of lone STX]{Zoomed in Raman spectrum of lone STX with annotated vibrational modes}
     \labfig{raman-stx-zoom}
 \end{figure*}
 
@@ -69,7 +69,7 @@ The Raman spectrum of STX was calculated and plotted in the same way as those of
     \end{tabular}
 \end{table}
 
-These modes were deemed as sufficient to identify the lone STX in a sample.
+These annotated modes, specified and described in \reftab{stx-modes}, were deemed as sufficient to identify the lone STX in a sample.
 This is a good exercise to start identifying characteristic vibrations that could be attributed to STX.
 However, it must be kept in mind that this analysis only serves as an initial approximation, as it's possible that these same vibrational modes have shifted wave numbers and/or are different when the STX gets adsorbed and forms complexes.
 
@@ -94,7 +94,7 @@ This range of UV-vis absorption need to be shifted to allow for the usage of mor
 \section{Study of adsorption}
 
 Having characterized the spectroscopic profile of STX, it's time to assess its interactions with the members of the sunflower family, keeping in mind the goal of determining if any of them could be a substrate suitable for its detection.
-The first study that must be carried out, before any spectroscopic technique can be applied, is that of adsorption: how does STX adhere to the flowers, how stable is the resulting complex, \fix{what is the nature of the interactions}...
+The first study that must be carried out, before any spectroscopic technique can be applied, is that of adsorption: how does STX adhere to the flowers, how stable the resulting complex is...
 This is a crucial matter, as there's no point in calculating spectra for a system that isn't stable.
 
 \subsection{Sampling and optimization}
@@ -216,9 +216,9 @@ That is, all further calculations that involve the computation of weighted mean 
     \labtab{maxwell-boltzmann-all}
 \end{table}
 
-\subsection{Basis Set Superposition Error correction}
+\subsection{Basis set superposition error correction}
 These optimization calculations have served as a way to estimate the populations of the conformers and to identify the most stable and relevant ones.
-However, they cannot be used directly to obtain accurate values for the interaction energies due to the Basis Set Superposition Error (BSSE).
+However, they cannot be used directly to obtain accurate values for the interaction energies due to the basis set superposition error (BSSE).
 In this case, this error arises when the STX molecule is close to the sunflower and their basis functions overlap.
 The part of STX basis functions that comes near the sunflower improves its part of the calculation, and vice versa.
 This is a problem because in order to get the interaction energy we have to subtract the energy of the complex from the energies of the isolated molecules,\marginnote{
@@ -231,7 +231,7 @@ To solve this problem, we used the counterpoise method.
 For hypothetical molecules A and B, this technique estimates their BSSE by placing the basis functions of molecule A next to molecule B, right where molecule A would go in the optimized geometry of the complex.\sidecite{duijneveldt94,rosch03}
 However, its nuclei are ommited, and just the energy of A is calculated using such an extended basis set.
 The same process is applied to get the corrected energy of isolated B.
-Finally, the same formula as in \refeq{interaction-energy} is applied to the new values, which results in the counterpoise corrected (CC) interaction energy.
+Finally, the same formula as in \refeq{interaction-energy} is applied to the new values, which results in the counterpoise corrected interaction energy.
 
 All such energies were calculated for all of the STX-flower system conformers.
 Their weighted averages using the population values of \reftab{maxwell-boltzmann-all} were computed, and are displayed in \reffig{counterpoise-energies}.
@@ -245,9 +245,6 @@ Their weighted averages using the population values of \reftab{maxwell-boltzmann
 As it can be noted, all of the systems present negative interactions energies, that is, the complex has a lower energy than the sum of the energies of its constituents.
 This is a good indication that the systems are all stable and can be further studied.
 All of the families (except for Se) appear to have a common tendency: the higher the amount of petals, the higher the stabilization. This could be due to the flower having a larger area and bending in a way that maximizes the interactions with the STX molecule.
-
-\section{Study of non-covalent interactions}
-\blindtext
 
 \section{Study of UV-vis behavior}
 \labsec{complex-uv}
@@ -305,9 +302,6 @@ This left us with 8 systems out of the starting 18, which was deemed as a suffic
 \end{margintable}
 
 The UV absorption range for those remaining complexes was also displayed on \reftab{uv-ranges} for convenience.
-\blindtext
-
-\subsection{Charge transfer analysis}
 \blindtext
 
 \section{Resonance Raman}
@@ -529,11 +523,27 @@ This type of representation was applied to the P12-STX system using the previous
     \labfig{body:final-p12}
 \end{figure*}
 
-As it can be observed, the selected vibrational modes are clearly distinguishable.
+As it can be observed, the selected vibrational modes are clearly distinguishable, and the shape of the Raman peaks is more clear as there's only one line.
 At the chosen incident laser wavelength, they are all highly amplified (in the order of \num{1e9} a.u., with EF values higher than \num{5.4}).
-The addition of the derivative \fix{makes it easier to locate the peaks and evaluate their cleanliness}.
+The addition of the derivative makes it easier to locate the peaks and evaluate their cleanliness.
 
 
 \section{Conclusions}
 
-\blindtext[2]
+Again, listing the most important points of this chapter as a form of conclusion:
+
+\begin{itemize}
+    \item STX+2 was previously found to be the only protonated species present at the gentle pH of 6 (in contrast with higher pH values, where multiple protonated species coexisted), so the whole study was carried out using this structure
+    \item STX's vibrational spectroscopic profile was described by studying its Raman spectrum and selecting its key vibrations
+    \item The electronic spectroscopy of STX was studied by generating its UV-vis spectrum
+    \item STX's UV-vis absorption range, from \SI{120}{\nano\metre} to \SI{200}{\nano\metre}, was considered too low in the spectrum of light to apply resonance Raman amplification in a real life setting. This was the main motivation behind the application of sunflowers as substrates
+    \item It was found that there were stable conformations for all of the flower-STX complexes. The importance of these conformers was evaluated using Maxwell-Boltzmann statistics
+    \item Their corrected interaction energy was calculated using the Counterpoise method, and it was found that larger flowers tended to form more stable complexes
+    \item The UV-vis spectra for all of the flower-TX complexes were generated and compared to those of the isolated flowers and STX. It was observed that in all cases the absorption ranges were greatly shifted towards larger wavelengths, but only 8 of the 18 flowers were selected to continue with the study due to their better properties
+    \item A method to quantitatively evaluate the contributions of each of the molecules of a complex to a its compound vibrational modes was developed. It was applied to the flower-STX complexes in order to select the modes with the highest STX contributions
+    \item The enhancement factor, a metric to evaluate the amplifications caused by a laser of a certain wavelength in a RR setting, was defined. It was applied to the flower-STX complexes to select the best lasers based on how much they amplified the intensity of the previously chosen vibrational modes
+    \item A final selection of normal vibrational modes and laser wavelengths was done for each of the 8 flower-STX complexes, and it was displayed in two different forms
+\end{itemize}
+
+In general, the outcome of this chapter was considered a success.
+Many of the proposed sunflowers were considered appropriate for the STX molecule resulting in great amplifications of their key modes, and in the end, realistic combinations of vibrations and lasers were selected for each of them.
