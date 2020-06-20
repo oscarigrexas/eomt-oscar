@@ -371,6 +371,7 @@ These magnetic properties, in addition to the fact that the lengths of its bond 
 After having obtained a general profile of the nature of this novel family of molecules, we start delving into the main topic of the work: spectroscopy.
 
 \subsection{Vibrational spectroscopy}
+\labsec{raman-flowers}
 Sunflowers of 8, 10 and 12 petals have 66, 84 and 102 vibrational modes, respectively.\marginnote{Any non linear molecule with $N$ atoms has $3N-6$ vibrational normal modes}
 Depending on whether these vibrations actively affect the dipole or the polarizability of the flowers, they can be detected using infrared spectroscopy, Raman spectroscopy, or both.
 In this work we will focus on the vibrational modes that are visible through Raman spectroscopy, as previously discussed in \refsec{previous-work}.
@@ -378,15 +379,47 @@ In this work we will focus on the vibrational modes that are visible through Ram
 \subsubsection{Raman spectra}
 Raman spectra for all 18 sunflower systems were generated following the procedures detailed in \refsec{spectra-envelope-calculation}.
 
-\fix{Add a small interpretation for each of the groups of flowers that share similar vibrations, and add all of their spectra to the corresponding section in the appendix.}
-\blindtext[5]
+Their vibrational profiles were quite simple, but quite varied.
+However, one specially characteristic vibrational mode was found common to all of them: the symmetric and simultaneous stretching ($\nu_\textit{s}$) of all of the middle bonds (those formed between X$_0$ and X$_2$ atoms).
+These special vibrations, referred to as \q{A} modes from now on, are associated to clean high intensity peaks in the spectrum, and are therefore easily identifiable.
+In all of the generated Raman spectra, the A mode has been plotted as a vertical dashed line.
+Other vibrational modes that were also deemed important were plotted using vertical solid lines.
+These other modes, while still characteristic and useful for the identification of the flowers, were not as clean or easily describable as A modes.
+They involved mixtures of asymmetric scissoring ($\delta_\textit{as}$) of the inner (X$_0$-X$_0$) and outer (X$_1$-X$_2$) bonds, and the asymmetric stretching ($\nu_\textit{as}$) of inner and middle bonds.
+
+Using the Raman spectra of some of the 8 petal flowers as an example, plotted in \reffig{flower-raman}, it can be observed that they always have present an A-type mode at fairly similar frequencies.
+
+\begin{figure*}[h]
+    \labfig{flower-raman}
+    \centering
+    \begin{subfigure}{8.25cm}\centering\includegraphics{raman-s08}\caption{Raman spectrum for S08}\end{subfigure}%
+    \begin{subfigure}{8.25cm}\centering\includegraphics{raman-se08}\caption{Raman spectrum for Se08}\end{subfigure}
+    \begin{subfigure}{8.25cm}\centering\includegraphics{raman-p08}\caption{Raman spectrum for P08}\end{subfigure}%
+    \begin{subfigure}{8.25cm}\centering\includegraphics{raman-pn08}\caption{Raman spectrum for PN08}\end{subfigure}
+    \caption[Raman spectra of 8 petal flowers]{Raman spectra of a selection of 8 petal flowers. Note the A modes plotted with dashed lines}
+\end{figure*}
+
+Additionally, in general, an increase in the complexity of the spectra and a decrease in the cleanliness of the spectra was observed alongside the increase of the number of petals: flowers with 12 petals had more complex patterns of modes than flowers with 8.
+
+Let's take, for example, the As family.
+The spectra for As08 and As12, displayed  in \reffig{as-raman}, have clear differences in intricacy and number of modes.
+
+\begin{figure*}[h]
+    \labfig{as-raman}
+    \centering
+    \begin{subfigure}{8.25cm}\centering\includegraphics{raman-as08}\caption{Raman spectrum for As08}\end{subfigure}%
+    \begin{subfigure}{8.25cm}\centering\includegraphics{raman-as12}\caption{Raman spectrum for As12}\end{subfigure}
+    \caption[Raman spectra of As08 and As12]{Raman spectra of As08 and As12}
+\end{figure*}
+
+All in all, these spectra were considered simple and clear enough to allow for the identification of the flowers.
+The other spectra that weren't displayed in this section can be found in \refsec{ap:raman-flowers}.
 
 \subsection{Electronic spectroscopy}
-Keeping in mind the final objectives of the work of applying resonance Raman, the electronic spectroscopic behavior of the flowers was deemed as a relevant point to study
-The characterization of the electronic transitions of a molecule might give plenty of insight about its interactions with light.
+\labsec{uv-sunflowers}
+Keeping in mind the final objectives of the work of applying resonance Raman, the electronic spectroscopic behavior of the flowers was deemed as a relevant point to study: the characterization of the electronic transitions of a molecule might yield insight about its interactions with light.
 
 \subsubsection{UV-vis spectra}
-\labsec{uv-sunflowers}
 The most straightforward way to study electronic spectroscopy is by simulating ultraviolet-visible (UV-vis) spectra.
 In order to generate this, the energies of the 50 first transitions from the ground state to excited states were computed using TD-DFT in the Gaussian09 suite.
 Then, using their energy and oscillator strength values, Gaussian functions were calculated for each of the transitions and linearly combined to create continuous spectra similar to those obtained using real spectrophotometers.
