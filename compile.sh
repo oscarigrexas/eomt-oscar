@@ -9,3 +9,4 @@ biber eomt # Compile bibliography
 makeglossaries eomt # Compile glossary
 pdflatex eomt # Compile template again
 pdflatex eomt # Compile template again
+cp eomt.pdf /Users/oscar/Google\ Drive/TFM/.
