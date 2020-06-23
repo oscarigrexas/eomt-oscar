@@ -70,7 +70,7 @@ Then, they were optimized at the M06-2X/def2SVP calculation level.
 
 Using the output files for these calculations, all of the bond distances in all of the systems were extracted using Python.
 Then, the bonds were grouped by type: inner (I, bonds between X$_0$ atoms, which were carbon in all cases), middle (M, between X$_0$ and X$_2$ atoms, which were either C-C or C-N bonds), and outer (O, between X$_2$ and X$_1$ atoms).
-The mean and standard deviation of these groups was computed for all of the flowers.
+The mean and standard deviation of these groups were computed for all of the flowers.
 Additionally, thiophene-like pentagonal structures of the form displayed in \reffig{pentagon-structure} were modeled and optimized, and their bond length data was compared with the rest and presented in \reftab{bond-length-study}.
 
 How is this information useful?
@@ -79,9 +79,9 @@ More interestingly, it serves as a way to assess the nature of each bond group.
 Take the inner C-C bonds.
 In all cases, the average length lies between the usual values for single and double C-C bonds,\sidenote{\SI{1.54}{\angstrom} for single and \SI{1.34}{\angstrom} for double bonds \fix{add reference}} an information that immediately suggests us that the flowers might be conjugated systems with $\pi$ electron delocalization.
 However, it could also be possible that there were equal amounts of single and double bonds, and that these apparently conjugated bond lengths were just a the result of a lousy statistical approximation.
-That's why the SD metric was also computed.
-Groups with a relatively high SD such as the I bonds of As08, As12, P08 and P12 are actually composed of longer and shorter bonds, and it's likely that their $\pi$ electrons aren't delocalized.
-On the other hand, groups with small SD values are more likely to correspond to conjugated systems, which may be stabilized by electron delocalization.
+That's why the $\sigma$ metric was also computed.
+Groups with a relatively high $\sigma$ such as the I bonds of As08, As12, P08 and P12 are actually composed of longer and shorter bonds, and it's likely that their $\pi$ electrons aren't delocalized.
+On the other hand, groups with small $\sigma$ values are more likely to correspond to conjugated systems, which may be stabilized by electron delocalization.
 This concept of bond length equalization and conjugation may be tied to that of aromaticity, where equalized C-C bonds could be a sign of it, and uneven ones could indicate non aromaticity or antiaromaticity.\sidecite{zhongfang05} This topic will be covered in greater detail in \refsec{study-of-aromaticity}.
 
 \begin{table}
@@ -176,7 +176,7 @@ Nevertheless, it should be kept in mind that this calculation is an approximatio
 \labsec{study-of-aromaticity}
 
 Aromaticity is a property related to molecules that contain a ring or a chain of resonance bonds that increases their stability.
-It’s typically found in flat ring structures, although the definition has been discussed and expanded since its initial association to benzene,\sidecite{faraday1825} and there are other varieties such as annulenic, azulenic, inorganic, homoaromatic, three-dimensional, $\sigma$-electron, and even metallic electron aromaticity.\sidecite{zhongfang05}
+It’s typically found in flat ring structures, although the definition has been discussed and expanded since its initial association to benzene\sidecite{faraday1825} and there are other varieties such as annulenic, azulenic, inorganic, homoaromatic, three-dimensional, $\sigma$-electron, and even metallic electron aromaticity.\sidecite{zhongfang05}
 Considering their ringed structure and possibly high conjugation, we wondered if the sunflowers could present any kind of aromatic tendencies.
 Having already studied their degree of bond length equalization in \refsec{study-of-geometry}, we set out to assess their aromaticity from the point of view of their magnetic properties.
 
@@ -204,7 +204,7 @@ This key location is usually one of the following: the center of the ring (calcu
 A seen in \reffig{sunflower-shapes} in \refsec{study-of-geometry}, 8 petal sunflowers are perfectly planar.
 In previous studies, NICS calculations on flat grids parallel to their planes were applied with success.
 All of the points of the grid were equidistant to the plane of the molecule to be able to properly compare their values (the magnitude of the magnetic shielding decreases the farther away from the molecule that it is measured).
-The positive values of the magnetic shielding were plotted in red, and the negative ones in blue, which overlaid over the atoms of the flower, resulted in graphs like \reffig{s08-2d}.
+The positive values of the magnetic shielding were plotted in red and the negative ones in blue, which overlaid over the atoms of the flower, resulted in graphs like \reffig{s08-2d}.
 However, 10 and 12 petal sunflowers have bended and warped shapes, and the \q{general plane} of the molecule is no longer a plane.
 In order to translate the old method, a new approach was developed and applied.
 The idea of extending a grid of points over the surface of the system and plotting it as a 2D projection is maintained, but what is exactly the surface of a non planar molecule, and how can it be generalized for non planar molecules?
@@ -223,7 +223,7 @@ Our solution, which will be fully explained hereunder, relies upon the core conc
 
 \begin{margintable}
     \centering
-    \caption[xyz coordinates]{xyz coordinates of Se10}
+    \caption[xyz coordinates]{xyz coordinates of the atoms of Se10}
     \begin{tabular}{@{}S[table-format=1.4]
                        S[table-format=1.4]
                        S[table-format=1.4]@{}}
@@ -274,7 +274,7 @@ In our case in particular, the bits of real data that we have -our ground truth-
 Looking at it from the point of view of statistical learning, the problem could be defined as \q{designing a model that predicts the values of $z$ by using the values of $x$ and $y$}.
 If such a model was developed, we could just input a square grid of $(x,y)$ values and get the height (or $z$ value) that they should be placed at to conform to our concept of general surface.
 There is just a problem with this approach: using just $x$ and $y$ by themselves as the predictors is not enough to generate the kind of warped, wavy surfaces that we're looking for!
-Just by adding different proportions of $x$ and $y$, the best one could get would be a tilted plane.%
+Just by adding different proportions of $x$ and $y$, the best one that we could get would be a tilted plane.%
 \begin{margintable}
     \centering
     \caption[Calculated predictors]{Calculated predictors, with $f=\sqrt{(x^2+y^2)}$}
@@ -298,8 +298,8 @@ We can combine the $x$ and $y$ values in certain ways in order to generate a wid
 For this problem, the following set of predictors was chosen: $x^2$ and $y^2$ (half cylinders, which result in a saddle when subtracted and a dome when added), $xy$ (a saddle aligned with the diagonal $x=y$), and $\sqrt{(x^2+y^2)}$ (a cone).\sidenote{It should be noted that this is not proper statistical learning practice: in a real application the predictors shouldn't have any correlation between them.}
 
 Having defined the elements of the model, its a matter of transforming the $x$ and $y$ values into their function forms, initializing a linear model, training it with these predictors and the values of the target variable $z$, and retrieving the coefficients.
-This is all done using the convenient scikit-learn,\sidecite{scikit-learn} a machine learning framework for the Python language.
-Without delving deep in how their lineal model's inner workings, it can be said that it relies on two key parts: a cost function that measures its deviation from the target, and an algorithm that minimizes it by iteratively modifying its coefficients.
+This is all done using the convenient scikit-learn module,\sidecite{scikit-learn} a machine learning framework for the Python language.
+Without delving deep deep in their lineal model's inner workings, it can be said that it relies on two key parts: a cost function that measures its deviation from the target, and an algorithm that minimizes it by iteratively modifying its coefficients.
 When the model has been trained, its accuracy is measured by computing the values of the $R^2$ metric for two sets of points: the original coordinates of the atoms (i.e., the data points that the model is based on), and the middle points of each of the bonds (i.e. a collection of new data that the model hadn't previously known about).
 
 All of this operations have been combined and encapsulated inside a custom Python command line application available in the author's GitHub account\sidecite{github-nics}.
@@ -328,12 +328,12 @@ As a way of clearly displaying the result, the idea behind the method, and the e
 \end{figure*}
 
 After the surface has been defined, the results of the fitting are used to calculate a square grid of equally spaced points that are all equidistant to this molecule's surface.
-In this case, a distance of \SI{1}{\angstrom} is set by general agreement in the literature.
-Then, both the molecule atoms and the grid points are written into a Gaussian input file (the former as dummy atoms), where the values of NICS will be calculated.
-The calculation, specifically, estimates the values of the magnetic shielding are calculated with the Gauge-Independent Atomic Orbital (GIAO)\sidecite{keith93} method.
+In this case, a distance of \SI{1}{\angstrom} is set by general agreement with the literature.
+Then, both the molecule atoms and the grid points are written into a Gaussian input file (the latter as dummy atoms), where the values of NICS will be calculated.
+The calculation, specifically, estimates the values of the magnetic shielding using the Gauge-Independent Atomic Orbital (GIAO)\sidecite{keith93} method.
 
 When the calculation is finished, the results can be visualized in 3D and plotted using the same program.
-As for the interpretations of these results, it was said that through this technique aromatic compounds will experience shielding -negative values, marked in blue- on the inside of the ring and deshielding -positive values, marked in red- on the outside.
+As it was previously said, through this technique aromatic compounds will experience shielding -negative values, marked in blue- on the inside of the ring and deshielding -positive values, marked in red- on the outside.
 On the other hand, antiaromatic systems will experience the opposite effect.
 This is the expected behavior and should be the basis for the evaluation of the technique, so to further verify it and illustrate it, the method has been applied to the well known model systems of benzene and cyclobutadiene.
 Their 2D NICS graphs are included in \reffig{method-test}.
@@ -362,9 +362,9 @@ Complementing this insight with the geometry metrics summarized in \reftab{bond-
 \end{marginfigure}
 
 On the other hand, let's take the example of the As08 molecule.
-It's NICS projection, plotted in \reffig{as08-2d}, shows positive values all through the inside of all of the rings, with negative values on the outside of the whole structure.
+Its NICS projection, plotted in \reffig{as08-2d}, shows positive values all through the inside of all of the rings, with negative values on the outside of the whole structure.
 This behavior is much more similar to that of cyclobutadiene than to that of benzene as shown in \reffig{method-test}.
-These magnetic properties, in addition to the fact that the lengths of its bond groups had noticeably higher standard deviations, hints towards an antiaromatic character.
+These magnetic properties, in addition to the fact that the lengths of its bond groups had noticeably higher standard deviations, hint towards an antiaromatic character.
 
 
 \section{Spectroscopic characterization}

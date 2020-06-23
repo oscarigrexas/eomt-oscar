@@ -12,7 +12,7 @@ This section is meant to serve as an overview of the methodology, specifications
 This part may be skimmed and consulted at a later time, or even skipped entirely, as the rest of the work is presented in such a way that can be followed without deep knowledge of the subjects that are explained here.
 
 \subsection{Calculation level}
-All of the electronic structure calculations were performed using Density Functional Theory (DFT) in the Kohn-Sham formulation.
+All of the electronic structure calculations were performed using density functional theory (DFT) in the Kohn-Sham formulation.
 Specifically, the functional of choice was Minnesota's M06-2X.\sidecite{truhlar08}
 M06-2X is a highly parametrized hybrid meta-GGA functional that features a \SI{54}{\percent} of Hartree-Fock exchange.
 It was chosen because it has been extensively trained to perform well in a variety of contexts that include thermochemistry, the study of non covalent interactions, and vibrational and electronic spectroscopy, appearing in numerous publications in the bibliography supporting its effectiveness.\cite{head16,vidalvidal17,vidalvidal17-2,vidalvidal18,sert14,eizig15,coccia17}
@@ -20,19 +20,19 @@ While the molecules discussed in the work are novel and have not been previously
 Therefore, it should be possible to describe them properly and efficiently with such a functional.
 
 As for the basis functions, the set of choice was Weigend and Ahlrichs' def2-SVP.\sidecite{ahlrichs05}
-def2-SVP is of split valence set and includes polarization functions, but is overall a fairly small set.
-However, it has been deemed sufficiently extense to obtain accurate geometry optimizations, and qualitatively good energies and spectra.
+def2-SVP is of split valence and includes polarization functions, but is overall a fairly small set.
+However, it was deemed sufficiently extense to obtain accurate geometry optimizations, and qualitatively good energies and spectra.
 
 Considering the size of the systems of the study, the large amount of planned computations, the available computational resources, and the actual accuracy needs of the project, the M06-2X and def2-SVP calculation level was considered appropriate.
 
 \subsection{Geometry optimization}
 The optimization of the geometry of a molecule is a crucial part of any computational modeling.
-At its core, it's a process where the geometry of a system gets iteratively modified (and its energy gets calculated at each step) with the aim of reaching a stationary point on its potential energy surface.
+At its core, it's a process where the geometry of a system gets iteratively modified (and its energy calculated at each step) with the aim of reaching a stationary point on its potential energy surface.
 In the case of this work, these optimizations are always minimizations as we just look for energy minima.
 In Gaussian09,\cite{gaussian09} our electronic structure computation software of choice, these calculations are carried out using the Berny algorithm in its GEDIIS\sidecite{li06} implementation.
 
 \subsection{Magnetic shielding computation}
-Nuclear magnetic resonance type calculations, namely the computation of the magnetic shielding in the Nucleus-Independent Chemical Shift study in \refsec{nics}, were carried out using the GIAO method.
+Nuclear magnetic resonance type calculations, namely the computation of the magnetic shielding in the nucleus-independent chemical shift study in \refsec{nics}, were carried out using the GIAO method.
 GIAO stands for gauge-including atomic orbital.
 It solves what is often referred to as \q{the gauge problem}, which can be defined as an error that arises when doing calculations with a magnetic perturbation while having the atomic orbital basis functions depend on position.\sidecite{magyarfalvi11}
 Magnetic perturbations usually affect the atomic orbital set of a molecule as rotations.
@@ -99,8 +99,8 @@ Computationally, the intensity of a Raman active mode $i$ can be derived from it
 $Q_i$ represents the displacements of the vibrational mode, $\alpha$ is the isotropic polarizability, and $\gamma$ is the anisotropic one.
 
 \begin{equation}
-    \refeq{raman-activity}
-    S_i = 45\left( \dv{\alpha}{Q_i} \right)^2 + 7\left( \dv{\gamma}{Q_i} \right)
+    \labeq{raman-activity}
+    S_i = 45\left( \dv{\alpha}{Q_i} \right)^2 + 7\left( \dv{\gamma}{Q_i} \right)^2
 \end{equation}
 
 \subsubsection{Resonance Raman}
@@ -123,14 +123,14 @@ These dynamic changes in the polarizability due to the electromagnetic radiation
 
 \subsubsection{Surface-enhanced Raman spectroscopy and surface interactions}
 Surface-enhance Raman spectroscopy (SERS) is a variation of Raman spectroscopy that explores the large enhancements in intensity that the Raman signals of a molecule may experience when interacting with a surface.
-While such effect was originally observed in roughened silver and is usually studied using metal surfaces and clusters, it has also been found in non-metal nanostructures and surface-like molecules, which will be referred to as \q{SERS substrates}.
+While such effect was originally observed in roughened silver and is usually studied using metal surfaces and clusters, it has also been found in non-metal nanostructures and surface-like molecules.\sidenote{Which will be referred to as \q{SERS substrates} in general.}
 The nature of this effect has been related to resonance.
 Specifically, it's been said that it draws upon three different kinds: surface plasmon resonance, charge-transfer resonance, and molecular resonance.\sidecite{lombardi08}
 The first of these effects, surface plasmon resonance, is defined as the coherence of the oscillation of the conduction electrons of the substrate\marginnote{Such as the free flowing electrons in a metal cluster, or the electron cloud of a large conjugated covalent system such as graphene} with an external exciting electromagnetic radiation.
 Charge-transfer resonance may be present when there is a significant transfer of electron density between the substrate and the molecule.
 Finally, molecular resonance may appear too as a property almost exclusive to the molecule, but can still have a significant contribution to the total effect.
 
-The main focus of this work, however, is Resonance Raman.
+The main focus of this work, however, is resonance Raman.
 The adsorption of the molecule to a substrate makes it benefit from SERS effects, but it shares importance with its other purpose: shifting the UV-vis absorption range.
 Adhering a molecule that absorbs short wavelengths to a substrate that absorbs long ones may result in a complex that has a range of absorption that's higher than that of the molecule alone.
 Since real-life laser devices for Raman spectroscopy can get rare, expensive and energetic to the point of being destructive as the wavelength gets shorter, it's desired to achieve such effects.
@@ -141,12 +141,12 @@ For these reasons, while SERS is an interesting technique that certainly plays a
 
 \begin{margintable}
     \centering
-    \caption[Raman activity of STX]{Raman activity for each vibrational mode of STX}
+    \caption[Raman activity of STX]{Raman activity for each vibrational mode of STX in arbitrary units}
     \begin{tabular}{@{}c
                        S[table-format=1.4]
                        S[table-format=1.4]@{}}
         \toprule
-        {Mode} & {$\tilde{\nu}$ \si{\per\cm}} & {Ram. act.} \\
+        {Mode} & {$\tilde{\nu}$ (\si{\per\cm})} & {Ram. act.} \\
         \midrule
         1 & 0.0917 & 0.0236 \\
         2 & 0.9542 & 1.9687 \\
@@ -238,7 +238,7 @@ The software used to perform all of the calculations is summarized in \reftab{co
         Geometry optimization                   & DFT       & GEDIIS    & M06-2X & def2SVP & Gaussian09 \\
         Vibrational analysis                    & DFT       &           & M06-2X & def2SVP & Gaussian09 \\
         Raman activity                          & DFT       &           & M06-2X & def2SVP & Gaussian09 \\
-        Resonance Raman activity                & DFT       & CPHF      & M06-2X & def2SVP & Gaussian09 \\
+        Resonance Raman activity                & DFT       & CPDFT     & M06-2X & def2SVP & Gaussian09 \\
         Electronic transition calculation       & TD-DFT    &           & M06-2X & def2SVP & Gaussian09 \\
         Magnetic shielding calculation          & DFT       & GIAO      & b3lyp  & 6-31G*  & Gaussian09 \\
         Surface generation                      &           &           & & & nics.py \\
