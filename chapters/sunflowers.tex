@@ -1,4 +1,4 @@
-\setchapterimage[2cm]{../images/header-sunflowers.jpg}
+\setchapterimage[2cm]{../images/header-sunflowers.png}
 %\setchapterpreamble[u]{\margintoc}
 \chapter{Characterization of the sunflower molecules}
 \labch{sunflowers}
@@ -295,7 +295,7 @@ Just by adding different proportions of $x$ and $y$, the best one that we could 
 \end{margintable}%
 That is where the 3D surface selection approach gets mixed in.
 We can combine the $x$ and $y$ values in certain ways in order to generate a wider variety of basic shapes to linearly combine, resulting in a better set of predictors.
-For this problem, the following set of predictors was chosen: $x^2$ and $y^2$ (half cylinders, which result in a saddle when subtracted and a dome when added), $xy$ (a saddle aligned with the diagonal $x=y$), and $\sqrt{(x^2+y^2)}$ (a cone).\sidenote{It should be noted that this is not proper statistical learning practice: in a real application the predictors shouldn't have any correlation between them.}
+For this problem, the following set of predictors was chosen: $x^2$ and $y^2$ (half cylinders, which result in a saddle when subtracted and a dome when added), $xy$ (a saddle aligned with the diagonal $x=y$), and $\sqrt{(x^2+y^2)}$ (a cone).\sidenote[][*9]{It should be noted that this is not proper statistical learning practice: in a real application the predictors shouldn't have any correlation between them.}
 
 Having defined the elements of the model, its a matter of transforming the $x$ and $y$ values into their function forms, initializing a linear model, training it with these predictors and the values of the target variable $z$, and retrieving the coefficients.
 This is all done using the convenient scikit-learn module,\sidecite{scikit-learn} a machine learning framework for the Python language.
@@ -344,16 +344,17 @@ Their 2D NICS graphs are included in \reffig{method-test}.
     \labfig{method-test}
 \end{figure}
 
+The outcome for the Se10 calculation, plotted as a 2D projection onto the $xy$ plane, is displayed in \reffig{se10-2d}.
+As it can be noted, all of the thiophene-like rings that comprise the structure seem to have negative values of NICS, while only in the very center of the whole flower there seems to be a tendency towards positive values.
+This hints that the Se10 flower may have aromatic characteristics from a magnetic point of view.%
 \begin{marginfigure}
     \includegraphics{se10-2d}
     \caption[NICS applied to Se10]{Custom NICS technique applied to the Se10 system}
     \labfig{se10-2d}
-\end{marginfigure}
-
-The outcome for the Se10 calculation, plotted as a 2D projection onto the $xy$ plane, is displayed in \reffig{se10-2d}.
-As it can be noted, all of the thiophene-like rings that comprise the structure seem to have negative values of NICS, while only in the very center of the whole flower there seems to be a tendency towards positive values.
-This hints that the Se10 flower may have aromatic characteristics from a magnetic point of view.
+\end{marginfigure}%
 Complementing this insight with the geometry metrics summarized in \reftab{bond-length-study}, which indicated that all of the bonds of the same type had approximately the same distances, we could say that Se10 has an aromatic character.
+
+\blindtext
 
 \begin{marginfigure}
     \includegraphics{as08-2d}
@@ -387,10 +388,10 @@ Other vibrational modes that were also deemed important were plotted using verti
 These other modes, while still characteristic and useful for the identification of the flowers, were not as clean or easily describable as A modes.
 They involved mixtures of asymmetric scissoring ($\delta_\textit{as}$) of the inner (X$_0$-X$_0$) and outer (X$_1$-X$_2$) bonds, and the asymmetric stretching ($\nu_\textit{as}$) of inner and middle bonds.
 
-Using the Raman spectra of some of the 8 petal flowers as an example, plotted in \reffig{flower-raman}, it can be observed that they always have present an A-type mode at fairly similar frequencies.
+Using the Raman spectra of some of the 8 petal flowers as an example, plotted in \ref{fig:flower-raman}, it can be observed that they always have present an A-type mode at fairly similar frequencies.
 
 \begin{figure*}[h]
-    \labfig{flower-raman}
+    \label{fig:flower-raman}
     \centering
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-s08}\caption{Raman spectrum for S08}\end{subfigure}%
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-se08}\caption{Raman spectrum for Se08}\end{subfigure}
@@ -402,10 +403,10 @@ Using the Raman spectra of some of the 8 petal flowers as an example, plotted in
 Additionally, in general, an increase in the complexity of the spectra and a decrease in the cleanliness of the spectra was observed alongside the increase of the number of petals: flowers with 12 petals had more complex patterns of modes than flowers with 8.
 
 Let's take, for example, the As family.
-The spectra for As08 and As12, displayed  in \reffig{as-raman}, have clear differences in intricacy and number of modes.
+The spectra for As08 and As12, displayed  in \ref{fig:as-raman}, have clear differences in intricacy and number of modes.
 
 \begin{figure*}[h]
-    \labfig{as-raman}
+    \label{fig:as-raman}
     \centering
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-as08}\caption{Raman spectrum for As08}\end{subfigure}%
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-as12}\caption{Raman spectrum for As12}\end{subfigure}
