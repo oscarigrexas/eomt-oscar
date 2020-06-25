@@ -249,3 +249,6 @@ TSWLatexianTemp*
 ./bibliography/*
 .DS_Store
 eomt.pdf
+slides/eomt-slides.key
+slides/eomt-slides.pdf
+slides/eomt.key
