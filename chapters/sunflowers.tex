@@ -12,7 +12,7 @@
 \end{marginfigure}
 
 To start designing a family of molecules, first we must clearly state their defining pattern.
-For this purpose, we adopt Chernichenko et al.'s own proposal: \q{a novel class of heterolytic circulenes}.
+For this purpose, we adopt Chernichenko's own proposal: \q{a novel class of heterolytic circulenes}.
 We start expanding the model by answering the question: are thiophene based circulenes with other than 8 rings stable enough to be worth considering?
 The answer is in the original paper itself.
 \reffig{sulflower-strain}, which was recreated to use our calculation level and adapt to the style of the document, shows that 8 ring structures are the most stable alongside 9 ring ones.
@@ -55,11 +55,11 @@ A full table detailing all of the structures that were generated and will compri
 
 \begin{marginfigure}
     \includegraphics{pentagon-structure}
-    \caption[Thiophene-like structure template]{Thiophene-like structure template (hydrogen is added to adjust for neutrality as needed)}
+    \caption[Single petal structure template]{Single petal structure template (hydrogen is added to adjust for neutrality as needed)}
     \labfig{pentagon-structure}
 \end{marginfigure}
 
-Coordinate files for all of the designed sunflowers were created using 3D molecule modeling software.
+Coordinate files for all of the designed sunflowers were created using the 3D molecule modeling program GaussView 6\sidecite{gv6}.
 Then, they were optimized at the M06-2X/def2SVP calculation level.
 
 \begin{figure}
@@ -70,14 +70,15 @@ Then, they were optimized at the M06-2X/def2SVP calculation level.
 
 Using the output files for these calculations, all of the bond distances in all of the systems were extracted using Python.
 Then, the bonds were grouped by type: inner (I, bonds between X$_0$ atoms, which were carbon in all cases), middle (M, between X$_0$ and X$_2$ atoms, which were either C-C or C-N bonds), and outer (O, between X$_2$ and X$_1$ atoms).
-The mean and standard deviation of these groups were computed for all of the flowers.
-Additionally, thiophene-like pentagonal structures of the form displayed in \reffig{pentagon-structure} were modeled and optimized, and their bond length data was compared with the rest and presented in \reftab{bond-length-study}.
+The mean and standard deviation of these groups were computed for all of the flowers and displayed in \reftab{bond-length-study}.
+Additionally, pentagonal structures of the form displayed in \reffig{pentagon-structure} were modeled and optimized, and their bond length data was compared with the rest and also presented in \reftab{bond-length-study}.
+These are used to compare the geometry of the flowers with that of single petals.
 
 How is this information useful?
 In the first place, it allows us to easily compare the average length of each bond type as the number of units increases.
 More interestingly, it serves as a way to assess the nature of each bond group.
 Take the inner C-C bonds.
-In all cases, the average length lies between the usual values for single and double C-C bonds,\sidenote{\SI{1.54}{\angstrom} for single and \SI{1.34}{\angstrom} for double bonds \fix{add reference}} an information that immediately suggests us that the flowers might be conjugated systems with $\pi$ electron delocalization.
+In all cases, the average length lies between the usual values for single and double C-C bonds,\sidenote{\SI{1.54}{\angstrom} for single and \SI{1.34}{\angstrom} for double bonds\cite{chang12}} an information that immediately suggests us that the flowers might be conjugated systems with $\pi$ electron delocalization.
 However, it could also be possible that there were equal amounts of single and double bonds, and that these apparently conjugated bond lengths were just a the result of a lousy statistical approximation.
 That's why the $\sigma$ metric was also computed.
 Groups with a relatively high $\sigma$ such as the I bonds of As08, As12, P08 and P12 are actually composed of longer and shorter bonds, and it's likely that their $\pi$ electrons aren't delocalized.
@@ -252,6 +253,12 @@ In this case, the main axis is defined as the direction where there is the least
 Mathematically, it's equal to the eigenvector that corresponds to the smallest eigenvalue of the covariance matrix of the relative coordinates.\sidenote{That is, the coordinates after having been translated to $(0,0,0)$ in the previous step}
 After having calculated such a vector, it's a matter of calculating the angle that it forms with the $z$ axis using simple dot product, and designing and applying an adequate rotation matrix.
 
+\begin{marginfigure}
+    \includegraphics{se10}
+    \caption[Se10 3D structure]{The 3D structure of Se10, the example molecule}
+    \labfig{se10}
+\end{marginfigure}
+
 Se10, as well as all of the other sunflowers of the study, only contains heavy atoms that are relevant to the problem, so we can just ignore their chemical elements and treat every point equally.
 However, it should be noted that in other cases there might be irrelevant atoms such as hydrogens, or parts of the molecule that don't belong to the surface that we are trying to identify.
 In those situations, special care should be taken: the transformation operations have to be designed around the important atoms, but they should be applied to the whole system.
@@ -299,7 +306,7 @@ For this problem, the following set of predictors was chosen: $x^2$ and $y^2$ (h
 
 Having defined the elements of the model, its a matter of transforming the $x$ and $y$ values into their function forms, initializing a linear model, training it with these predictors and the values of the target variable $z$, and retrieving the coefficients.
 This is all done using the convenient scikit-learn module,\sidecite{scikit-learn} a machine learning framework for the Python language.
-Without delving deep deep in their lineal model's inner workings, it can be said that it relies on two key parts: a cost function that measures its deviation from the target, and an algorithm that minimizes it by iteratively modifying its coefficients.
+Without delving deep in their lineal model's inner workings, it can be said that it relies on two key parts: a cost function that measures its deviation from the target, and an algorithm that minimizes it by iteratively modifying its coefficients.
 When the model has been trained, its accuracy is measured by computing the values of the $R^2$ metric for two sets of points: the original coordinates of the atoms (i.e., the data points that the model is based on), and the middle points of each of the bonds (i.e. a collection of new data that the model hadn't previously known about).
 
 All of this operations have been combined and encapsulated inside a custom Python command line application available in the author's GitHub account\sidecite{github-nics}.
@@ -345,16 +352,20 @@ Their 2D NICS graphs are included in \reffig{method-test}.
 \end{figure}
 
 The outcome for the Se10 calculation, plotted as a 2D projection onto the $xy$ plane, is displayed in \reffig{se10-2d}.
-As it can be noted, all of the thiophene-like rings that comprise the structure seem to have negative values of NICS, while only in the very center of the whole flower there seems to be a tendency towards positive values.
-This hints that the Se10 flower may have aromatic characteristics from a magnetic point of view.%
+As it can be noted, all of the pentagonal rings that comprise the structure seem to have negative values of NICS, while only in the very center of the whole flower there seems to be a tendency towards positive values.
+This hints that the Se10 flower may have aromatic characteristics from a magnetic point of view.
+Complementing this insight with the geometry metrics summarized in \reftab{bond-length-study}, which indicated that all of the bonds of the same type had approximately the same distances, we could say that Se10 has an aromatic character.
+
 \begin{marginfigure}
     \includegraphics{se10-2d}
     \caption[NICS applied to Se10]{Custom NICS technique applied to the Se10 system}
     \labfig{se10-2d}
 \end{marginfigure}%
-Complementing this insight with the geometry metrics summarized in \reftab{bond-length-study}, which indicated that all of the bonds of the same type had approximately the same distances, we could say that Se10 has an aromatic character.
 
-\blindtext
+On the other hand, let's take the example of the As08 molecule.
+Its NICS projection, plotted in \reffig{as08-2d}, shows positive values all through the inside of all of the rings, with negative values on the outside of the whole structure.
+This behavior is much more similar to that of cyclobutadiene than to that of benzene as shown in \reffig{method-test}.
+These magnetic properties, in addition to the fact that the lengths of its bond groups had noticeably higher standard deviations, hint towards an antiaromatic character.
 
 \begin{marginfigure}
     \includegraphics{as08-2d}
@@ -362,11 +373,15 @@ Complementing this insight with the geometry metrics summarized in \reftab{bond-
     \labfig{as08-2d}
 \end{marginfigure}
 
-On the other hand, let's take the example of the As08 molecule.
-Its NICS projection, plotted in \reffig{as08-2d}, shows positive values all through the inside of all of the rings, with negative values on the outside of the whole structure.
-This behavior is much more similar to that of cyclobutadiene than to that of benzene as shown in \reffig{method-test}.
-These magnetic properties, in addition to the fact that the lengths of its bond groups had noticeably higher standard deviations, hint towards an antiaromatic character.
+All of the NICS 2D projections for the rest of the flowers can be found in \refsec{ap:nics}, along with the corresponding comments interpreting each of them and proposing their most likely aromatic profile.
+In general, two main conclusions were taken from the interpretation of these graphs.
 
+First, only the As and P families presented magnetic profiles characteristic of antiaromaticity.
+All of the other families had graphs similar to that of Se10: negative values of NICS all through the petals and only low positive values in the center, indicating signs of aromaticity.
+
+Additionally, it was observed that the absolute values of NICS varied according to the number of petals depending on these proposed aromatic behaviors.
+In aromatic families, the absolute value of the shielding increased as the number of petals did: S12 has larger NICS values than S08.
+However, in antiaromatic families, the largest absolute values were found in the flowers with the fewer petals.
 
 \section{Spectroscopic characterization}
 After having obtained a general profile of the nature of this novel family of molecules, we start delving into the main topic of the work: spectroscopy.
@@ -481,13 +496,13 @@ Their absorption ranges, nonetheless, have been summarized and presented in \ref
 Summarizing this whole chapter into a list of important points:
 
 \begin{itemize}
-    \item The family of molecules of the study, collectively named as \q{flowers} or \q{sunflowers}, was built using molecules based on \q{sulflower} using S, Se, As, As+N, P and P+N as substituents
-    \item Flowers with 8, 10 and 12 petals were generated due to their higher structural and electronic stability, resulting in a total of 18 different molecules
-    \item Statistical analysis was performed on the length of their bonds, and the values of their mean and standard deviation were considered as early indicatives of their stability and their possible conjugation effects
-    \item The strain energy for each flower was calculated through the design of a homodesmotic reaction
-    \item Aromaticity was directly studied using an approach designed and programmed by the author using multiple linear regression and NICS. It was found that all flower groups except for As and P exhibited magnetic behavior that hinted towards aromatic character
-    \item The Raman active vibrational modes of the flowers were briefly characterized and plotted as Raman spectra
-    \item The electronic spectroscopy of the flowers was studied by generating their UV-vis spectra
+    \item The family of molecules of the study, collectively named as \q{flowers} or \q{sunflowers}, was built using molecules based on \q{sulflower} using S, Se, As, As+N, P and P+N as substituents.
+    \item Flowers with 8, 10 and 12 petals were generated due to their higher structural and electronic stability, resulting in a total of 18 different molecules.
+    \item Statistical analysis was performed on the length of their bonds, and the values of their mean and standard deviation were considered as early indicatives of their stability and their possible conjugation effects.
+    \item The strain energy for each flower was calculated through the design of a homodesmotic reaction.
+    \item Aromaticity was directly studied using an approach designed and programmed by the author using multiple linear regression and NICS. It was found that all flower groups except for As and P exhibited magnetic behavior that hinted towards aromatic character.
+    \item The Raman active vibrational modes of the flowers were briefly characterized and plotted as Raman spectra.
+    \item The electronic spectroscopy of the flowers was studied by generating their UV-vis spectra.
 \end{itemize}
 
 All in all, all of the studied flowers were considered stable and interesting enough to be applied to the STX problem as surface-like adsorption substrates.

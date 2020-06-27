@@ -20,7 +20,7 @@ While the molecules discussed in the work are novel and have not been previously
 Therefore, it should be possible to describe them properly and efficiently with such a functional.
 
 As for the basis functions, the set of choice was Weigend and Ahlrichs' def2-SVP.\sidecite{ahlrichs05}
-def2-SVP is of split valence and includes polarization functions, but is overall a fairly small set.
+The basis set def2-SVP is of split valence and includes polarization functions, but is fairly small overall.
 However, it was deemed sufficiently extense to obtain accurate geometry optimizations, and qualitatively good energies and spectra.
 
 Considering the size of the systems of the study, the large amount of planned computations, the available computational resources, and the actual accuracy needs of the project, the M06-2X and def2-SVP calculation level was considered appropriate.
@@ -126,7 +126,7 @@ Surface-enhance Raman spectroscopy (SERS) is a variation of Raman spectroscopy t
 While such effect was originally observed in roughened silver and is usually studied using metal surfaces and clusters, it has also been found in non-metal nanostructures and surface-like molecules.\sidenote{Which will be referred to as \q{SERS substrates} in general.}
 The nature of this effect has been related to resonance.
 Specifically, it's been said that it draws upon three different kinds: surface plasmon resonance, charge-transfer resonance, and molecular resonance.\sidecite{lombardi08}
-The first of these effects, surface plasmon resonance, is defined as the coherence of the oscillation of the conduction electrons of the substrate\marginnote{Such as the free flowing electrons in a metal cluster, or the electron cloud of a large conjugated covalent system such as graphene} with an external exciting electromagnetic radiation.
+The first of these effects, surface plasmon resonance, is defined as the coherence of the oscillation of the conduction electrons of the substrate\sidenote[][*2]{Such as the free flowing electrons in a metal cluster, or the electron cloud of a large conjugated covalent system such as graphene} with an external exciting electromagnetic radiation.
 Charge-transfer resonance may be present when there is a significant transfer of electron density between the substrate and the molecule.
 Finally, molecular resonance may appear too as a property almost exclusive to the molecule, but can still have a significant contribution to the total effect.
 
@@ -162,7 +162,7 @@ Computational chemistry software is able to predict spectroscopic values such as
 However, to get from those numbers to the familiar bands and peaks that are characteristic of experimental spectra, a few extra steps are involved.
 This additional representation procedure will be exemplified by plotting both kinds of spectra for the saxitoxin (STX) molecule.
 
-We start from the list of vibrational normal modes that results from a Raman calculation.
+We start from the list of vibrational normal modes that results from a Raman calculation, displayed in \reftab{oscillator-strengths}.
 Then, their vibrational frequencies in the form of wave numbers as well as their corresponding Raman activity values are extracted using a custom script.
 Plotting these values directly as vertical lines along the wave number range results in \reffig{without-envelope}.
 
@@ -202,7 +202,7 @@ Similarly to before, an envelope curve is created by calculating as many Gaussia
 
 \begin{equation}
     \labeq{uv-envelope}
-    \varepsilon_i (\lambda)) = \num{1.306297e8} \frac{f_i}{\sigma} e^{-\left(\frac{1/\lambda - 1/\lambda_i}{\sigma}\right)^2}
+    \varepsilon_i (\lambda) = \num{1.306297e8} \frac{f_i}{\sigma} e^{-\left(\frac{1/\lambda - 1/\lambda_i}{\sigma}\right)^2}
 \end{equation}
 
 Here, $\lambda_i$ and $f_i$ are the wavelength and oscillator strength of each transition. The constant before the exponential\marginnote{
@@ -240,7 +240,7 @@ The software used to perform all of the calculations is summarized in \reftab{co
         Raman activity                          & DFT       &           & M06-2X & def2SVP & Gaussian09 \\
         Resonance Raman activity                & DFT       & CPDFT     & M06-2X & def2SVP & Gaussian09 \\
         Electronic transition calculation       & TD-DFT    &           & M06-2X & def2SVP & Gaussian09 \\
-        Magnetic shielding calculation          & DFT       & GIAO      & b3lyp  & 6-31G*  & Gaussian09 \\
+        Magnetic shielding calculation          & DFT       & GIAO      & B3LYP  & 6-31G*  & Gaussian09 \\
         Surface generation                      &           &           & & & nics.py \\
         \bottomrule
     \end{tabular}
@@ -256,4 +256,4 @@ These nodes include each 2 Intel\textregistered Xeon\textregistered E5-2630 v3 \
 
 S3's cluster is composed of nodes that feature \num{16} cores running on Intel\textregistered Xeon\textregistered E5-2630 v3 \SI{2.40}{\giga\hertz} processors, and \SI{64}{\giga\byte} of RAM.
 
-Smaller calculations such as input file generation, output parsing, surface estimation, graph representation... were carried out in the author's personal computer.
+Smaller calculations such as input file generation, output parsing, surface estimation, graph representation... were carried out in the author's personal computer, a laptop with a single \SI{2.50}{\giga\hertz} Intel\textregistered Core\textregistered i5, and \SI{4}{\giga\byte} of RAM.
