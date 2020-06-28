@@ -1,71 +1,34 @@
-Ya tengo revisado tu trabajo de fin de máster!
-
-Como comentario general está muy bien, se lee en un momento y se sigue bien, es fluido, no hay demasiadas trabas a la lectura y las anotaciones en el lateral ayudan bastante. Como comentario general creo que mandas demasiada información a anexos y es una pena, yo igual algunas de las imágenes de los anexos las pondría en el cuerpo, te digo luego (si se me olvida pregunta). También te diría que pusieras Figure XX, Table XX, Equation XX que va en el texto y que luego defines o añades en el lateral en negrita para llamar la atención sobre ello. Destacado facilita el decir, anda, tengo que fijarme en algo que no está en el cuerpo del texto.
-
-Tal y como pediste te mando comentarios pero nada de escritura y estilo profundo, solo apreciaciones generales que te puedan servir (o no) para enriquecer o mejorar algún punto de la memoria. Son apreciaciones personales, algunas de ellas de gusto, coge lo que quieras. Te los voy a poner en un listado por páginas que así te será más fácil seguirlo. No todo son comentarios, por el medio también hay preguntas jajaja
-
-·        Portada, disclaimer, frase etc he de suponer que lo tienes que acabar, sacar lo de EOMT y algún símbolo raro (MBT2Á&) que hay por ahí (debajo de la frase). Supongo que le harás una portada bonita jajaja. Si quieres poner agradecimientos al principio o una dedicatoria a alguien en concreto puedes añadirlo al principio, sin problema ninguno, que en estos trabajos no está mal visto. No escriban más ahí que de TFM pero sin fallo.
-
-·        Pregunta (si no lo sabes ya) si tienes que tener algún papel inicial diciendo yo X y yo Y como directores del TFM de Z titulado XXXXX autorizamos su depósito y defensa (o algo por el estilo), a veces se pide, a veces no, depende del máster.
-
 ·        Yo le llamaría Abstract en vez de preface y le añadiría información jajajaja
 
-·        En el índice me queda raro los subpuntos por ejemplo dentro de Methods and techniques que pongas una lista de puntos sin numerar. Yo le añadiría un 2.1.1 o a, o un número romano, o emoticonos, algo para poder seguirlo mejor.
-
 ·        En la lista de Figuras, tienes definidas las figuras por capítulos pero la 3.1 está con las del cap 2 y la 4.1 está con el grupo del cap 3. Revisa numeración.
-
 
 ·        ¿Cuál es el criterio de inclusión de las referencias al margen? Al principio se me hizo raro ver las referencias 1 y 2 y luego 7 y 8. Dije anda coño! Y de la 3 a la 6? Luego siguiendo el flow del trabajo ves que no están todas pero no sé si lo aclararía de alguna manera o en algún punto.
 
 ·        En la misma página 1 a  lo mejor haría una nota al margen de diferencia entre bioacumulación y bioconcentración para aclarar los conceptos. Tu hablas de bioconcentración que no es un término que esté tan extendido en el vocabulario popular.
 
-·        Pág 3 AOAC diría lo que es y lo añadiría lugeo a la lista de abreviaturas.
-
 ·        Hay un tema recurrente en toda la memoria cuando hablas de Raman que no me convence. En la Pág. 3 dices (último párrafo): have an effect on the polarizability etc Eso es rarísimo, yo diría algo más técnico cambio del tensor de polarizabilidad con respecto a etc no sé, me queda muy de andar por casa para un trabajo académico.
-
-·        Pág 4: en el primer párrafo diría que las low intensities son debidas a que solo uno de cada 10^8 fotones incidentes producen efecto Raman.
-
-·        Pág 4. En el siguiente párrafo dices: In a real life setting, it would be prohibitely…. Diría también que los problemas son la possible degradación de la muestral y su autofluorescencia.
 
 ·        Pág 5: dónde hablas de la síntesis, me surge la pregunta del control del tamaño y como separan.
 
 ·        Pág 5: dices highly symmetrical, stable etc, son altamente simétricas en el plano, ¿Cuándo se doblan de mala manera en la de 12 sobre todo, siguen siendo simétricas?
 
-·        Pág 8: GEDIIS: significado? Lo pondría y añadiría a lista de abreviaturas.
-
-·        Pág 9: primera línea: partial derivatives of the potential with … que potential? Uno externo, potential energy, potential energy surface etc aclararía cual es.
-
 ·        Pág 9: al final en la segunda línea de la Raman spectroscopy vuelve a aparecer la afectación a la polarizabilidad que sigue sonándome raro jajaa
-
-·        Pág 12: ¿Por qué Gaussianas para el espectro Raman y no Lorentzianas?
-
-·        Pág 13: en la tabla B3lyp va con mayúscula habitualmente porque la B es el funcional de Becke. Idem con LYP (Lee-Yang-Parr). Haría una nota al margen o lo diría en algún sitio la justificación de usar B3LYP/6-31G, es el único punto donde no usas M06-2X.
 
 ·        Pág 17: revisa diferencia entre isodésmica, isogírica, homodesmótica etc y piensa por qué una homodesmótica y no otra cualquiera. A lo mejor esta web te sirve para aclarar conceptos, tiene una tabla bastante buena. http://ursula.chem.yale.edu/~chem220/chem220js/STUDYAIDS/thermo/homodesmotic/homodesmotic.html#hypo
 
-       Pág 17: referencia 28, no fue en 2005, en ese año tenía 12 años jajajaja empecé a publicar pronto pero bueno, tanto tanto no jajajaja
-
 ·        Pág 18: Figura 2.6 ¿Tienes explicación para ese punto díscolo? Parece raro que haya 2 sistemas (P y S si no me equivoco) que tengan una forma y el resto otra. Hay cambios cóncavo-convexo en esas tendencias. ¿Se te ocurre por qué?
-
-·        Pág 18: referencias 42 y 43 solapadas.
 
 ·        Pág 19: The basic application of NICS: Mencionaría algo del NICS(0), NICS(1) y NICSzz.
 
 ·        Pág 21: ref 46 (la tuya) pondría debajo un código QR pequeño para que se pueda acceder directamente si le pica la curiosidad.
 
-·        Pag 23: segunda línea empezando por abajo: Figure ¿?? Te falta la referencia a la figura.
-
 ·        Pág 24: Fig 3.12 No se ven bien las líneas discontinuas en 3 de las 4 figuras. Las pondría de otro color.
-
-·        Pág 24: Antes de los segundos espectros de la Figure 3.13, pone Figure ¿?? Te falta la referencia.
 
 ·        Pág 25: Pondría en el lateral una tablita con las fuerzas del oscilador. En esa misma página, en el inset lateral dices: Approximate UV-vis absorption range ¿cómo se define?.
 
 ·        Pág 27: ¡Pregunta! Afecta el el pH ácido a la sulflower?
 
 ·        Pág 27: de nuevo en Vibrational spectroscopy está eso de la polarizabilidad.
-
-·        Pág 31: en el BSSE me falta la referencia de Boys y Bernardi que fueron los creadores del método de corrección del BSSE.
 
 ·        Pág 32: En la tabla, flores de 10 As y AsN, solamente hay una estrucutra relevante, el resto son prácticamente 0 o 0. ¿Explicación?
 
@@ -75,36 +38,14 @@ Tal y como pediste te mando comentarios pero nada de escritura y estilo profundo
 
 ·        Pág 34, Figura 4.8.- Se ve pero te dejas un poco los ojos, un poquito más de grosor en las líneas se hubiera agradecido sobre todo si hay tantas líneas en tan poco espacio.
 
-·        Pág 37.- Segundo párrafo: The cutoff values for these top results, therefore, were annotated in each of the graphs. (Hacer referencia de dónde encontrar esos gráficos y valores).
-
 ·        Pág 39: Figure 4.12 pone long, le falta una descripción. Justo debajo de esp pone displayed in Figure ¿?? Te falta ahí la referencia a la figura.
 
 ·        Pág 39.- All of the RR spectra for the rest of the flower-stx systems… Este es un buen ejemplo de la información masiva que envías a anexos. Aquí una tablita con el sistema y las longitudes de onda incidentes que seleccionas y algo de discusión sobre ellas estaría muy bien. Es un resultado fundamental de tu trabajo y no hay nada en el texto. Ten en cuenta que en los anexos se añade información que si bien puede ser útil para complementar el trabajo no es fundamental. ¿Es útil el gráfico y tal? Si, en anexos, visto y explicado uno, visto un ciento, pero los valores característicos de cada sistema si que son cruciales.
 
-·        Pág 40.- Figure 4.13.- Falta la descripción de la figura.
-
-·        Pág 43.- “Final Conclusions” Me esperaba un bloquecito de conclusiones finales globales con mucho punch, de decir, mira, ahora que te leíste todo el trabajo, te recuerdo aquí porque este trabajo es la leche y merece un 10, puuuum! Toma las conclusiones. La mayoría de puntos son perspectiva futura (un montón de puntos de trabajo y poca conclusión global para mi gusto). Le falta el punto fin de línea a todas.
-
-·        Por último comentarios sobre la bibliografía. Tienen un formato peculiar, que no me desagrada, lo del In: no se suele poner pero no está mal. Lo que si no se pone apenas nunca es en que página está citada, es como si dijeras, mira, te lo pongo aquí en que página está para que quede claro que si que la añadí y que no inflé las referencias y que luego no están en el texto jajaja. Lo que si de este punto comentarte es acerca de los autores. Cuando un artículo tiene 5 autores o menos se ponen menos, si tienen más de 5 autores se pueden poner los 5 primeros y luego et al., no obstante, todos los autores tienen mérito y yo en la sección esta los pondría a todos (en las laterales del texto no, está bien así). En concreto lo del et al. (si no se me escapa ninguna) lo tienes en: 1,3,4,5,7,8,9,10,11,12,20, 23, 25, 29, 30, 33, 35, 36, 42 y 51.
+·        Pág 43.- “Final Conclusions” Me esperaba un bloquecito de conclusiones finales globales con mucho punch, de decir, mira, ahora que te leíste todo el trabajo, te recuerdo aquí porque este trabajo es la leche y merece un 10, puuuum! Toma las conclusiones. La mayoría de puntos son perspectiva futura (un montón de puntos de trabajo y poca conclusión global para mi gusto).
 
 ·        Más comentarios de referencias: en la 2 para mi le falta los autores del capítulo o el editor del libro y me sobra el DOI. En la ref. 17 a priori me faltan datos al igual que en la 35.
 
-·        En las referencias 21, 22, 39 y 49 si son webs se pone la fecha de consulta, por esto de que la gente actualiza las páginas y puede desaparecer la información que citas.
-
-·        Ref 28, en la que tenía 12 años, tienes que cambiarla aquí también :D Hablando de referencias mías me sorprende que estén las que están y el artículo de ACS Omega en la que si que hacemos RR no lo cites en ningún sitio jajaja
-
-Y ya para acabar: Vas a anexar los códigos Python de las cosas que hiciste en un anexo?
-
- 
-
 Creo que no me dejo nada, y si me lo dejo probablemente no será importante. Yo le echaría un ojo a esto antes de que empieces con tus prácticas y se o mandaría a tus tutores de TFM e insistiría varias veces para que se lo leyeran (que es lo que tienen que hacer los tutores y no yo jajajaja (que conste que encantado de poder ayudarte)). Si lo tienes que entregar el no sé 5 de julio diles que es para el 1 por si acaso. Y si el día antes o así no tienes noticias recuérdalo.
 
- 
-
-Cualquier cosa que necesites o que no entiendas escríbeme!
-
 Vete viendo para hacer algún ensayo si quieres conmigo solo o con todos etc para convocarlo con tiempo.
-
- 
-
-Saluditos!!

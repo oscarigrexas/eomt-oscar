@@ -228,7 +228,7 @@ This is a problem because in order to get the interaction energy we have to subt
 } but the former has a better calculation level than the latter.
 
 To solve this problem, we used the counterpoise method.
-For hypothetical molecules A and B, this technique estimates their BSSE by placing the basis functions of molecule A next to molecule B, right where molecule A would go in the optimized geometry of the complex.\sidecite{duijneveldt94,rosch03}
+For hypothetical molecules A and B, this technique estimates their BSSE by placing the basis functions of molecule A next to molecule B, right where molecule A would go in the optimized geometry of the complex.\sidecite{boys70,duijneveldt94,rosch03}
 However, its nuclei are ommited, and just the energy of A is calculated using such an extended basis set.
 The same process is applied to get the corrected energy of isolated B.
 Finally, the same formula as in \refeq{interaction-energy} is applied to the new values, which results in the counterpoise corrected interaction energy.
@@ -430,7 +430,7 @@ As for the laser wavelengths, only the ones that produced amplifications above a
 It should be noted that the values of these metrics varied very significantly between the different systems.
 Therefore, setting common thresholds for all of them was unpractical: the values that worked for a certain complex were too strict for others.
 For this reason, the thresholds were set individually for each of the systems in a such a way that only the top 5, 6 or 7 lasers and the best 5, 6 or 7 vibrational modes were selected and labeled.
-The cutoff values for these top results, therefore, were annotated in each of the graphs.
+The cutoff values for these top results, therefore, were annotated in each of the graphs, which can be found in \refsec{ap:combined-ef}.
 
 Applying this method to the running example of AsN12-STX, then, resulted in \reffig{comb-asn12}
 
@@ -488,6 +488,28 @@ From a vibrational mode composition point of view, AsN08-STX's most pure vibrati
 It appeared that the flowers with a higher number of petals allowed for greater amplifications and more pure vibrational modes.
 The exception to this tendency was PN12-STX, which had vibrational modes much less pure than the rest of 12-petal systems.
 
+These cutoff values for all of the flower-STX systems have been summarized and included in \reftab{combined-sum} along with their correspoding vibrational mode and incident laser wavelength selections.
+
+\begin{table*}
+    \centering
+    \caption[Summary of selected $\lambda$ and vibrational modes]{Summary of selected $\lambda$ and vibrational modes for all of the flower-STX complexes including cutoff values}
+    \begin{tabular}{@{}llclc@{}}
+        \toprule
+        System & Vibs. & Min. STX (\si{\percent}) & $\lambda$ (\si{\nano\metre}) & Min. EF \\
+        \midrule
+        As10 & 149, 173, 177, 190 & 40.06 & 381, 432, 453, 498, 600 & 4.7 \\
+        As12 & 43, 128, 134, 139, 142 & 95.72 & 342, 375, 408, 543, 639, 663, 795 & 6.7 \\
+        AsN08 & 153, 154, 157, 158, 159, 164, 165 & 27.07 & 366, 384, 402, 426, 498 & 6.0 \\
+        AsN10 & 100, 158, 168, 177, 189 & 30.08 & 363, 393, 456, 576, 618 & 5.5 \\
+        AsN12 & 56, 125, 140, 158, 173, 179, 195 & 99.04 & 356, 476, 575, 707, 812, 842 & 6.5 \\
+        P12 & 36, 139, 152, 162, 199 & 99.32 & 321, 369, 447, 519, 540 & 5.4 \\
+        PN10 & 173, 175, 177, 187, 193 & 37.18 & 381, 405, 438, 456, 492, 525 & 4.9 \\
+        PN12 & 170, 174, 191, 192, 194, 195 & 36.28 & 355, 373, 412, 442, 472, 535, 616 & 6.2 \\
+        \bottomrule
+    \end{tabular}
+    \labtab{combined-sum}
+\end{table*}
+
 \subsection{Final selection}
 While the previous method serves as a convenient way to visualize the best amplifications, it's true that it deviates a little from the usual representations of Raman data.
 This final section aims to tie this insight together, and to display it in a more standard way in order to facilitate the comparison and selection of a definitive combination of flower, laser wavelength, and set of vibrational modes.
@@ -497,7 +519,7 @@ The graphs in this section don't include any units of intensity: the reason for 
 
 \begin{figure*}[h]
     \includegraphics{unfolded-p12}
-    \caption[short]{long}
+    \caption[RR spectra of P12-STX]{RR spectra of P12-STX}
     \labfig{body:unfolded-p12}
 \end{figure*}
 
@@ -518,7 +540,7 @@ This type of representation was applied to the P12-STX system using the previous
 
 \begin{figure*}[h]
     \includegraphics{final-p12}
-    \caption[short]{long}
+    \caption[RR spectra of P12-STX at \SI{447}{\nano\metre}]{RR spectra of P12-STX at \SI{447}{\nano\metre}}
     \labfig{body:final-p12}
 \end{figure*}
 

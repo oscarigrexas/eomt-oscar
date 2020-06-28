@@ -57,7 +57,7 @@ While its quantification limits are low enough to comply with the current EU reg
 
 There are newer alternative methods that don't rely on animal testing.
 One of them is liquid chromatography with fluorescence detection and has a detection limit between \SI{10}{\micro\gram\per\kilo\gram} and \SI{80}{\micro\gram\per\kilo\gram}.\cite{eu17,aoac16}
-This method, developed by AOAC, is used as a co-official technique in the European union and has a good sensibility, but involves a series of derivatization steps and is time consuming.
+This method, developed by AOAC Internacional,\sidenote{AOAC is a non-profit scientific association that publishes standarized chamical analysis methods.} is used as a co-official technique in the European union and has a good sensibility, but involves a series of derivatization steps and is time consuming.
 Other common tests are enzime-linked inmunnosorbent assays\sidenote{More commonly known by their acronym ELISA}, which have a detection limit of about \SI{0.015}{\nano\gram\per\litre}.\cite{wharton17}
 These are not reliable or sensible enough to be used for quantification, and are often relegated to screening purposes.
 
@@ -86,17 +86,19 @@ Water, however, has very weak signals in Raman.
 Raman spectroscopy is able to detect vibrational modes that have an effect on the polarizability of a molecule.
 This kind of spectroscopic technique relies on the effect of Raman scattering: a phenomenon in which the photons of a laser interact inelastically with molecular vibrations resulting in their energy being shifted up or down.
 After generating Raman spectra for the STX, it was decided that the Raman active modes and their corresponding peaks would be sufficient to clearly identify the toxin.
-There just remained the issue of the intensity: the Raman scattering effect has a very low probability, which in a real spectrum translates into very low intensities that could easily get obscured by the noise from the signals of other molecules.
+There just remained the issue of the intensity: the effect behind Raman peaks has a very low probability, only one in every \num{1e7} photons that irradiate a molecule results in Raman scattering.
+In a real experimental spectrum this translates into very low intensities that could easily get obscured by the noise from the signals of other molecules.
 For this reason, the Raman spectroscopy had to be coupled with at least one amplification technique that could selectively amplify the signals related to STX.
 
-The method chosen for this purpose was resonance Raman (RR).
+The method chosen for this purpose was resonance Raman (RR).\sidecite{vidalvidal18-2}
 While more about this effect and its fundamentals can be read in \refsec{rr-methods}, the practical simulation of RR can be summarized as \q{tuning the frequency of a laser so that the Raman scattering excitation coincides with an electronic transition}.
 The problem with this approach was the following: while STX certainly benefits from resonance effects and Raman spectra with great amplifications can be generates, all of its electronic transitions are located below \SI{200}{\nano\metre}.
-In a real life setting, it would be prohibitively expensive and dangerously energetic to use lasers of such small wavelengths: the most common lasers for RR range between \SI{244}{\nano\metre} and \SI{1064}{\nano\metre}, where the most common ones tend to be around the visible and near-infrared wavelengths.\cite{karlsson18,horiba}
+In a real life setting, it would be prohibitively expensive to use lasers of such small wavelengths: the most common lasers for RR range between \SI{244}{\nano\metre} and \SI{1064}{\nano\metre}, where the most common ones tend to be around the visible and near-infrared wavelengths.\cite{karlsson18,horiba}
+Additionally, ultraviolet lasers tend carry more energy and could degrade the sample or result in autofluorescence effects that could interfere with the readings.
 Since this work aims to propose feasible and practical ideas, we had to find a way to modify STX's natural range of absorption.
 The answer lied close to the fundamentals of another Raman amplification technique: surface-enhanced Raman spectroscopy (SERS).
 SERS is a variant of Raman that relies on the adsorption of a molecule onto a surface-like structure, usually composed of a metal.
-While the Raman signal amplification was notable, the most interesting result that we found while studying SERS was the fact that adsorbing the STX to another molecule modified its electronic properties\sidenote{Resulting in what could be thought of as the shared electronic properties of a complex.} in such a way that its UV-vis absorption range was shifted towards larger wavelenghts.
+While the Raman signal amplification was notable, the most interesting result that we found while studying SERS was the fact that adsorbing the STX to another molecule modified its electronic properties\sidenote{Resulting in what could be thought of as the shared electronic properties of a complex.} in such a way that its UV-vis absorption range was shifted towards larger wavelengths.
 
 The system with which this effect was initially studied in previous work was a graphene sheet.
 While the graphene-STX complex was successful in absorbing wavelengths longer than STX alone, it was found that the vibrations of the surface interfered with the identification of the molecule.
@@ -111,7 +113,8 @@ The search for effective and interesting SERS substrates ended up leading us to 
 The first representative of this family, nicknamed as \q{sulflower}, is the ocatathio[8]circulene.
 This highly symmetric structure, which may be described as a form of carbon sulfide and as a belt of annulated thiophene cycles, is claimed to have great stability, high symmetry and unusual electronic properties.
 
-From a synthetic point of view, sulflower also proved to be simple and straightforward to develop despite its complex appearance: start from tetrathiophene, sulphurize its free sites and acidificating to get polythiol, and remove the excess sulfur by vacuum pyrolysis.
+From a synthetic point of view, sulflower also proved to be simple and straightforward to develop despite its complex appearance: start from tetrathiophene, sulphurize its free sites and acidificating to get polythiol, and remove the excess sulfur using vacuum pyrolysis.
+%The tetrathiophene was
 This process allowed the team to achieve yields of 56\% starting from commercially available reagents.
 
 Interestingly, the team proposed that it could be possible to prepare materials with diverse electronic properties by using different types of heteroatoms and varying on the basic structure of the molecule.%

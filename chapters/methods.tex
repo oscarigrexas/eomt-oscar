@@ -30,6 +30,7 @@ The optimization of the geometry of a molecule is a crucial part of any computat
 At its core, it's a process where the geometry of a system gets iteratively modified (and its energy calculated at each step) with the aim of reaching a stationary point on its potential energy surface.
 In the case of this work, these optimizations are always minimizations as we just look for energy minima.
 In Gaussian09,\cite{gaussian09} our electronic structure computation software of choice, these calculations are carried out using the Berny algorithm in its GEDIIS\sidecite{li06} implementation.
+GEDIIS is the application of the energy-represented direct inversion in the iterative subspace algorithm (EDIIS) to geometry optimization problems.
 
 \subsection{Magnetic shielding computation}
 Nuclear magnetic resonance type calculations, namely the computation of the magnetic shielding in the nucleus-independent chemical shift study in \refsec{nics}, were carried out using the GIAO method.
@@ -42,6 +43,9 @@ The GIAO method solves this problem by using sets of atomic basis functions that
 
 GIAO calculations have been successful in describing the magnetic shielding of a variety of large nuclei in optimized and isolated large molecules.\sidecite{yuksek08} Therefore, it has been considered as an appropriate way of computing the absolute magnetic shieldings needed in this work.
 
+In this work, GIAO computations were performed using the B3LYP\sidecite{becke88} DFT method and Pople's 6-31G* basis set.
+This lower level was chosen to speed up these calculations and was considered sufficiently accurate.
+
 \subsection{Electronic transition study}
 \labsec{electronic-transition-study}
 The prediction of ultraviolet-visible (UV-vis) spectra, a result of electronic transitions within a molecule, requires the computation of the energies of its electronically excited excited states.
@@ -52,7 +56,7 @@ Any given non linear molecule with $N$ atoms has 6 translational and rotational 
 Vibrational normal modes are orthogonal, that is, they're vibrational motions that are independent and don't cause movement to the other normal modes.
 
 The frequencies of these modes are calculated through the following procedure.\sidecite{ochterski99}
-All starts with a Hessian matrix that contains the second partial derivatives of the potential with respect to the displacement of the atoms.
+All starts with a Hessian matrix that contains the second partial derivatives of the potential energy function with respect to the displacement of the atoms.
 This Hessian is mass weighted, its principal axes of inertia are determined, and it gets transformed into internal coordinates.
 Through these operations, the rotational and translational modes get separated out and only the $3N-6$ vibrational modes remain.
 Then, the transformed matrix is diagonalized.
@@ -175,15 +179,15 @@ Plotting these values directly as vertical lines along the wave number range res
 
 While such a graph could still be useful to display and compare the intensities of the vibrational modes, it could be harder to compare to real experimental spectra.
 In order to make our theoretical spectra look more realistic, then, an envelope line is added.
-This is done by replacing each of the simple vertical lines by Gaussian functions.
+This is done by replacing each of the simple vertical lines by Lorentzian or Gaussian functions.
 These functions are designed so that they are as tall as the intensity of the peak that they're representing.
 They are evaluated at the full range of frequencies, and linearly combined forming a continuous curve that smoothly wraps all of the peaks.
 
-In the case of Raman spectra, the value of each of the Gaussians at a certain wave number value is calculated following \refeq{raman-envelope}.
+In the case of Raman spectra, the value of each of the Lorentzians at a certain wave number value is calculated following \refeq{raman-envelope}.
 
 \begin{equation}
     \labeq{raman-envelope}
-    I_i (\tilde{\nu}) = I_i^\textit{max}e^{-\left(\frac{\tilde{\nu} - \tilde{\nu}_i}{\sigma}\right)^2}
+    I_i (\tilde{\nu}) = \frac{I_i^\textit{max}}{\pi}\frac{\sigma /2}{(\tilde{\nu} - \tilde{\nu}_i)^2+(\sigma/2)^2}
 \end{equation}
 
 The value of $\sigma$, which is the full width at half maximum of each curve, is set arbitrarily at \SI{4}{\per\cm}.
@@ -198,6 +202,7 @@ The same STX Raman spectrum, plotted after computing this set of equations, is d
 
 As for the electronic spectra, the procedure is quite similar.
 In this case, the values to be plotted are the energies of the electronic transitions in the form of wavelengths, as well as their corresponding oscillator strengths.
+Additionally, Gaussian functions are used instead of Lorentzian.
 Similarly to before, an envelope curve is created by calculating as many Gaussian functions as there are transitions, but with a slightly different formula as displayed in \refeq{uv-envelope}.
 
 \begin{equation}

@@ -49,7 +49,7 @@
 %\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
 
 % Load the bibliography package
-\usepackage{styles/kaobiblio}
+\usepackage[maxbibnames=99]{styles/kaobiblio}
 \addbibresource{eomt.bib} % Bibliography file
 
 % Load mathematical packages for theorems and related environments. NOTE: choose only one between 'mdftheorems' and 'plaintheorems'.
@@ -90,6 +90,11 @@
   {\fontencoding{OT2}\selectfont#1}%
 }
 
+% Hopefully fix the figure groupings in the LOF?
+\usepackage{etoolbox}
+\newcommand{\killdeactivateaddvspace}{\let\deactivateaddvspace\relax}
+\AtEndPreamble{\addtocontents{lof}{\protect\killdeactivateaddvspace}}
+
 % Define some cool colors
 \definecolor{fd}{gray}{0.5}
 \newcommand{\faded}[1]{\color{fd}{#1}}
@@ -110,15 +115,13 @@
 %	BOOK INFORMATION
 %----------------------------------------------------------------------------------------
 
-\titlehead{EOMT}
+\titlehead{Sunflowers}
 % \subject{Subject}
 
 \title[Sunflowers]{Sunflowers}
 \subtitle{Characterization of a novel family of heterocyclic circulenes, and their application to resonance Raman spectroscopy}
 
 \author[oscarigrexas]{Óscar Iglesias González}
-
-\date{\today}
 
 \publishers{CC Ediciones, Óscar's Room HQ}
 
@@ -146,31 +149,31 @@
 %	COPYRIGHT PAGE
 %----------------------------------------------------------------------------------------
 
-\makeatletter
-\uppertitleback{\@titlehead} % Header
-
-\lowertitleback{
-	\textbf{Disclaimer} \\
-	You can edit this page to suit your needs. For instance, here we have a no copyright statement, a colophon and some other information. This page is based on the corresponding page of Ken Arroyo Ohori's thesis, with minimal changes.
-
-	\medskip
-
-	\textbf{No copyright} \\
-	\cczero\ This book is released into the public domain using the CC0 code. To the extent possible under law, I waive all copyright and related or neighbouring rights to this work.
-
-	To view a copy of the CC0 code, visit: \\\url{http://creativecommons.org/publicdomain/zero/1.0/}
-
-	\medskip
-
-	\textbf{Colophon} \\
-	This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
-
-	\medskip
-
-	\textbf{Publisher} \\
-	First printed in May 2019 by \@publishers
-}
-\makeatother
+%\makeatletter
+%\uppertitleback{\@titlehead} % Header
+%
+%\lowertitleback{
+%	\textbf{Disclaimer} \\
+%	You can edit this page to suit your needs. For instance, here we have a no copyright statement, a colophon and some other information. This page is based on the corresponding page of Ken Arroyo Ohori's thesis, with minimal changes.
+%
+%	\medskip
+%
+%	\textbf{No copyright} \\
+%	\cczero\ This book is released into the public domain using the CC0 code. To the extent possible under law, I waive all copyright and related or neighbouring rights to this work.
+%
+%	To view a copy of the CC0 code, visit: \\\url{http://creativecommons.org/publicdomain/zero/1.0/}
+%
+%	\medskip
+%
+%	\textbf{Colophon} \\
+%	This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
+%
+%	\medskip
+%
+%	\textbf{Publisher} \\
+%	First printed in May 2019 by \@publishers
+%}
+%\makeatother
 
 %----------------------------------------------------------------------------------------
 %	DEDICATION
@@ -179,7 +182,7 @@
 \dedication{
 	What, that's impossible? Wait, how? How is this sunflower so chill. How, that's impossible, he can't be this chill. He is so chill, I can't believe it.\\
 	\flushright -- Unkwnown\\
-	\vspace{15em}
+	\vspace{25em}
 	\centering MBT2Á\&\rn{Zh}
 }
 
@@ -214,6 +217,7 @@
 \nomenclature{BSSE}{Basis set superposition error}
 \nomenclature{DFT}{Density functional theory}
 \nomenclature{EF}{Enhancement factor}
+\nomenclature{GEDISS}{Energy-represented direct inversion in the iterative subspace algorithm (EDISS) applied to geometry optimization}
 \nomenclature{GIAO}{Gauge-including atomic orbital}
 \nomenclature{IR}{Infrared}
 \nomenclature{MSC}{Most stable conformer}

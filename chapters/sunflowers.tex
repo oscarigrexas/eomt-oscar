@@ -53,12 +53,6 @@ A full table detailing all of the structures that were generated and will compri
 \section{Study of geometry}
 \labsec{study-of-geometry}
 
-\begin{marginfigure}
-    \includegraphics{pentagon-structure}
-    \caption[Single petal structure template]{Single petal structure template (hydrogen is added to adjust for neutrality as needed)}
-    \labfig{pentagon-structure}
-\end{marginfigure}
-
 Coordinate files for all of the designed sunflowers were created using the 3D molecule modeling program GaussView 6\sidecite{gv6}.
 Then, they were optimized at the M06-2X/def2SVP calculation level.
 
@@ -70,7 +64,12 @@ Then, they were optimized at the M06-2X/def2SVP calculation level.
 
 Using the output files for these calculations, all of the bond distances in all of the systems were extracted using Python.
 Then, the bonds were grouped by type: inner (I, bonds between X$_0$ atoms, which were carbon in all cases), middle (M, between X$_0$ and X$_2$ atoms, which were either C-C or C-N bonds), and outer (O, between X$_2$ and X$_1$ atoms).
-The mean and standard deviation of these groups were computed for all of the flowers and displayed in \reftab{bond-length-study}.
+The mean and standard deviation of these groups were computed for all of the flowers and displayed in \reftab{bond-length-study}.%
+\begin{marginfigure}
+    \includegraphics{pentagon-structure}
+    \caption[Single petal structure template]{Single petal structure template (hydrogen is added to adjust for neutrality as needed)}
+    \labfig{pentagon-structure}
+\end{marginfigure}%
 Additionally, pentagonal structures of the form displayed in \reffig{pentagon-structure} were modeled and optimized, and their bond length data was compared with the rest and also presented in \reftab{bond-length-study}.
 These are used to compare the geometry of the flowers with that of single petals.
 
@@ -177,7 +176,7 @@ Nevertheless, it should be kept in mind that this calculation is an approximatio
 \labsec{study-of-aromaticity}
 
 Aromaticity is a property related to molecules that contain a ring or a chain of resonance bonds that increases their stability.
-It’s typically found in flat ring structures, although the definition has been discussed and expanded since its initial association to benzene\sidecite{faraday1825} and there are other varieties such as annulenic, azulenic, inorganic, homoaromatic, three-dimensional, $\sigma$-electron, and even metallic electron aromaticity.\sidecite{zhongfang05}
+It’s typically found in flat ring structures, although the definition has been discussed and expanded since its initial association to benzene\cite{faraday1825} and there are other varieties such as annulenic, azulenic, inorganic, homoaromatic, three-dimensional, $\sigma$-electron, and even metallic electron aromaticity.\sidecite{zhongfang05}
 Considering their ringed structure and possibly high conjugation, we wondered if the sunflowers could present any kind of aromatic tendencies.
 Having already studied their degree of bond length equalization in \refsec{study-of-geometry}, we set out to assess their aromaticity from the point of view of their magnetic properties.
 
@@ -380,8 +379,17 @@ First, only the As and P families presented magnetic profiles characteristic of 
 All of the other families had graphs similar to that of Se10: negative values of NICS all through the petals and only low positive values in the center, indicating signs of aromaticity.
 
 Additionally, it was observed that the absolute values of NICS varied according to the number of petals depending on these proposed aromatic behaviors.
-In aromatic families, the absolute value of the shielding increased as the number of petals did: S12 has larger NICS values than S08.
+In aromatic families, the absolute value of the shielding increased as the number of petals did: S12 has larger NICS values than S08 (exemplified in \reffig{nics-s-family}).
 However, in antiaromatic families, the largest absolute values were found in the flowers with the fewer petals.
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{5.5cm}\centering\includegraphics{s08-2d}\caption{NICS 2D projection for S08}\end{subfigure}%
+    \begin{subfigure}{5.5cm}\centering\includegraphics{s10-2d}\caption{NICS 2D projection for S10}\end{subfigure}%
+    \begin{subfigure}{5.5cm}\centering\includegraphics{s12-2d}\caption{NICS 2D projection for S12}\end{subfigure}
+    \caption[NICS of S family]{NICS of the S family of flowers. Note the deeper blue values of NICS as the number of petals increases}
+    \labfig{nics-s-family}
+\end{figure*}
 
 \section{Spectroscopic characterization}
 After having obtained a general profile of the nature of this novel family of molecules, we start delving into the main topic of the work: spectroscopy.
@@ -403,29 +411,29 @@ Other vibrational modes that were also deemed important were plotted using verti
 These other modes, while still characteristic and useful for the identification of the flowers, were not as clean or easily describable as A modes.
 They involved mixtures of asymmetric scissoring ($\delta_\textit{as}$) of the inner (X$_0$-X$_0$) and outer (X$_1$-X$_2$) bonds, and the asymmetric stretching ($\nu_\textit{as}$) of inner and middle bonds.
 
-Using the Raman spectra of some of the 8 petal flowers as an example, plotted in \ref{fig:flower-raman}, it can be observed that they always have present an A-type mode at fairly similar frequencies.
+Using the Raman spectra of some of the 8 petal flowers as an example, plotted in \reffig{flower-raman}, it can be observed that they always have present an A-type mode at fairly similar frequencies.
 
 \begin{figure*}[h]
-    \label{fig:flower-raman}
     \centering
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-s08}\caption{Raman spectrum for S08}\end{subfigure}%
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-se08}\caption{Raman spectrum for Se08}\end{subfigure}
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-p08}\caption{Raman spectrum for P08}\end{subfigure}%
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-pn08}\caption{Raman spectrum for PN08}\end{subfigure}
     \caption[Raman spectra of 8 petal flowers]{Raman spectra of a selection of 8 petal flowers. Note the A modes plotted with dashed lines}
+    \labfig{flower-raman}
 \end{figure*}
 
 Additionally, in general, an increase in the complexity of the spectra and a decrease in the cleanliness of the spectra was observed alongside the increase of the number of petals: flowers with 12 petals had more complex patterns of modes than flowers with 8.
 
 Let's take, for example, the As family.
-The spectra for As08 and As12, displayed  in \ref{fig:as-raman}, have clear differences in intricacy and number of modes.
+The spectra for As08 and As12, displayed  in \reffig{as-raman}, have clear differences in intricacy and number of modes.
 
 \begin{figure*}[h]
-    \label{fig:as-raman}
     \centering
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-as08}\caption{Raman spectrum for As08}\end{subfigure}%
     \begin{subfigure}{8.25cm}\centering\includegraphics{raman-as12}\caption{Raman spectrum for As12}\end{subfigure}
     \caption[Raman spectra of As08 and As12]{Raman spectra of As08 and As12}
+    \labfig{as-raman}
 \end{figure*}
 
 All in all, these spectra were considered simple and clear enough to allow for the identification of the flowers.
