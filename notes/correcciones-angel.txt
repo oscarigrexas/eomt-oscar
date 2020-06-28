@@ -18,8 +18,6 @@
 
 ·        Pág 18: Figura 2.6 ¿Tienes explicación para ese punto díscolo? Parece raro que haya 2 sistemas (P y S si no me equivoco) que tengan una forma y el resto otra. Hay cambios cóncavo-convexo en esas tendencias. ¿Se te ocurre por qué?
 
-·        Pág 19: The basic application of NICS: Mencionaría algo del NICS(0), NICS(1) y NICSzz.
-
 ·        Pág 21: ref 46 (la tuya) pondría debajo un código QR pequeño para que se pueda acceder directamente si le pica la curiosidad.
 
 ·        Pág 24: Fig 3.12 No se ven bien las líneas discontinuas en 3 de las 4 figuras. Las pondría de otro color.

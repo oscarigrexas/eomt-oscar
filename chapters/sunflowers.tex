@@ -189,9 +189,24 @@ Said ring currents generate their own magnetic field, which can weaken or streng
 Aromatic systems will experience shielding on the inside of the ring and deshielding on the outside.
 Antiaromatic systems will experience the opposite.
 
+\begin{margintable}
+    \centering
+    \caption[Popular NICS variants]{Popular NICS variants depending on the location of the molecule in which the magnetic shielding is calculated}
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Name & Measurement \\
+        \midrule
+        NICS(0) & At the center of the ring \\
+        NICS(1) & \SI{1}{\angstrom} above the center \\
+        NICS$_\textit{zz}$ & Out-of-plane \\
+    \end{tabular}
+    \labtab{nics-variants}
+\end{margintable}
+
 \subsubsection{The basic application of NICS}
 NICS is usually applied to single rings, and quantified by computing the absolute magnetic shielding at key locations.
 This key location is usually one of the following: the center of the ring (calculated as the non-weighted mean of the positions of the heavy atoms), several points along a central axis perpendicular to the plane of the ring (calculated trivially in planar rings as the plane that passes through any three ring atoms), at several points on a grid perpendicular to the plane of the ring, or as three dimensional isosurfaces using dense grids.
+Considering this location criterion, some of the most applied variants of NICS have been summarized in \reftab{nics-variants}.
 
 \subsubsection{A custom solution for non-planar molecules}
 
