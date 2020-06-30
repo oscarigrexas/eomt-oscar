@@ -177,6 +177,13 @@ Continuing with the example, the populations for S08-STX were computed and are d
 As an arbitrary threshold, it was decided to filter out all of the conformers with populations lower than \SI{1}{\percent}, and to just keep studying the remaining ones.
 That is, all further calculations that involve the computation of weighted mean values or spectra will only take into account conformers with populations higher than that value.
 
+It may be noted that there are different numbers of relevant conformers for each of the flowers.
+For example, flowers like S12, As10, As12 and AsN10 only have one relevant conformer, but others like S08 and Se12 have five.
+This may be attributed to the arbitrary modelling of the geometries.
+If the total number of generated conformers was larger, this behavior could be interpreted as a sign of the conformational freedom of the systems.
+Due to computational limitations there are only 10 conformers per flower and that they were modelled by hand, so therefore we refrained from reaching conclusions with too little data.
+However, it must be kept in mind that modelling and taking into account any number of conformers will improve the description of the system.
+
 \begin{table}
     \centering
     \caption[Maxwell-Boltzmann populations for all sets]{Maxwell-Boltzmann populations for the 5 most stable conformers in all sets, as percentages, with non significant conformers marked in grey}
@@ -269,7 +276,7 @@ As an example of this, the UV-vis spectra of STX, S08 and S08-STX are displayed 
 As it may be noted, the spectra of the complex has almost the same absorption range as that of the isolated S08, and in any case, it's definitely shifted towards longer wavelengths in contrast with that of STX.
 This effect was the same for all of the flower-STX complexes, and the full list of compared UV-vis spectra can be found in \refsec{ap:uv-vis-flowers}.
 
-After this, the UV-vis absorption spectra of all of the complexes were plotted together in order to visually compare just their absorption ranges. This plot is displayed in \reffig{complex-uv}, where the main heteroatoms of the flowers and their number of petals are distinguished using different colors and linestyles, respectively.
+After this, the UV-vis absorption spectra of all of the complexes were plotted together in order to visually compare just their absorption ranges. This plot is displayed in \reffig{complex-uv}, where the main heteroatoms of the flowers and their number of petals are distinguished using different colors and line styles, respectively.
 
 \begin{figure*}
     \includegraphics{complex-uv}

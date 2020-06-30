@@ -10,17 +10,11 @@
 
 ·        Pág 5: dónde hablas de la síntesis, me surge la pregunta del control del tamaño y como separan.
 
-·        Pág 5: dices highly symmetrical, stable etc, son altamente simétricas en el plano, ¿Cuándo se doblan de mala manera en la de 12 sobre todo, siguen siendo simétricas?
-
 ·        Pág 9: al final en la segunda línea de la Raman spectroscopy vuelve a aparecer la afectación a la polarizabilidad que sigue sonándome raro jajaa
 
 ·        Pág 17: revisa diferencia entre isodésmica, isogírica, homodesmótica etc y piensa por qué una homodesmótica y no otra cualquiera. A lo mejor esta web te sirve para aclarar conceptos, tiene una tabla bastante buena. http://ursula.chem.yale.edu/~chem220/chem220js/STUDYAIDS/thermo/homodesmotic/homodesmotic.html#hypo
 
 ·        Pág 18: Figura 2.6 ¿Tienes explicación para ese punto díscolo? Parece raro que haya 2 sistemas (P y S si no me equivoco) que tengan una forma y el resto otra. Hay cambios cóncavo-convexo en esas tendencias. ¿Se te ocurre por qué?
-
-·        Pág 21: ref 46 (la tuya) pondría debajo un código QR pequeño para que se pueda acceder directamente si le pica la curiosidad.
-
-·        Pág 24: Fig 3.12 No se ven bien las líneas discontinuas en 3 de las 4 figuras. Las pondría de otro color.
 
 ·        Pág 25: Pondría en el lateral una tablita con las fuerzas del oscilador. En esa misma página, en el inset lateral dices: Approximate UV-vis absorption range ¿cómo se define?.
 
@@ -28,15 +22,7 @@
 
 ·        Pág 27: de nuevo en Vibrational spectroscopy está eso de la polarizabilidad.
 
-·        Pág 32: En la tabla, flores de 10 As y AsN, solamente hay una estrucutra relevante, el resto son prácticamente 0 o 0. ¿Explicación?
-
-·        Pág 32 (pero vale para otras gráficas en la que representas algo frente a n). Pondría en la gráfica que es ese n tal y como explicas en el eje Y que representas. Parece trivial y cualquiera que siga el texto debería entenderlo pero es más correcto poner número de unidades/pétalos/anillos en la flor o en el sistema etc.
-
 ·        Pág 33.- Yo en el cuarto párrafo de General UV-Vis spectroscopy dices que los espectros están en la sección A.3. y despachas el tema rápido jajaja ahí añadiría algún comentario o discusión de los rangos de la tabla 4.5 y diría bueno pues la Fig. 4.7 no es nada buena pero hay otros espectros que si que dan señal en el visible etc. Este es a lo mejor un punto interesante para añadir una imagen de las que mejor dan o de las que te son más interesantes a ti. Por cierto, hablando de estos espectros, ¿qué fue de los estudios de transferencia de carga que hicieras y que tenías isosuperficies y tal?
-
-·        Pág 34, Figura 4.8.- Se ve pero te dejas un poco los ojos, un poquito más de grosor en las líneas se hubiera agradecido sobre todo si hay tantas líneas en tan poco espacio.
-
-·        Pág 39: Figure 4.12 pone long, le falta una descripción. Justo debajo de esp pone displayed in Figure ¿?? Te falta ahí la referencia a la figura.
 
 ·        Pág 39.- All of the RR spectra for the rest of the flower-stx systems… Este es un buen ejemplo de la información masiva que envías a anexos. Aquí una tablita con el sistema y las longitudes de onda incidentes que seleccionas y algo de discusión sobre ellas estaría muy bien. Es un resultado fundamental de tu trabajo y no hay nada en el texto. Ten en cuenta que en los anexos se añade información que si bien puede ser útil para complementar el trabajo no es fundamental. ¿Es útil el gráfico y tal? Si, en anexos, visto y explicado uno, visto un ciento, pero los valores característicos de cada sistema si que son cruciales.
 
@@ -45,5 +31,3 @@
 ·        Más comentarios de referencias: en la 2 para mi le falta los autores del capítulo o el editor del libro y me sobra el DOI. En la ref. 17 a priori me faltan datos al igual que en la 35.
 
 Creo que no me dejo nada, y si me lo dejo probablemente no será importante. Yo le echaría un ojo a esto antes de que empieces con tus prácticas y se o mandaría a tus tutores de TFM e insistiría varias veces para que se lo leyeran (que es lo que tienen que hacer los tutores y no yo jajajaja (que conste que encantado de poder ayudarte)). Si lo tienes que entregar el no sé 5 de julio diles que es para el 1 por si acaso. Y si el día antes o así no tienes noticias recuérdalo.
-
-Vete viendo para hacer algún ensayo si quieres conmigo solo o con todos etc para convocarlo con tiempo.
