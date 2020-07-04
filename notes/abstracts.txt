@@ -1,0 +1,22 @@
+Sunflowers: Characterization of a novel family of heterocyclic circulenes, and their application to resonance Raman spectroscopy
+
+A family of 18 molecules based on octathio[8]circulene was defined and modeled, including circulenes with different combinations of heteroatoms (S, Se, As, P and N), and different numbers of rings (8, 10 and 12).
+In order to characterize them, several of their properties were studied and discussed: bond lengths, ring strain, nucleus-independent magnetic shielding (NICS), and Raman and electronic spectra.
+Then, they were used as substrates to adsorb the marine toxin saxitoxin (STX).
+This resulted in an enhancement of its electronic properties, which allowed us to study its electronic and Raman spectra and propose viable detection conditions based on resonance Raman (RR).
+
+
+Girasoles: Caracterización de una familia novedosa de circulenos heterocíclicos, y su aplicación a la espectroscopía Raman
+
+Una familia de 18 moléculas basadas en el octatio[8]circuleno fue definida y modelada, incluyendo circulenos con diferentes combinaciones de heteroátomos (S, Se, As, P y N), y diferente número de anillos (8, 10 y 12).
+Para caracterizarlos, varias de sus propiedades fueron estudiadas y discutidas: longitudes de enlace, tensión de anillo, apantallamiento magnético independiente del núcleo (NICS), y espectroscopía Raman y electrónica.
+Después, fueron usados como sustratos para adsorber la toxina marina saxitoxina (STX).
+Esto resultó en una amplificación de sus propiedades electrónicas, lo cual nos permitió estudiar sus espectros electrónico y Raman y proponer métodos de detección viables basados en Raman de resonancia (RR).
+
+
+Xirasoles: Caracterización dunha familia novedosa de circulenos heterocíclicos, e a súa aplicación á espectroscopía Raman
+
+Unha familia de 18 moléculas basadas no octatio[8]circuleno foi definida e modelada, incluíndo circulenos con diferentes combinacións de heteroátomos (S, Se, As, P e N), e diferente número de aneis (8, 10, 12).
+Para caracterizalos, varias das súas propiedades foron estudadas e discutidas: lonxitudes de enlace, tensión de anel, apantallamento magnético independente do núcleo (NICS), e espectroscopía Raman e electrónica.
+Despois, foros usados como substratos para adsorber a toxina mariña saxitoxina (STX).
+Isto resultou nunha amplificación das súas propiedades electrónicas, o cal permitiunos estudar os seus espectros electrónico e Raman e propoñer métodos de detección viables basados en Raman de resonancia (RR).

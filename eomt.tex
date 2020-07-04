@@ -92,6 +92,9 @@
   {\fontencoding{OT2}\selectfont#1}%
 }
 
+% Add covers
+\usepackage{pdfpages}
+
 % Hopefully fix the figure groupings in the LOF?
 \usepackage{etoolbox}
 \newcommand{\killdeactivateaddvspace}{\let\deactivateaddvspace\relax}
@@ -112,6 +115,9 @@
 %----------------------------------------------------------------------------------------
 
 \begin{document}
+
+\includepdf[pages=-]{../images/front-cover.pdf}
+\includepdf[pages=-]{../images/front-cover-back.pdf}
 
 %----------------------------------------------------------------------------------------
 %	BOOK INFORMATION
@@ -206,7 +212,10 @@
 
 \chapter*{Abstract}
 
-\blindtext
+A family of 18 molecules based on octathio[8]circulene was defined and modeled, including circulenes with different combinations of heteroatoms (S, Se, As, P and N), and different numbers of rings (8, 10 and 12).
+In order to characterize them, several of their properties were studied and discussed: bond lengths, ring strain, nucleus-independent magnetic shielding (NICS), and Raman and electronic spectra.
+Then, they were used as substrates to adsorb the marine toxin saxitoxin (STX).
+This resulted in an enhancement of its electronic properties, which allowed us to study its electronic and Raman spectra and propose viable detection conditions based on resonance Raman (RR).
 
 %----------------------------------------------------------------------------------------
 %	NOMENCLATURE
@@ -368,5 +377,8 @@
 %\includepdf{cover-back.pdf}
 
 %----------------------------------------------------------------------------------------
+
+\includepdf[pages=-]{../images/back-cover-back.pdf}
+\includepdf[pages=-]{../images/back-cover.pdf}
 
 \end{document}

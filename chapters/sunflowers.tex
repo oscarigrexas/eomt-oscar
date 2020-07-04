@@ -23,14 +23,14 @@ Expanding upon this idea to allow for further heteroatom substitution, we ended 
 The possibilities were numerous, but we settled for S, Se, As and P substitutions on X$_1$ sites, and N substitutions in some cases in X$_2$ sites.
 A full table detailing all of the structures that were generated and will comprise this study can be found in \reftab{sunflower-family}, as well as the short names or IDs that were given to each species based on its composition and number of petals for the sake of abbreviation.
 
-\begin{figure*}
+\begin{figure*}[h]
     \centering
     \includegraphics{sunflower-skeletons}
     \caption[General structures of the sunflower family]{From left to right, general structures of the 8, 10 and 12 ring sunflowers}
     \labfig{sunflower-skeletons}
 \end{figure*}
 
-\begin{table}
+\begin{table}[h]
     \centering
     \caption[Sunflowers in this study]{Subset of the sunflower family that is going to be studied}
     \begin{tabular}{@{}cccrrr@{}}
@@ -56,7 +56,7 @@ A full table detailing all of the structures that were generated and will compri
 Coordinate files for all of the designed sunflowers were created using the 3D molecule modeling program GaussView 6\sidecite{gv6}.
 Then, they were optimized at the M06-2X/def2SVP calculation level.
 
-\begin{figure}
+\begin{figure}[h]
     \includegraphics{sunflower-shapes}
     \caption[Shape of the sunflowers]{Shape of optimized S08, S10 and S12, from left to right (note the progressive increase in their deviation from planarity)}
     \labfig{sunflower-shapes}
@@ -84,7 +84,7 @@ Groups with a relatively high $\sigma$ such as the I bonds of As08, As12, P08 an
 On the other hand, groups with small $\sigma$ values are more likely to correspond to conjugated systems, which may be stabilized by electron delocalization.
 This concept of bond length equalization and conjugation may be tied to that of aromaticity, where equalized C-C bonds could be a sign of it, and uneven ones could indicate non aromaticity or antiaromaticity.\sidecite{zhongfang05} This topic will be covered in greater detail in \refsec{study-of-aromaticity}.
 
-\begin{table}
+\begin{table}[h]
     \centering
     \caption[Bond length study]{Bond length statistics for each studied species, units are \si{\angstrom}, and $\tilde{x}$ and $\sigma$ are the mean and the standard deviation}
     \begin{tabular}{@{}rlcccccc@{}}
@@ -138,16 +138,16 @@ Ring strain may be defined as a kind of instability that arises when angles of t
 The energy associated to this phenomenon can serve as a way to compare the stabilities of flowers with different numbers of petals, as it was done in the original paper and reproduced in \reffig{sulflower-strain}.
 Its calculation relies on the design of an homodesmotic reaction.
 What does this mean?
-In a homodesmotic reaction, the number of atoms and the type of hybridations in the products are the same as in the reactants.
-Our goal is to devise a chemical equation where the strained structure appears in only one of its sides and the rest of the chosen molecules don't present any strain effects.\sidecite{vidalvidal18}
+In a homodesmotic reaction, the number and type of C-C bonds and the number and type of carbon hybridations in the products are the same as in the reactants.
+Our goal is to devise a chemical equation where the strained structure appears in only one of its sides and the rest of the chosen molecules don't present any strain effects.\sidecite{wheeler09,vidalvidal18}
 If we manage to create such an equation, the reaction energy will correspond to the strain, as the rest of the components of the energy should nullify themselves between the two sides of the reaction.
 
-In this case, apart from the sunflower structure B, the equations that were designed included molecules A and C, non-cyclic structures composed of 3 and 2 petals. \marginnote{
+In this case, apart from the sunflower structure B, the equations that were designed included molecules A and C, non-cyclic structures composed of 3 and 2 petals.\marginnote{
 	\begin{equation}
         \labeq{homodesmotic-equation}
         E_\text{strain} = \frac{E_B + nE_C - nE_A}{n}
 	\end{equation}
-} By following this reaction, which is fully displayed in \reffig{homodesmotic}, the strain energy was calculated as shown in \refeq{homodesmotic-equation}.
+} By following this reaction, which is fully displayed in \reffig{homodesmotic}, the strain energy was calculated as shown in \refeq{homodesmotic-equation} (where $n$ is the number of petals of the full flower).
 
 \begin{figure}
     \centering
@@ -162,7 +162,7 @@ However, it may be noted that their increase follows slightly different tendenci
 Notable examples are the P family, where the 8 and 10 petal species have very similar strains; and the Se, As and AsN families, where the energies of the 10 and 12 petal structures are very close.
 These energy values are an useful indication of the relative strains of the different species within a family, and an estimation of their
 stabilities with respect to the original sulflower.
-Nevertheless, it should be kept in mind that this calculation is an approximation, and that the values of the so called strain energy might be accounting for other effects such as conjugation stabilization or repulsion between the heteroatoms.
+Nevertheless, it should be kept in mind that this calculation is an approximation, and that the values of the so called strain energy might be accounting for other effects such as resonance.
 
 \begin{figure}
     \centering
