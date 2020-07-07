@@ -44,7 +44,7 @@ The GIAO method solves this problem by using sets of atomic basis functions that
 GIAO calculations have been successful in describing the magnetic shielding of a variety of large nuclei in optimized and isolated large molecules.\cite{yuksek08} Therefore, it has been considered as an appropriate way of computing the absolute magnetic shieldings needed in this work.
 
 In this work, GIAO computations were performed using the B3LYP\sidecite{becke88} DFT method and Pople's 6-31G* basis set.
-This lower level was chosen to speed up these calculations and was considered sufficiently accurate.
+This lower level was chosen to speed up this specific set of calculations and was considered sufficiently accurate.
 
 \subsection{Electronic transition study}
 \labsec{electronic-transition-study}
@@ -94,18 +94,41 @@ Thanks to this calculation, the modes can be filtered by their percentage of A, 
 This idea is further explored and applied in \refsec{heatmaps}.
 
 \subsection{Raman spectroscopy}
-Raman spectroscopy is a technique that allows for the detection of those vibrational normal modes that affect the polarizability of a molecule (i.e. the ease with which its electron cloud can be distorted).
+Raman spectroscopy is a technique that allows for the detection of those vibrational normal modes that affect the polarizability of a molecule (i.e. the ease with which its electron cloud can be distorted and form instantaneous dipoles while responding to a external field).\sidenote{In quantum chemistry, this property is modeled using the polarizability tensor $\alpha$, which is defined for the dipole moment $\mu$ and an external electric field $E$ as $\dv{\mu}{E}$.}
 This kind of vibrational transitions are tied to a physical phenomenon known as Raman or inelastic scattering.
 For an inelastic scattering event to happen, a photon has to excite a molecule and get it to a virtual energy state before being emitted.
 After this, the photon has either a lower or a higher energy, and the molecule ends up in a different vibrational or rotational state due to the energy exchange between them.
 
-Computationally, the intensity of a Raman active mode $i$ can be derived from its scattering factor $S_i$, which in turn it can be obtained from its polarizability tensor following \refeq{raman-activity}.
-$Q_i$ represents the displacements of the vibrational mode, $\alpha$ is the isotropic polarizability, and $\gamma$ is the anisotropic one.
+Computationally, the activity $R_i$ of a Raman active mode $i$ can be derived from its polarizability following \refeq{raman-activity}.\sidecite{mandado15}
+In this equation, the polarizability tensor $\alpha$ is split into its isotropic and anisotropic invariants $\bar{\alpha}_i^2$ and $\bar{\gamma}_i^2$, respectively.
+These two components are defined in \refeq{invariants} in terms of elements of $\alpha$.
 
 \begin{equation}
     \labeq{raman-activity}
-    S_i = 45\left( \dv{\alpha}{Q_i} \right)^2 + 7\left( \dv{\gamma}{Q_i} \right)^2
+    R_i = 45\bar{\alpha}_i^2 + 7\bar{\gamma}_i^2
 \end{equation}
+
+\begin{align}
+\begin{split}
+    \labeq{invariants}
+    \bar{\alpha}_i^2 &= \frac{1}{9}\left[\alpha_\textit{xx}^2 +
+                                         \alpha_\textit{yy}^2 +
+                                         \alpha_\textit{zz}^2 +
+                                         2\alpha_\textit{xx}\alpha_\textit{yy} + 2\alpha_\textit{xx}\alpha_\textit{zz} +
+                                         2\alpha_\textit{yy}\alpha_\textit{zz}
+                                         \right] \\
+    \bar{\gamma}_i^2 &= \left[\alpha_\textit{xx}^2 +
+                              \alpha_\textit{yy}^2 +
+                              \alpha_\textit{zz}^2 -
+                              \alpha_\textit{xx}\alpha_\textit{yy} - \alpha_\textit{xx}\alpha_\textit{zz} -
+                              2\alpha_\textit{yy}\alpha_\textit{zz}
+                              \right]
+                       + 3 \left[\alpha_\textit{xy}^2 +
+                                 \alpha_\textit{xz}^2 +
+                                 \alpha_\textit{yz}^2
+                                 \right] \\
+\end{split}
+\end{align}
 
 \subsubsection{Resonance Raman}
 \labsec{rr-methods}
@@ -152,10 +175,10 @@ For these reasons, while SERS is an interesting technique that certainly plays a
         \toprule
         {Mode} & {$\tilde{\nu}$ (\si{\per\cm})} & {Ram. act.} \\
         \midrule
-        1 & 0.0917 & 0.0236 \\
-        2 & 0.9542 & 1.9687 \\
-        3 & 0.8552 & 1.2691 \\
-        4 & 1.7897 & 3.3270 \\
+        1 & 48.7408 & 1.2844 \\
+        2 & 69.5579 & 1.6067 \\
+        3 & 79.3896 & 0.8309 \\
+        4 & 92.1454 & 3.0663 \\
         \multicolumn{3}{c}{{\ldots}}
     \end{tabular}
     \labtab{oscillator-strengths}
@@ -190,7 +213,8 @@ In the case of Raman spectra, the value of each of the Lorentzians at a certain 
     I_i (\tilde{\nu}) = \frac{I_i^\textit{max}}{\pi}\frac{\sigma /2}{(\tilde{\nu} - \tilde{\nu}_i)^2+(\sigma/2)^2}
 \end{equation}
 
-The value of $\sigma$, which is the full width at half maximum of each curve, is set arbitrarily at \SI{4}{\per\cm}.
+The value of $\sigma$, which is the full width at half maximum of each curve, is set arbitrarily at \SI{4}{\per\cm}. $I_i^\textit{max}$ corresponds to the Raman activity of the mode, and $\tilde{\nu}_i$ is its wave number.
+
 The same STX Raman spectrum, plotted after computing this set of equations, is displayed in \reffig{with-envelope}.
 
 \begin{figure}

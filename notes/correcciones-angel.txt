@@ -1,8 +1,4 @@
-·        Yo le llamaría Abstract en vez de preface y le añadiría información jajajaja
-
 ·        En la lista de Figuras, tienes definidas las figuras por capítulos pero la 3.1 está con las del cap 2 y la 4.1 está con el grupo del cap 3. Revisa numeración.
-
-·        ¿Cuál es el criterio de inclusión de las referencias al margen? Al principio se me hizo raro ver las referencias 1 y 2 y luego 7 y 8. Dije anda coño! Y de la 3 a la 6? Luego siguiendo el flow del trabajo ves que no están todas pero no sé si lo aclararía de alguna manera o en algún punto.
 
 ·        En la misma página 1 a  lo mejor haría una nota al margen de diferencia entre bioacumulación y bioconcentración para aclarar los conceptos. Tu hablas de bioconcentración que no es un término que esté tan extendido en el vocabulario popular.
 
@@ -11,8 +7,6 @@
 ·        Pág 5: dónde hablas de la síntesis, me surge la pregunta del control del tamaño y como separan.
 
 ·        Pág 9: al final en la segunda línea de la Raman spectroscopy vuelve a aparecer la afectación a la polarizabilidad que sigue sonándome raro jajaa
-
-·        Pág 17: revisa diferencia entre isodésmica, isogírica, homodesmótica etc y piensa por qué una homodesmótica y no otra cualquiera. A lo mejor esta web te sirve para aclarar conceptos, tiene una tabla bastante buena. http://ursula.chem.yale.edu/~chem220/chem220js/STUDYAIDS/thermo/homodesmotic/homodesmotic.html#hypo
 
 ·        Pág 18: Figura 2.6 ¿Tienes explicación para ese punto díscolo? Parece raro que haya 2 sistemas (P y S si no me equivoco) que tengan una forma y el resto otra. Hay cambios cóncavo-convexo en esas tendencias. ¿Se te ocurre por qué?
 
